@@ -206,6 +206,7 @@ for (i = 0; i < bio.skills.length; i++) {
     $("#skills").append(skillsObj["formattedSkill" + (i + 1)]);
 }}
 
+var displayWork = function(){
 if (work.jobs.length > 0){
   for (job in work.jobs){
     $("#workExperience").append(HTMLworkStart);
@@ -228,6 +229,22 @@ if (work.jobs.length > 0){
   }
 
 }
+}
+displayWork()
+/*
+var inName = function (){
+  var name = bio.name.trim().split(" ");
+  name[0] = name[0][0].toUpperCase() + name[0].slice(1).toLowerCase();
+  name[1] = name[1].toUpperCase();
+  return name.join(" ")
+};
+$("#header").append(internationalizeButton);*/
+
+
+
+$(document).click(function(loc) {
+  console.log("x location: " + loc.pageX, "y location:" + loc.pageY);
+});
 
 //$("#workExperience").append(HTMLworkStart);
 //$("#workExperience").append(formattedPosition);
