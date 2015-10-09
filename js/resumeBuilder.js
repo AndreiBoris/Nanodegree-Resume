@@ -209,6 +209,10 @@ education.display = function() {
     $(".education-entry:last").append(formattedLocation);
     $(".education-entry:last").append(formattedMajor);
     }
+
+  for (course in education.online){
+    
+  }
 }
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name),
