@@ -61,11 +61,9 @@ var projects = {
             "date": "21/09/15 - 25/09/15",
             "description": [
                 "An object oriented game in Python 2.7. Player walks around to complete ",
-                "riddles. The game is complete, but minor features are still being added ",
-                "occasionally as of September 27th 2015. This game is available on my ",
-                "GitHub account."
+                "riddles. The game is available on my GitHub account."
             ],
-            "images": [
+            "image": [
                 "images/riddle_game.jpeg"
             ]
         },
@@ -73,20 +71,41 @@ var projects = {
             "title": "Portfolio Website",
             "date": "03/09/15 - 05/09/15",
             "description": [
-                "This is a platform to showcase my projects through a website. It is set ",
-                "up and waiting for projects to be loaded onto it as they get completed."
+                "A website set up to showcase web-based projects as they get completed."
             ],
-            "images": [
+            "image": [
                 "images/portfolio_site.jpeg"
             ]
         }
     ]
 }
 
+projects.display = function() {
+  for (i in projects.projects) {
+    $("#projects").append(HTMLprojectStart);
+
+    var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
+    var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[i].date);
+    var concatDescription = "";
+
+    for (sentence in projects.projects[i].description){
+      concatDescription = concatDescription + projects.projects[i].description[sentence]
+    }
+
+    var formattedProjectDesc = HTMLprojectDescription.replace("%data%", concatDescription);
+    var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].image);
+
+    $(".project-entry:last").append(formattedProjectTitle);
+    $(".project-entry:last").append(formattedProjectDates);
+    $(".project-entry:last").append(formattedProjectDesc);
+    $(".project-entry:last").append(formattedProjectImage);
+    }
+}
+
 var bio = {
     "name": "Andrei Borissenko",
     "role": "Web Developer",
-    "contact": {
+    "contacts": {
         "mobile": "416 508 1951",
         "email": "Andrei.Borissenko@gmail.com",
         "github": "AndreiCommunication",
@@ -100,7 +119,7 @@ var bio = {
         "HTML",
         "CSS",
         "JavaScript",
-        "Time management",
+        "Grunt",
         "English proficiency",
         "Philosophical reflection"
     ]
@@ -173,13 +192,32 @@ var education = {
     ]
 }
 
+education.display = function() {
+  for (school in education.schools) {
+    $("#education").append(HTMLschoolStart);
+
+    var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+    var formattedName = formattedName.replace("#", education.schools[school].url);
+    var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+    var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+    var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+    var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors.join(", "));
+
+    $(".education-entry:last").append(formattedName);
+    $(".education-entry:last").append(formattedDegree);
+    $(".education-entry:last").append(formattedDates);
+    $(".education-entry:last").append(formattedLocation);
+    $(".education-entry:last").append(formattedMajor);
+    }
+}
+
 var formattedName = HTMLheaderName.replace("%data%", bio.name),
     formattedRole = HTMLheaderRole.replace("%data%", bio.role),
-    formattedMobile = HTMLmobile.replace("%data%", bio.contact.mobile),
-    formattedEmail = HTMLemail.replace("%data%", bio.contact.email),
-    formattedGithub = HTMLgithub.replace("%data%", bio.contact.github),
-    formattedTwitter = HTMLtwitter.replace("%data%", bio.contact.twitter),
-    formattedLocation = HTMLlocation.replace("%data%", bio.contact.location),
+    formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile),
+    formattedEmail = HTMLemail.replace("%data%", bio.contacts.email),
+    formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github),
+    formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter),
+    formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location),
     formattedBioPic = HTMLbioPic.replace("%data%", bio.picture),
     formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcome)
 
@@ -215,7 +253,7 @@ if (work.jobs.length > 0){
     var formattedEmployerTitle = formattedEmployer + formattedTitle
     var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].date);
     var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-    var concatDescription = ""
+    var concatDescription = "";
     for (sentence in work.jobs[job].description){
       concatDescription = concatDescription + work.jobs[job].description[sentence];
     }
@@ -231,6 +269,13 @@ if (work.jobs.length > 0){
 }
 }
 displayWork()
+
+projects.display()
+
+education.display()
+
+$("#mapDiv").append(googleMap);
+
 /*
 var inName = function (){
   var name = bio.name.trim().split(" ");
