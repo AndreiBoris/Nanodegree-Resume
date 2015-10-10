@@ -102,15 +102,6 @@ var map;    // declares a global map variable
 Start here! initializeMap() is called when page is loaded.
 */
 
-var markerList,
-markerCount;
-
-markerList = {
-  "markers": []
-};
-
-markerCount = 0
-
 function initializeMap() {
 
   var locations;
@@ -174,8 +165,6 @@ function initializeMap() {
       title: name
     });
 
-    markerCount++
-
     // infoWindows are the little helper windows that open when you click
     // or hover over a pin on a map. They usually contain more information
     // about a location.
@@ -185,13 +174,8 @@ function initializeMap() {
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
-      infoWindow.close();  
       infoWindow.open(map, marker);
     });
-
-    //for (marker in markerList.markers){
-    //  infoWindow.close(map, markerList.markers[marker].markerName)
-    //};
 
     // this is where the pin actually gets added to the map.
     // bounds.extend() takes in a map location object
@@ -208,10 +192,7 @@ function initializeMap() {
   */
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      markerList.markers.push({});
-      markerList.markers[markerCount] = {
-        "markerName" : createMapMarker(results[0])
-      };
+      createMapMarker(results[0]);
     }
   }
 
