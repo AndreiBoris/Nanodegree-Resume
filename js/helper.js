@@ -185,8 +185,13 @@ function initializeMap() {
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
+      infoWindow.close();  
       infoWindow.open(map, marker);
     });
+
+    //for (marker in markerList.markers){
+    //  infoWindow.close(map, markerList.markers[marker].markerName)
+    //};
 
     // this is where the pin actually gets added to the map.
     // bounds.extend() takes in a map location object
