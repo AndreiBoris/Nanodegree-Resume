@@ -176,11 +176,6 @@ function initializeMap() {
 
     markerCount++
 
-    markerList.markers.push({"number": "marker" + markerCount});
-    for (each in markerList.markers){
-      console.log(markerList.markers[each].number)
-    }
-
     // infoWindows are the little helper windows that open when you click
     // or hover over a pin on a map. They usually contain more information
     // about a location.
@@ -208,7 +203,10 @@ function initializeMap() {
   */
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      createMapMarker(results[0]);
+      markerList.markers.push({});
+      markerList.markers[markerCount] = {
+        "markerName" : createMapMarker(results[0])
+      };
     }
   }
 
