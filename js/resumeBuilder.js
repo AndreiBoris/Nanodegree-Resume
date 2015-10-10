@@ -142,24 +142,6 @@ var education = {
     ],
     "online": [
         {
-            "title": "Intro to HTML and CSS",
-            "school": "Udacity",
-            "dates": "08/2015 - 09/2015",
-            "url": "https://www.udacity.com/course/intro-to-html-and-css--ud304"
-        },
-        {
-            "title": "Intro to Computer Science",
-            "school": "Udacity",
-            "dates": "07/2015 - 09/2015",
-            "url": "https://www.udacity.com/course/intro-to-computer-science--cs101"
-        },
-        {
-            "title": "JavaScript Basics",
-            "school": "Udacity",
-            "dates": "09/2015 - present",
-            "url": "https://www.udacity.com/course/javascript-basics--ud804"
-        },
-        {
             "title": "JavaScript Basics",
             "school": "Udacity",
             "dates": "09/2015 - present",
@@ -178,16 +160,28 @@ var education = {
             "url": "https://www.udacity.com/course/programming-foundations-with-python--ud036"
         },
         {
+            "title": "Responsive Images",
+            "school": "Udacity",
+            "dates": "08/2015 - 09/2015",
+            "url": "https://www.udacity.com/course/responsive-images--ud882"
+        },
+        {
             "title": "Responsive Web Design Fundamentals",
             "school": "Udacity",
             "dates": "08/2015 - 09/2015",
             "url": "https://www.udacity.com/course/responsive-web-design-fundamentals--ud893"
         },
         {
-            "title": "Responsive Images",
+            "title": "Intro to HTML and CSS",
             "school": "Udacity",
             "dates": "08/2015 - 09/2015",
-            "url": "https://www.udacity.com/course/responsive-images--ud882"
+            "url": "https://www.udacity.com/course/intro-to-html-and-css--ud304"
+        },
+        {
+            "title": "Intro to Computer Science",
+            "school": "Udacity",
+            "dates": "07/2015 - 09/2015",
+            "url": "https://www.udacity.com/course/intro-to-computer-science--cs101"
         }
     ]
 }
@@ -210,8 +204,20 @@ education.display = function() {
     $(".education-entry:last").append(formattedMajor);
     }
 
+if (education.online.length > 0){
+  $("#education").append(HTMLonlineClasses);
+}
   for (course in education.online){
-    
+    $("#education").append(HTMLschoolStart);
+
+    var formattedTitle = HTMLonlineTitle.replace("%data%", education.online[course].title);
+    var formattedTitle = formattedTitle.replace("#", education.online[course].url);
+    var formattedSchool = HTMLonlineSchool.replace("%data%", education.online[course].school);
+    var formattedDates = HTMLonlineDates.replace("%data%", education.online[course].dates);
+
+    $(".education-entry:last").append(formattedTitle);
+    $(".education-entry:last").append(formattedSchool);
+    $(".education-entry:last").append(formattedDates);
   }
 }
 

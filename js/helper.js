@@ -101,6 +101,16 @@ var map;    // declares a global map variable
 /*
 Start here! initializeMap() is called when page is loaded.
 */
+
+var markerList,
+markerCount;
+
+markerList = {
+  "markers": []
+};
+
+markerCount = 0
+
 function initializeMap() {
 
   var locations;
@@ -148,6 +158,7 @@ function initializeMap() {
   placeData is the object returned from search results containing information
   about a single location.
   */
+
   function createMapMarker(placeData) {
 
     // The next lines save location data from the search result object to local variables
@@ -163,16 +174,23 @@ function initializeMap() {
       title: name
     });
 
+    markerCount++
+
+    markerList.markers.push({"number": "marker" + markerCount});
+    for (each in markerList.markers){
+      console.log(markerList.markers[each].number)
+    }
+
     // infoWindows are the little helper windows that open when you click
     // or hover over a pin on a map. They usually contain more information
     // about a location.
     var infoWindow = new google.maps.InfoWindow({
-      content: name
+      content: "<div class='marker'>" + name + "</div>"
     });
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+      infoWindow.open(map, marker);
     });
 
     // this is where the pin actually gets added to the map.
