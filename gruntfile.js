@@ -33,7 +33,7 @@ module.exports = function(grunt) {
     }
 	},
   jshint: {
-    all: ['gruntfile.js', 'js/helper.js'],
+    all: ['gruntfile.js', 'js/helper.js', 'js/resumeBuilder.js'],
   },
 	// Works as long as you are running 'grunt my-watch' in the directory
 	watch: {
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
   	  tasks: ['cssmin']
     },
     scripts: {
-      files: ['js/*.js'],
+      files: ['js/*.js', 'gruntfile.js'],
       tasks: ['jshint', 'concat', 'uglify']
       }
     }
