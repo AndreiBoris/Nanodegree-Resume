@@ -32,6 +32,9 @@ module.exports = function(grunt) {
       }
     }
 	},
+  jshint: {
+    all: ['gruntfile.js', 'js/helper.js'],
+  },
 	// Works as long as you are running 'grunt my-watch' in the directory
 	watch: {
     css: {
@@ -40,8 +43,8 @@ module.exports = function(grunt) {
     },
     scripts: {
       files: ['js/*.js'],
-      tasks: ['concat', 'uglify'],
-      },
+      tasks: ['jshint', 'concat', 'uglify']
+      }
     }
 
 });
@@ -51,9 +54,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['cssmin', 'concat', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'cssmin', 'concat', 'uglify']);
+    grunt.registerTask('my-jshint', ['jshint']);
     grunt.registerTask('my-watch', ['watch']);
 
 

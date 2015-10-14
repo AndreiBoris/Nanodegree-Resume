@@ -3,7 +3,7 @@ var work = {
         {
             "employer": "City of Vaughan",
             "title": "Front of House Manager",
-            "location": "Vaughan, Ontario",
+            "location": "Vaughan, Ontario, Canada",
             "date": "07/2014 - present",
             "description": [
                 "I talk to the client who is running a performance, as well as ",
@@ -17,7 +17,7 @@ var work = {
         {
             "employer": "University of Toronto",
             "title": "Standardized Patient",
-            "location": "Toronto, Ontario",
+            "location": "Toronto, Ontario, Canada",
             "date": "10/2014 - present",
             "description": [
                 "This job is involves learning and demonstrating particular ",
@@ -31,7 +31,7 @@ var work = {
         {
             "employer": "Touchstone Institute",
             "title": "Standardized Patient",
-            "location": "Toronto, Ontario",
+            "location": "Toronto, Ontario, Canada",
             "date": "08/2015 - present",
             "description": [
                 "See University of Toronto - Standardized Patient, above."
@@ -40,7 +40,7 @@ var work = {
         {
             "employer": "York University",
             "title": "Studio Monitor",
-            "location": "Toronto, Ontario",
+            "location": "Toronto, Ontario, Canada",
             "date": "09/2013 - 04/2014",
             "description": [
                 "I was tasked with keeping certainly rooms organized. It was ",
