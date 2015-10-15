@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 	  },
 	  target: {
 	    files: {
-        'css/build/style.min.css': ['css/style.css'],
+        'css/build/style.min.css': ['css/stylesheets/screen.css'],
 	    },
 	  },
 	},
@@ -35,11 +35,20 @@ module.exports = function(grunt) {
   jshint: {
     all: ['gruntfile.js', 'js/helper.js', 'js/resumeBuilder.js'],
   },
-	// Works as long as you are running 'grunt my-watch' in the directory
+  compass: {                  // Task
+    dist: {                   // Target
+      options: {              // Target options
+        sassDir: 'css/sass',
+        cssDir: 'css/stylesheets',
+        environment: 'development'
+      }
+    }
+  },
+	// Works as long as you are running 'grunt watch' in the directory
 	watch: {
     css: {
-      files: ['css/style.css'],
-  	  tasks: ['cssmin']
+      files: ['css/sass/*.scss'],
+  	  tasks: ['compass', 'cssmin']
     },
     scripts: {
       files: ['js/*.js', 'gruntfile.js'],
@@ -55,11 +64,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-compass');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['jshint', 'cssmin', 'concat', 'uglify']);
-    grunt.registerTask('my-jshint', ['jshint']);
-    grunt.registerTask('my-watch', ['watch']);
-
-
+    grunt.registerTask('default', ['jshint', 'compass', 'cssmin', 'concat', 'uglify']);
 };

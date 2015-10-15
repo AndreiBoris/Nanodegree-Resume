@@ -1,0 +1,326 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 8, ../sass/screen.scss */
+body,
+div,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+/* line 24, ../sass/screen.scss */
+.clear-fix {
+  overflow: auto;
+}
+
+/* line 28, ../sass/screen.scss */
+.education-entry,
+.work-entry,
+.project-entry {
+  padding: 0 5%;
+}
+
+/* line 34, ../sass/screen.scss */
+h1 {
+  font-size: 40px;
+  color: #f5a623;
+  line-height: 48px;
+  display: inline;
+}
+
+/* line 41, ../sass/screen.scss */
+h2 {
+  font-weight: bold;
+  font-size: 24px;
+  color: #999;
+  line-height: 29px;
+  padding: 10px;
+}
+
+/* line 49, ../sass/screen.scss */
+h3 {
+  font-style: italic;
+  font-size: 20px;
+  color: #000;
+  line-height: 22px;
+}
+
+/* line 56, ../sass/screen.scss */
+h4 {
+  font-weight: bold;
+  font-size: 14px;
+  color: #4a4a4a;
+  line-height: 17px;
+}
+
+/* line 63, ../sass/screen.scss */
+h2,
+h3,
+h4,
+h5 {
+  padding: 10px 5%;
+}
+
+/* line 72, ../sass/screen.scss */
+.date-text {
+  font-style: italic;
+  font-size: 14px;
+  color: #999;
+  line-height: 16px;
+  float: left;
+  margin-right: 5px;
+}
+
+/* line 81, ../sass/screen.scss */
+.location-text {
+  font-style: italic;
+  font-size: 14px;
+  color: #999;
+  line-height: 16px;
+  float: right;
+}
+
+/* line 90, ../sass/screen.scss */
+p {
+  font-size: 14px;
+  color: #333;
+  line-height: 21px;
+}
+
+/* line 96, ../sass/screen.scss */
+a {
+  color: #1199c3;
+  text-decoration: none;
+  margin-top: 10px;
+  display: block;
+}
+
+/* line 103, ../sass/screen.scss */
+.welcome-message {
+  font-style: italic;
+  font-size: 18px;
+  color: #f3f3f3;
+  line-height: 28px;
+}
+
+/* line 110, ../sass/screen.scss */
+#skills-h3 {
+  color: #f5ae23;
+  display: none;
+}
+
+/*#skills {
+  flex-flow: column nowrap;
+}*/
+/* line 119, ../sass/screen.scss */
+.orange {
+  background-color: #f5ae23;
+}
+
+/* line 123, ../sass/screen.scss */
+.orange-text {
+  color: #f5ae23;
+}
+
+/* line 127, ../sass/screen.scss */
+.white-text {
+  font-weight: bold;
+  color: #fff;
+}
+
+/* line 132, ../sass/screen.scss */
+.gray {
+  background-color: #f3f3f3;
+  padding-bottom: 10px;
+  clear: both;
+}
+
+/* line 138, ../sass/screen.scss */
+.dark-gray {
+  background-color: #4a4a4a;
+}
+
+/* TODO: Replace with image later */
+/* line 143, ../sass/screen.scss */
+#header {
+  background-color: #484848;
+}
+
+/* line 147, ../sass/screen.scss */
+.flex-box {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+/* line 156, ../sass/screen.scss */
+.center-content {
+  padding: 2.5% 5%;
+}
+
+/* line 160, ../sass/screen.scss */
+ul {
+  list-style-type: none;
+}
+
+/* line 164, ../sass/screen.scss */
+.biopic {
+  float: left;
+  padding: 10px;
+  width: 200px;
+  display: none;
+}
+
+/* line 171, ../sass/screen.scss */
+img {
+  padding: 10px;
+}
+
+/* line 175, ../sass/screen.scss */
+span {
+  padding: 5px;
+}
+
+/* line 179, ../sass/screen.scss */
+#lets-connect {
+  text-align: center;
+}
+
+/* Media queries to handle various device widths */
+@media only screen and (max-width: 1024px) {
+  /* line 186, ../sass/screen.scss */
+  #lets-connect {
+    margin-top: 5%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  /* line 192, ../sass/screen.scss */
+  .biopic {
+    width: 175px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  /* line 198, ../sass/screen.scss */
+  #lets-connect {
+    margin-top: 10%;
+  }
+
+  /* line 201, ../sass/screen.scss */
+  .biopic {
+    width: 150px;
+  }
+
+  /* line 204, ../sass/screen.scss */
+  .welcome-message {
+    display: none;
+  }
+}
+/* line 209, ../sass/screen.scss */
+#map {
+  display: block;
+  height: 100%;
+  margin: 0 5%;
+}
+
+/* line 215, ../sass/screen.scss */
+#mapDiv {
+  height: 400px;
+  width: 100%;
+  padding-bottom: 5%;
+}
+
+@media only screen and (min-width: 750px) {
+  /* line 222, ../sass/screen.scss */
+  #skills-h3,
+  .biopic {
+    display: block;
+  }
+}
+/* line 228, ../sass/screen.scss */
+.marker {
+  height: auto;
+  max-width: 210px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #999;
+  line-height: 24px;
+}
