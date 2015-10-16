@@ -8885,6 +8885,9 @@ var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
+var HTMLfooterStart = '<li class="footer-entry"></li>';
+var HTMLfooterContact = '<a class="footer-icon" href="#"><span class="%data%"></span></a>';
+
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 

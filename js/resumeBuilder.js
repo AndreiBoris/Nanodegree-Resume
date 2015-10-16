@@ -13,12 +13,14 @@ formattedProjectImage,
 formattedEmployer,
 formattedEmployerTitle,
 formattedDates,
+formattedFooter,
 concatDescription,
 formattedDesc,
 skillsObj,
 work,
 projects,
-bio;
+bio,
+footerContacts;
 
 work = {
     "jobs": [
@@ -225,6 +227,26 @@ var education = {
     ]
 };
 
+footerContacts = {
+  "icons": [{
+    "icon": "fa fa-git",
+    "url": "https://github.com/AndreiCommunication"
+  },
+  {
+    "icon": "fa fa-linkedin",
+    "url": "#"
+  },
+  {
+    "icon": "fa fa-twitter",
+    "url": "https://twitter.com/BreathMachine"
+  },
+  {
+    "icon": "fa fa-envelope",
+    "url": "mailto:Andrei.Borissenko@gmail.com"
+  }
+  ]
+};
+
 education.display = function() {
   for (var school in education.schools) {
     $("#education").append(HTMLschoolStart);
@@ -318,6 +340,16 @@ if (work.jobs.length > 0){
 
 }
 };
+
+var displayFooter = function(){
+  for (var icon in footerContacts.icons){
+    $("#footerContacts").append(HTMLfooterStart);
+    formattedFooter = HTMLfooterContact.replace("%data%", footerContacts.icons[icon].icon);
+    formattedFooter = formattedFooter.replace("#", footerContacts.icons[icon].url);
+    $(".footer-entry:last").append(formattedFooter);
+  }
+};
+
 displayWork();
 
 projects.display();
@@ -325,6 +357,8 @@ projects.display();
 education.display();
 
 $("#mapDiv").append(googleMap);
+
+displayFooter();
 
 /*
 var inName = function (){

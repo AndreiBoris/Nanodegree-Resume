@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 47, ../sass/screen.scss */
+/* line 43, ../sass/screen.scss */
 body,
 div,
 ul,
@@ -19,19 +19,19 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
-/* line 63, ../sass/screen.scss */
+/* line 59, ../sass/screen.scss */
 .clear-fix {
   overflow: auto;
 }
 
-/* line 67, ../sass/screen.scss */
+/* line 63, ../sass/screen.scss */
 .education-entry,
 .work-entry,
 .project-entry {
   padding: 0 5%;
 }
 
-/* line 73, ../sass/screen.scss */
+/* line 69, ../sass/screen.scss */
 h1 {
   font-size: 40px;
   color: #ff0;
@@ -39,16 +39,16 @@ h1 {
   display: inline;
 }
 
-/* line 80, ../sass/screen.scss */
+/* line 76, ../sass/screen.scss */
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #0000c7;
+  color: #404040;
   line-height: 29px;
   padding: 10px;
 }
 
-/* line 88, ../sass/screen.scss */
+/* line 84, ../sass/screen.scss */
 h3 {
   font-style: italic;
   font-size: 20px;
@@ -56,7 +56,7 @@ h3 {
   line-height: 22px;
 }
 
-/* line 95, ../sass/screen.scss */
+/* line 91, ../sass/screen.scss */
 h4 {
   font-weight: bold;
   font-size: 14px;
@@ -64,7 +64,7 @@ h4 {
   line-height: 17px;
 }
 
-/* line 102, ../sass/screen.scss */
+/* line 98, ../sass/screen.scss */
 h2,
 h3,
 h4,
@@ -72,41 +72,41 @@ h5 {
   padding: 10px 5%;
 }
 
-/* line 111, ../sass/screen.scss */
+/* line 107, ../sass/screen.scss */
 .date-text {
   font-style: italic;
   font-size: 14px;
-  color: #0000c7;
+  color: #404040;
   line-height: 16px;
   float: left;
   margin-right: 5px;
 }
 
-/* line 120, ../sass/screen.scss */
+/* line 116, ../sass/screen.scss */
 .location-text {
   font-style: italic;
   font-size: 14px;
-  color: #0000c7;
+  color: #404040;
   line-height: 16px;
   float: right;
 }
 
-/* line 129, ../sass/screen.scss */
+/* line 125, ../sass/screen.scss */
 p {
   font-size: 14px;
-  color: #000047;
+  color: black;
   line-height: 21px;
 }
 
-/* line 135, ../sass/screen.scss */
+/* line 131, ../sass/screen.scss */
 a {
-  color: #000047;
+  color: black;
   text-decoration: none;
   margin-top: 10px;
   display: block;
 }
 
-/* line 142, ../sass/screen.scss */
+/* line 138, ../sass/screen.scss */
 .welcome-message {
   font-style: italic;
   font-size: 18px;
@@ -114,7 +114,7 @@ a {
   line-height: 28px;
 }
 
-/* line 149, ../sass/screen.scss */
+/* line 145, ../sass/screen.scss */
 #skills-h3 {
   color: #ff0;
   display: none;
@@ -123,66 +123,66 @@ a {
 /*#skills {
   flex-flow: column nowrap;
 }*/
-/* line 158, ../sass/screen.scss */
+/* line 154, ../sass/screen.scss */
 .highlight {
   background-color: #ff0;
 }
 
-/* line 162, ../sass/screen.scss */
+/* line 158, ../sass/screen.scss */
 .highlight-text {
   color: #ff0;
 }
 
-/* line 166, ../sass/screen.scss */
+/* line 162, ../sass/screen.scss */
 .white-text {
   font-weight: bold;
   color: #fff;
 }
 
-/* line 171, ../sass/screen.scss */
+/* line 167, ../sass/screen.scss */
 .gray {
   background-color: #f3f3f3;
   padding-bottom: 10px;
   clear: both;
 }
 
-/* line 177, ../sass/screen.scss */
+/* line 173, ../sass/screen.scss */
 .dark-gray {
-  background-color: #000056;
+  background-color: #080808;
 }
 
 /* TODO: Replace with image later */
-/* line 182, ../sass/screen.scss */
+/* line 178, ../sass/screen.scss */
 #header {
-  background-color: #00007a;
+  background-color: #1a1a1a;
 }
 
-/* line 186, ../sass/screen.scss */
+/* line 182, ../sass/screen.scss */
 .header-role {
   color: #fff;
 }
 
-/* line 190, ../sass/screen.scss */
+/* line 186, ../sass/screen.scss */
 .flex-box {
   display: -webkit-flex;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   padding: 10px;
 }
 
-/* line 199, ../sass/screen.scss */
+/* line 195, ../sass/screen.scss */
 .center-content {
   padding: 2.5% 5%;
 }
 
-/* line 203, ../sass/screen.scss */
+/* line 199, ../sass/screen.scss */
 ul {
   list-style-type: none;
 }
 
-/* line 207, ../sass/screen.scss */
+/* line 203, ../sass/screen.scss */
 .biopic {
   float: left;
   padding: 10px;
@@ -190,70 +190,70 @@ ul {
   display: none;
 }
 
-/* line 214, ../sass/screen.scss */
+/* line 210, ../sass/screen.scss */
 img {
   padding: 10px;
 }
 
-/* line 218, ../sass/screen.scss */
+/* line 214, ../sass/screen.scss */
 .project-img {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-/* line 224, ../sass/screen.scss */
+/* line 220, ../sass/screen.scss */
 .online-subtitle {
   margin-top: 11px;
 }
 
-/* line 228, ../sass/screen.scss */
+/* line 224, ../sass/screen.scss */
 span {
   padding: 5px;
 }
 
-/* line 232, ../sass/screen.scss */
+/* line 228, ../sass/screen.scss */
 #lets-connect {
   text-align: center;
 }
 
 /* Media queries to handle various device widths */
 @media only screen and (max-width: 1024px) {
-  /* line 239, ../sass/screen.scss */
+  /* line 235, ../sass/screen.scss */
   #lets-connect {
     margin-top: 5%;
   }
 }
 @media only screen and (max-width: 900px) {
-  /* line 245, ../sass/screen.scss */
+  /* line 241, ../sass/screen.scss */
   .biopic {
     width: 175px;
   }
 }
 @media only screen and (max-width: 750px) {
-  /* line 251, ../sass/screen.scss */
+  /* line 247, ../sass/screen.scss */
   #lets-connect {
     margin-top: 10%;
   }
 
-  /* line 254, ../sass/screen.scss */
+  /* line 250, ../sass/screen.scss */
   .biopic {
     width: 150px;
   }
 
-  /* line 257, ../sass/screen.scss */
+  /* line 253, ../sass/screen.scss */
   .welcome-message {
     display: none;
   }
 }
-/* line 262, ../sass/screen.scss */
+/* line 258, ../sass/screen.scss */
 #map {
   display: block;
   height: 100%;
   margin: 0 5%;
 }
 
-/* line 268, ../sass/screen.scss */
+/* line 264, ../sass/screen.scss */
 #mapDiv {
   height: 400px;
   width: 100%;
@@ -261,18 +261,26 @@ span {
 }
 
 @media only screen and (min-width: 750px) {
-  /* line 275, ../sass/screen.scss */
+  /* line 271, ../sass/screen.scss */
   #skills-h3,
   .biopic {
     display: block;
   }
 }
-/* line 281, ../sass/screen.scss */
+/* line 277, ../sass/screen.scss */
 .marker {
   height: auto;
   max-width: 210px;
   font-weight: bold;
   font-size: 20px;
-  color: #0000c7;
+  color: #404040;
   line-height: 24px;
+}
+
+/* line 286, ../sass/screen.scss */
+.footer-icon {
+  color: #ff0;
+  font-size: 1.8em;
+  padding: 5px 5px 5px 5px;
+  margin: 0 15px 0 15px;
 }

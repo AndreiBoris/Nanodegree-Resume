@@ -8,7 +8,8 @@
 // $base-color possibilities: #333, #000047, #001400 **MUST BE VERY DARK**
 
 
-$base-color: #000047;
+$base-color: black;
+$secondary-color: #ff0;
 
 $base-hue: hue($base-color);
 $base-sat: saturation($base-color);
@@ -17,19 +18,14 @@ $base-red: red($base-color);
 $base-green: green($base-color);
 $base-blue: blue($base-color);
 
-//$color-name: #f5a623;
-$color-name: #ff0;
+$color-name: $secondary-color;
 
 $color-text: $base-color;
-//$color-text: #000047;
 
-//$color-top-background: #484848;
-$color-top-background: lighten($color-text, 10%);
+$color-top-background: lighten($base-color, 10%);
 
-//$color-support: #999;
 $color-support: lighten($color-top-background, 15%);
 
-//$color-link: #1199c3;
 $color-link: $base-color;
 
 $color-top-content: #fff;
@@ -38,11 +34,11 @@ $color-standout: #000;
 
 $color-background: #f3f3f3;
 
-//$color-highlight: #f5ae23;
-$color-highlight: $color-name;
+$color-highlight: $secondary-color;
 
-//$color-bottom: #4a4a4a;
 $color-bottom: lighten($base-color, 3%);
+
+$color-icons: $secondary-color;
 
 body,
 div,
@@ -192,7 +188,7 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   padding: 10px;
 }
 
@@ -285,4 +281,11 @@ span {
   font-size: 20px;
   color: $color-support;
   line-height: 24px;
+}
+
+.footer-icon {
+  color: $color-icons;
+  font-size: 1.8em;
+  padding: 5px 5px 5px 5px;
+  margin: 0 15px 0 15px;
 }
