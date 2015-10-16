@@ -28,7 +28,7 @@ work = {
             "location": "Vaughan, Ontario, Canada",
             "date": "07/2014 - present",
             "description": [
-                "I talk to the client who is running a performance, as well as ",
+                "I talk to the client who is running the performance, as well as ",
                 "the theatre technicians, the front of house staff, and the ",
                 "patrons in order to ensure that everything runs smoothly. ",
                 "Mainly, it is a matter of keeping things running on time, ",
