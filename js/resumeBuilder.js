@@ -86,6 +86,7 @@ projects = {
                 "riddles. The game is available on my GitHub account."
             ],
             "image": [
+                "images/riddle_game_small.jpeg",
                 "images/riddle_game.jpeg"
             ]
         },
@@ -96,6 +97,7 @@ projects = {
                 "A website set up to showcase web-based projects as they get completed."
             ],
             "image": [
+                "images/portfolio_site_small.jpeg",
                 "images/portfolio_site.jpeg"
             ]
         }
@@ -115,7 +117,9 @@ projects.display = function() {
     }
 
     formattedProjectDesc = HTMLprojectDescription.replace("%data%", concatDescription);
-    formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].image);
+    formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].image[0]);
+    formattedProjectImage = formattedProjectImage.replace("%small%", projects.projects[i].image[0]);
+    formattedProjectImage = formattedProjectImage.replace("%large%", projects.projects[i].image[1]);
 
     $(".project-entry:last").append(formattedProjectTitle);
     $(".project-entry:last").append(formattedProjectDates);
