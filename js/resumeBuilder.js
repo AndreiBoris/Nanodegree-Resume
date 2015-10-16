@@ -34,7 +34,8 @@ work = {
                 "Mainly, it is a matter of keeping things running on time, ",
                 "making sure everyone is informed about current conditions, and ",
                 "dealing with situations so as to avoid problems."
-            ]
+            ],
+            "url": "http://www.vaughan.ca/services/cultural/city_playhouse_theatre/Pages/About.aspx"
         },
         {
             "employer": "University of Toronto",
@@ -48,7 +49,8 @@ work = {
                 "and aptitude for dealing with a variety of situations. ",
                 "Due to the sensitive nature of dealing with examinations, ",
                 "particulars are strictly confidential."
-            ]
+            ],
+            "url": "http://www.spp.utoronto.ca/"
         },
         {
             "employer": "Touchstone Institute",
@@ -57,7 +59,8 @@ work = {
             "date": "08/2015 - present",
             "description": [
                 "See University of Toronto - Standardized Patient, above."
-            ]
+            ],
+            "url": "http://www.touchstoneinstitute.ca/"
         },
         {
             "employer": "York University",
@@ -71,7 +74,8 @@ work = {
                 "to them. This was flexibly scheduled work ",
                 "that had me working with little insturction. This job ",
                 "terminated when I finished my degree at York."
-            ]
+            ],
+            "url": "http://theatre.ampd.yorku.ca/"
         }
     ]
 };
@@ -288,6 +292,7 @@ if (work.jobs.length > 0){
   for (var job in work.jobs){
     $("#workExperience").append(HTMLworkStart);
     formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+    formattedEmployer = formattedEmployer.replace("#", work.jobs[job].url);
     formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
     formattedEmployerTitle = formattedEmployer + formattedTitle;
     formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].date);
