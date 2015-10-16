@@ -5,6 +5,17 @@
 
 @import "compass/reset";
 
+$color-name: #f5a623;
+$color-support: #999;
+$color-standout: #000;
+$color-bottom: #4a4a4a;
+$color-text: #333;
+$color-link: #1199c3;
+$color-background1: #f3f3f3;
+$color-highlight: #f5ae23;
+$color-top-content: #fff;
+$color-top-background: #484848;
+
 body,
 div,
 ul,
@@ -33,7 +44,7 @@ h6 {
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: $color-name;
   line-height: 48px;
   display: inline;
 }
@@ -41,7 +52,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: $color-support;
   line-height: 29px;
   padding: 10px;
 }
@@ -49,7 +60,7 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: #000;
+  color: $color-standout;
   line-height: 22px;
 }
 
@@ -72,7 +83,7 @@ h5 {
 .date-text {
   font-style: italic;
   font-size: 14px;
-  color: #999;
+  color: $color-support;
   line-height: 16px;
   float: left;
   margin-right: 5px;
@@ -81,7 +92,7 @@ h5 {
 .location-text {
   font-style: italic;
   font-size: 14px;
-  color: #999;
+  color: $color-support;
   line-height: 16px;
   float: right;
 
@@ -89,12 +100,12 @@ h5 {
 
 p {
   font-size: 14px;
-  color: #333;
+  color: $color-text;
   line-height: 21px;
 }
 
 a {
-  color: #1199c3;
+  color: $color-link;
   text-decoration: none;
   margin-top: 10px;
   display: block;
@@ -103,12 +114,12 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #f3f3f3;
+  color: $color-background1;
   line-height: 28px;
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: $color-highlight;
   display: none;
 }
 
@@ -117,31 +128,31 @@ a {
 }*/
 
 .orange {
-  background-color: #f5ae23;
+  background-color: $color-highlight;
 }
 
 .orange-text {
-  color: #f5ae23;
+  color: $color-highlight;
 }
 
 .white-text {
   font-weight: bold;
-  color: #fff;
+  color: $color-top-content;
 }
 
 .gray {
-  background-color: #f3f3f3;
+  background-color: $color-background1;
   padding-bottom: 10px;
   clear:both;
 }
 
 .dark-gray {
-  background-color: #4a4a4a;
+  background-color: $color-bottom;
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: $color-top-background;
 }
 
 .flex-box {
@@ -230,6 +241,6 @@ span {
   max-width: 210px;
   font-weight: bold;
   font-size: 20px;
-  color: #999;
+  color: $color-support;
   line-height: 24px;
 }
