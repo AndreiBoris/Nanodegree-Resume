@@ -188,6 +188,16 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
+}
+
+.flex-box-skills {
+  @extend .flex-box;
+  justify-content: space-around;
+}
+
+.flex-box-footer {
+  @extend .flex-box;
   justify-content: center;
   padding: 10px;
 }
