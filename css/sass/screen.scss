@@ -3,18 +3,46 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "compass/reset";
+//  @import "compass/reset";
 
-$color-name: #f5a623;
-$color-support: #999;
-$color-standout: #000;
-$color-bottom: #4a4a4a;
-$color-text: #333;
-$color-link: #1199c3;
-$color-background1: #f3f3f3;
-$color-highlight: #f5ae23;
+// $base-color possibilities: #333, #000047, #001400 **MUST BE VERY DARK**
+
+
+$base-color: #000047;
+
+$base-hue: hue($base-color);
+$base-sat: saturation($base-color);
+$base-light: lightness($base-color);
+$base-red: red($base-color);
+$base-green: green($base-color);
+$base-blue: blue($base-color);
+
+//$color-name: #f5a623;
+$color-name: #ff0;
+
+$color-text: $base-color;
+//$color-text: #000047;
+
+//$color-top-background: #484848;
+$color-top-background: lighten($color-text, 10%);
+
+//$color-support: #999;
+$color-support: lighten($color-top-background, 15%);
+
+//$color-link: #1199c3;
+$color-link: $base-color;
+
 $color-top-content: #fff;
-$color-top-background: #484848;
+
+$color-standout: #000;
+
+$color-background: #f3f3f3;
+
+//$color-highlight: #f5ae23;
+$color-highlight: $color-name;
+
+//$color-bottom: #4a4a4a;
+$color-bottom: lighten($base-color, 3%);
 
 body,
 div,
@@ -114,7 +142,7 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: $color-background1;
+  color: $color-background;
   line-height: 28px;
 }
 
@@ -127,11 +155,11 @@ a {
   flex-flow: column nowrap;
 }*/
 
-.orange {
+.highlight {
   background-color: $color-highlight;
 }
 
-.orange-text {
+.highlight-text {
   color: $color-highlight;
 }
 
@@ -141,7 +169,7 @@ a {
 }
 
 .gray {
-  background-color: $color-background1;
+  background-color: $color-background;
   padding-bottom: 10px;
   clear:both;
 }
@@ -153,6 +181,10 @@ a {
 /* TODO: Replace with image later */
 #header {
   background-color: $color-top-background;
+}
+
+.header-role{
+  color: $color-top-content;
 }
 
 .flex-box {
@@ -187,6 +219,10 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+.online-subtitle {
+  margin-top: 11px;
 }
 
 span {
