@@ -88,7 +88,8 @@ projects = {
             "image": [
                 "images/riddle_game_small.jpeg",
                 "images/riddle_game.jpeg"
-            ]
+            ],
+            "url": "https://github.com/AndreiCommunication/riddle-game"
         },
         {
             "title": "Portfolio Website",
@@ -99,7 +100,8 @@ projects = {
             "image": [
                 "images/portfolio_site_small.jpeg",
                 "images/portfolio_site.jpeg"
-            ]
+            ],
+            "url": "http://andreicommunication.github.io/portfolio-website"
         }
     ]
 };
@@ -109,6 +111,7 @@ projects.display = function() {
     $("#projects").append(HTMLprojectStart);
 
     formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
+    formattedProjectTitle = formattedProjectTitle.replace("#", projects.projects[i].url);
     formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[i].date);
     concatDescription = "";
 
