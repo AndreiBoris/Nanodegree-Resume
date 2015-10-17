@@ -138,24 +138,25 @@ projects.display = function() {
 };
 
 bio = {
-    "name": "Andrei Borissenko",
+    "name": "Andrei <span id='last-name'>Borissenko</span>",
     "role": "Web Developer",
     "contacts": {
         "mobile": "416 508 1951",
         "email": "Andrei.Borissenko@gmail.com",
         "github": "AndreiCommunication",
         "twitter": "@BreathMachine",
-        "location": "Toronto"
+        "location": "Toronto, Ontario, Canada"
     },
     "picture": "images/andrei.jpg",
     "welcome": "Bringing communication and humanity, online.",
     "skills": [
         "Python",
         "HTML",
-        "CSS",
-        "JavaScript",
+        "CSS/Sass",
+        "JavaScript/jQuery",
         "Grunt",
         "English proficiency",
+        "Creative analysis/approach",
         "Philosophical reflection"
     ]
 };
@@ -359,6 +360,10 @@ education.display();
 $("#mapDiv").append(googleMap);
 
 displayFooter();
+
+$("#name").on("click", function(){
+  $("#last-name").toggleClass("all-caps");
+});
 
 /*
 var inName = function (){

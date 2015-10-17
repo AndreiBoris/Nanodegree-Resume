@@ -163,7 +163,7 @@ a {
 }
 
 /* line 186, ../sass/screen.scss */
-.flex-box, .flex-box-skills, .flex-box-footer {
+.flex-box, .flex-box-header, .flex-box-skills, .flex-box-footer {
   display: -webkit-flex;
   display: flex;
   flex-direction: row;
@@ -171,27 +171,33 @@ a {
 }
 
 /* line 194, ../sass/screen.scss */
+.flex-box-header {
+  margin-bottom: 0.5em;
+  line-height: 140%;
+}
+
+/* line 200, ../sass/screen.scss */
 .flex-box-skills {
   justify-content: space-around;
 }
 
-/* line 199, ../sass/screen.scss */
+/* line 205, ../sass/screen.scss */
 .flex-box-footer {
   justify-content: center;
   padding: 10px;
 }
 
-/* line 205, ../sass/screen.scss */
+/* line 211, ../sass/screen.scss */
 .center-content {
   padding: 2.5% 5%;
 }
 
-/* line 209, ../sass/screen.scss */
+/* line 215, ../sass/screen.scss */
 ul {
   list-style-type: none;
 }
 
-/* line 213, ../sass/screen.scss */
+/* line 219, ../sass/screen.scss */
 .biopic {
   float: left;
   padding: 10px;
@@ -199,70 +205,70 @@ ul {
   display: none;
 }
 
-/* line 220, ../sass/screen.scss */
+/* line 226, ../sass/screen.scss */
 img {
   padding: 10px;
 }
 
-/* line 224, ../sass/screen.scss */
+/* line 230, ../sass/screen.scss */
 .project-img {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-/* line 230, ../sass/screen.scss */
+/* line 236, ../sass/screen.scss */
 .online-subtitle {
   margin-top: 11px;
 }
 
-/* line 234, ../sass/screen.scss */
+/* line 240, ../sass/screen.scss */
 span {
   padding: 5px;
 }
 
-/* line 238, ../sass/screen.scss */
+/* line 244, ../sass/screen.scss */
 #lets-connect {
   text-align: center;
 }
 
 /* Media queries to handle various device widths */
 @media only screen and (max-width: 1024px) {
-  /* line 245, ../sass/screen.scss */
+  /* line 251, ../sass/screen.scss */
   #lets-connect {
     margin-top: 5%;
   }
 }
 @media only screen and (max-width: 900px) {
-  /* line 251, ../sass/screen.scss */
+  /* line 257, ../sass/screen.scss */
   .biopic {
     width: 175px;
   }
 }
 @media only screen and (max-width: 750px) {
-  /* line 257, ../sass/screen.scss */
+  /* line 263, ../sass/screen.scss */
   #lets-connect {
     margin-top: 10%;
   }
 
-  /* line 260, ../sass/screen.scss */
+  /* line 266, ../sass/screen.scss */
   .biopic {
     width: 150px;
   }
 
-  /* line 263, ../sass/screen.scss */
+  /* line 269, ../sass/screen.scss */
   .welcome-message {
     display: none;
   }
 }
-/* line 268, ../sass/screen.scss */
+/* line 274, ../sass/screen.scss */
 #map {
   display: block;
   height: 100%;
   margin: 0 5%;
 }
 
-/* line 274, ../sass/screen.scss */
+/* line 280, ../sass/screen.scss */
 #mapDiv {
   height: 400px;
   width: 100%;
@@ -270,13 +276,13 @@ span {
 }
 
 @media only screen and (min-width: 750px) {
-  /* line 281, ../sass/screen.scss */
+  /* line 287, ../sass/screen.scss */
   #skills-h3,
   .biopic {
     display: block;
   }
 }
-/* line 287, ../sass/screen.scss */
+/* line 293, ../sass/screen.scss */
 .marker {
   height: auto;
   max-width: 210px;
@@ -286,10 +292,15 @@ span {
   line-height: 24px;
 }
 
-/* line 296, ../sass/screen.scss */
+/* line 302, ../sass/screen.scss */
 .footer-icon {
   color: #ff0;
   font-size: 1.8em;
   padding: 5px 5px 5px 5px;
   margin: 0 15px 0 15px;
+}
+
+/* line 309, ../sass/screen.scss */
+.all-caps {
+  text-transform: uppercase;
 }
