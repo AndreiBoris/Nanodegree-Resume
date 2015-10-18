@@ -246,11 +246,23 @@ img {
 }
 
 /* line 18, ../sass/_images.scss */
+.footer-entry, .footer-icon {
+  padding: 5px 5px 5px 5px;
+  margin: 0 15px 0 15px;
+}
+
+/* line 23, ../sass/_images.scss */
 .footer-icon {
   color: #ff0;
   font-size: 1.8em;
-  padding: 5px 5px 5px 5px;
-  margin: 0 15px 0 15px;
+}
+/* line 28, ../sass/_images.scss */
+.footer-icon:visited {
+  color: #ff0;
+}
+/* line 32, ../sass/_images.scss */
+.footer-icon:hover {
+  color: red;
 }
 
 /* Map */

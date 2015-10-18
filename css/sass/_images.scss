@@ -15,9 +15,21 @@ img {
   height: auto;
 }
 
+.footer-entry{
+  padding: 5px 5px 5px 5px;
+  margin: 0 15px 0 15px;
+}
+
 .footer-icon {
   color: $color-icons;
   font-size: 1.8em;
-  padding: 5px 5px 5px 5px;
-  margin: 0 15px 0 15px;
+  @extend .footer-entry;
+
+  &:visited {
+    color: $color-icons;
+  }
+
+  &:hover {
+    color: red;
+  }
 }
