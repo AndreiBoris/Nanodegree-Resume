@@ -10,212 +10,30 @@
 
 @import 'headings';
 
-.date-text {
-  font-style: italic;
-  font-size: 14px;
-  color: $color-support;
-  line-height: 16px;
-  float: left;
-  margin-right: 5px;
-}
+/* Text */
 
-.location-text {
-  font-style: italic;
-  font-size: 14px;
-  color: $color-support;
-  line-height: 16px;
-  float: right;
+@import 'text';
 
-}
+/* Backgrounds */
 
-p {
-  font-size: 14px;
-  color: $color-text;
-  line-height: 21px;
-}
+@import 'background';
 
-a {
-  color: $color-link;
-  text-decoration: none;
-  margin-top: 10px;
-  display: block;
-}
+/* Flow */
 
+@import 'flow';
 
+/* Images */
 
-.education-entry,
-.work-entry,
-.project-entry {
-  padding: 0 5%;
-}
+@import 'images';
 
-.welcome-message {
-  font-style: italic;
-  font-size: 18px;
-  color: $color-background;
-  line-height: 28px;
-}
+/* Assorted */
 
-#skills-h3 {
-  color: $color-highlight;
-  display: none;
-}
+@import 'assorted';
 
-.highlight {
-  background-color: $color-highlight;
-}
+/* Map */
 
-.highlight-text {
-  color: $color-highlight;
-}
+@import 'map';
 
-.white-text {
-  font-weight: bold;
-  color: $color-top-content;
-}
+/* Media queries */
 
-.gray {
-  background-color: $color-background;
-  padding-bottom: 10px;
-  clear:both;
-}
-
-.dark-gray {
-  background-color: $color-bottom;
-}
-
-/* TODO: Replace with image later */
-#header {
-  background-color: $color-top-background;
-}
-
-.header-role{
-  color: $color-top-content;
-}
-
-.flex-box {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-}
-
-.flex-box-header {
-  @extend .flex-box;
-  margin-bottom: 0.5em;
-  line-height: 140%;
-}
-
-.flex-box-skills {
-  @extend .flex-box;
-  justify-content: space-around;
-}
-
-.flex-box-footer {
-  @extend .flex-box;
-  justify-content: center;
-  padding: 10px;
-}
-
-.center-content {
-  padding: 2.5% 5%;
-}
-
-ul {
-  list-style-type: none;
-}
-
-.biopic {
-  float: left;
-  padding: 10px;
-  width: 200px;
-  display: none;
-}
-
-img {
-  padding: 10px;
-}
-
-.project-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-.online-subtitle {
-  margin-top: 11px;
-}
-
-span {
-  padding: 5px;
-}
-
-#lets-connect {
-  text-align: center;
-}
-
-/* Media queries to handle various device widths */
-
-@media only screen and (max-width: 1024px) {
-  #lets-connect {
-    margin-top: 5%;
-  }
-}
-
-@media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
-  }
-}
-
-@media only screen and (max-width: 750px) {
-  #lets-connect {
-    margin-top: 10%;
-  }
-  .biopic {
-    width: 150px;
-  }
-  .welcome-message {
-    display: none;
-  }
-}
-
-#map {
-  display: block;
-  height: 100%;
-  margin: 0 5%;
-}
-
-#mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
-}
-
-@media only screen and (min-width: 750px) {
-  #skills-h3,
-  .biopic {
-    display: block;
-  }
-}
-
-.marker {
-  height: auto;
-  max-width: 210px;
-  font-weight: bold;
-  font-size: 20px;
-  color: $color-support;
-  line-height: 24px;
-}
-
-.footer-icon {
-  color: $color-icons;
-  font-size: 1.8em;
-  padding: 5px 5px 5px 5px;
-  margin: 0 15px 0 15px;
-}
-
-.all-caps {
-  text-transform: uppercase;
-}
+@import 'media';

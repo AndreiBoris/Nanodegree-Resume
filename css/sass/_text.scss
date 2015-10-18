@@ -1,0 +1,68 @@
+.header-role{
+  color: $color-top-content;
+}
+
+.date-text {
+  font-style: italic;
+  font-size: 14px;
+  color: $color-support;
+  line-height: 16px;
+  float: left;
+  margin-right: 5px;
+}
+
+.location-text {
+  font-style: italic;
+  font-size: 14px;
+  color: $color-support;
+  line-height: 16px;
+  float: right;
+}
+
+p {
+  font-size: 14px;
+  color: $color-text;
+  line-height: 21px;
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+  margin-top: 10px;
+  display: block;
+}
+
+.education-entry,
+.work-entry,
+.project-entry {
+  padding: 0 5%;
+}
+
+.welcome-message {
+  font-style: italic;
+  font-size: 18px;
+  color: $color-background;
+  line-height: 28px;
+}
+
+#skills-h3 {
+  color: $color-highlight;
+  display: none;
+}
+
+.highlight-text {
+  color: $color-highlight;
+}
+
+.white-text {
+  font-weight: bold;
+  color: $color-top-content;
+}
+
+#lets-connect {
+  text-align: center;
+}
+
+.all-caps {
+  text-transform: uppercase;
+}

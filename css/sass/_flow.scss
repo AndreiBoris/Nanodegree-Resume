@@ -1,0 +1,27 @@
+.flex-box {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.flex-box-header {
+  @extend .flex-box;
+  margin-bottom: 0.5em;
+  line-height: 140%;
+}
+
+.flex-box-skills {
+  @extend .flex-box;
+  justify-content: space-around;
+}
+
+.flex-box-footer {
+  @extend .flex-box;
+  justify-content: center;
+  padding: 10px;
+}
+
+.center-content {
+  padding: 2.5% 5%;
+}
