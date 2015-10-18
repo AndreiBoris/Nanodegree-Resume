@@ -12,7 +12,17 @@ a {
   color: $color-link;
   text-decoration: none;
   margin-top: 10px;
-  display: block;
+  display: table-cell;
+  padding: 10px 0 10px 0;
+
+  &:visited {
+    color: $color-link-visited;
+  }
+
+  &:hover {
+    color: $color-link-hover;
+  }
+
 }
 
 span {

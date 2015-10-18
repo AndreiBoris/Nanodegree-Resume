@@ -2,6 +2,9 @@
 
 $base-color: black;
 $secondary-color: #ff0;
+$link-color: #00c;
+$color-link-hover: red;
+$color-link-visited: #606;
 
 $base-hue: hue($base-color);
 $base-sat: saturation($base-color);
@@ -18,7 +21,7 @@ $color-top-background: lighten($base-color, 10%);
 
 $color-support: lighten($color-top-background, 15%);
 
-$color-link: $base-color;
+$color-link: $link-color;
 
 $color-top-content: #fff;
 

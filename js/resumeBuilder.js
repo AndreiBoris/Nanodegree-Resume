@@ -167,7 +167,7 @@ var education = {
     "schools": [
         {
             "name": "York University",
-            "location": "Toronto, Canada",
+            "location": "Toronto, Ontario, Canada",
             "degree": "Bachelor of Fine Arts",
             "majors": [
                 "theatre"
