@@ -1,3 +1,24 @@
+ul {
+  list-style-type: none;
+}
+
+p {
+  font-size: 14px;
+  color: $color-text;
+  line-height: 21px;
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+  margin-top: 10px;
+  display: block;
+}
+
+span {
+  padding: 5px;
+}
+
 .header-role{
   color: $color-top-content;
 }
@@ -19,19 +40,6 @@
   float: right;
 }
 
-p {
-  font-size: 14px;
-  color: $color-text;
-  line-height: 21px;
-}
-
-a {
-  color: $color-link;
-  text-decoration: none;
-  margin-top: 10px;
-  display: block;
-}
-
 .education-entry,
 .work-entry,
 .project-entry {
@@ -45,11 +53,6 @@ a {
   line-height: 28px;
 }
 
-#skills-h3 {
-  color: $color-highlight;
-  display: none;
-}
-
 .highlight-text {
   color: $color-highlight;
 }
@@ -59,10 +62,19 @@ a {
   color: $color-top-content;
 }
 
-#lets-connect {
-  text-align: center;
-}
-
 .all-caps {
   text-transform: uppercase;
+}
+
+.online-subtitle {
+  margin-top: 11px;
+}
+
+#skills-h3 {
+  color: $color-highlight;
+  display: none;
+}
+
+#lets-connect {
+  text-align: center;
 }

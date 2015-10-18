@@ -66,11 +66,36 @@ h5 {
 
 /* Text */
 /* line 1, ../sass/_text.scss */
+ul {
+  list-style-type: none;
+}
+
+/* line 5, ../sass/_text.scss */
+p {
+  font-size: 14px;
+  color: black;
+  line-height: 21px;
+}
+
+/* line 11, ../sass/_text.scss */
+a {
+  color: black;
+  text-decoration: none;
+  margin-top: 10px;
+  display: block;
+}
+
+/* line 18, ../sass/_text.scss */
+span {
+  padding: 5px;
+}
+
+/* line 22, ../sass/_text.scss */
 .header-role {
   color: #fff;
 }
 
-/* line 5, ../sass/_text.scss */
+/* line 26, ../sass/_text.scss */
 .date-text {
   font-style: italic;
   font-size: 14px;
@@ -80,7 +105,7 @@ h5 {
   margin-right: 5px;
 }
 
-/* line 14, ../sass/_text.scss */
+/* line 35, ../sass/_text.scss */
 .location-text {
   font-style: italic;
   font-size: 14px;
@@ -89,29 +114,14 @@ h5 {
   float: right;
 }
 
-/* line 22, ../sass/_text.scss */
-p {
-  font-size: 14px;
-  color: black;
-  line-height: 21px;
-}
-
-/* line 28, ../sass/_text.scss */
-a {
-  color: black;
-  text-decoration: none;
-  margin-top: 10px;
-  display: block;
-}
-
-/* line 35, ../sass/_text.scss */
+/* line 43, ../sass/_text.scss */
 .education-entry,
 .work-entry,
 .project-entry {
   padding: 0 5%;
 }
 
-/* line 41, ../sass/_text.scss */
+/* line 49, ../sass/_text.scss */
 .welcome-message {
   font-style: italic;
   font-size: 18px;
@@ -119,31 +129,36 @@ a {
   line-height: 28px;
 }
 
-/* line 48, ../sass/_text.scss */
-#skills-h3 {
-  color: #ff0;
-  display: none;
-}
-
-/* line 53, ../sass/_text.scss */
+/* line 56, ../sass/_text.scss */
 .highlight-text {
   color: #ff0;
 }
 
-/* line 57, ../sass/_text.scss */
+/* line 60, ../sass/_text.scss */
 .white-text {
   font-weight: bold;
   color: #fff;
 }
 
-/* line 62, ../sass/_text.scss */
-#lets-connect {
-  text-align: center;
-}
-
-/* line 66, ../sass/_text.scss */
+/* line 65, ../sass/_text.scss */
 .all-caps {
   text-transform: uppercase;
+}
+
+/* line 69, ../sass/_text.scss */
+.online-subtitle {
+  margin-top: 11px;
+}
+
+/* line 73, ../sass/_text.scss */
+#skills-h3 {
+  color: #ff0;
+  display: none;
+}
+
+/* line 78, ../sass/_text.scss */
+#lets-connect {
+  text-align: center;
 }
 
 /* Backgrounds */
@@ -227,22 +242,6 @@ img {
   font-size: 1.8em;
   padding: 5px 5px 5px 5px;
   margin: 0 15px 0 15px;
-}
-
-/* Assorted */
-/* line 1, ../sass/_assorted.scss */
-.online-subtitle {
-  margin-top: 11px;
-}
-
-/* line 5, ../sass/_assorted.scss */
-span {
-  padding: 5px;
-}
-
-/* line 9, ../sass/_assorted.scss */
-ul {
-  list-style-type: none;
 }
 
 /* Map */
