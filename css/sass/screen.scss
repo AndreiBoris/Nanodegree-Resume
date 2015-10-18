@@ -1,108 +1,14 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* Colors */
 
-//  @import "compass/reset";
+@import 'colors';
 
-// $base-color possibilities: #333, #000047, #001400 **MUST BE VERY DARK**
+/* General Resets and clear-fix */
 
+@import 'general';
 
-$base-color: black;
-$secondary-color: #ff0;
+/* Headings */
 
-$base-hue: hue($base-color);
-$base-sat: saturation($base-color);
-$base-light: lightness($base-color);
-$base-red: red($base-color);
-$base-green: green($base-color);
-$base-blue: blue($base-color);
-
-$color-name: $secondary-color;
-
-$color-text: $base-color;
-
-$color-top-background: lighten($base-color, 10%);
-
-$color-support: lighten($color-top-background, 15%);
-
-$color-link: $base-color;
-
-$color-top-content: #fff;
-
-$color-standout: #000;
-
-$color-background: #f3f3f3;
-
-$color-highlight: $secondary-color;
-
-$color-bottom: lighten($base-color, 3%);
-
-$color-icons: $secondary-color;
-
-body,
-div,
-ul,
-li,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  padding:0;
-  margin:0;
-  font-family: "Roboto", sans-serif;
-}
-
-.clear-fix {
-  overflow: auto;
-}
-
-.education-entry,
-.work-entry,
-.project-entry {
-  padding: 0 5%;
-}
-
-h1 {
-  font-size: 40px;
-  color: $color-name;
-  line-height: 48px;
-  display: inline;
-}
-
-h2 {
-  font-weight: bold;
-  font-size: 24px;
-  color: $color-support;
-  line-height: 29px;
-  padding: 10px;
-}
-
-h3 {
-  font-style: italic;
-  font-size: 20px;
-  color: $color-standout;
-  line-height: 22px;
-}
-
-h4 {
-  font-weight: bold;
-  font-size: 14px;
-  color: #4a4a4a;
-  line-height: 17px;
-}
-
-h2,
-h3,
-h4,
-h5 {
-  padding:10px 5%;
-
-}
-
+@import 'headings';
 
 .date-text {
   font-style: italic;
@@ -135,6 +41,14 @@ a {
   display: block;
 }
 
+
+
+.education-entry,
+.work-entry,
+.project-entry {
+  padding: 0 5%;
+}
+
 .welcome-message {
   font-style: italic;
   font-size: 18px;
@@ -146,10 +60,6 @@ a {
   color: $color-highlight;
   display: none;
 }
-
-/*#skills {
-  flex-flow: column nowrap;
-}*/
 
 .highlight {
   background-color: $color-highlight;

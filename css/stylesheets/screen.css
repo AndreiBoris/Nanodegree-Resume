@@ -1,8 +1,6 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 43, ../sass/screen.scss */
+/* Colors */
+/* General Resets and clear-fix */
+/* line 1, ../sass/_general.scss */
 body,
 div,
 ul,
@@ -19,19 +17,13 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
-/* line 59, ../sass/screen.scss */
+/* line 17, ../sass/_general.scss */
 .clear-fix {
   overflow: auto;
 }
 
-/* line 63, ../sass/screen.scss */
-.education-entry,
-.work-entry,
-.project-entry {
-  padding: 0 5%;
-}
-
-/* line 69, ../sass/screen.scss */
+/* Headings */
+/* line 1, ../sass/_headings.scss */
 h1 {
   font-size: 40px;
   color: #ff0;
@@ -39,7 +31,7 @@ h1 {
   display: inline;
 }
 
-/* line 76, ../sass/screen.scss */
+/* line 8, ../sass/_headings.scss */
 h2 {
   font-weight: bold;
   font-size: 24px;
@@ -48,7 +40,7 @@ h2 {
   padding: 10px;
 }
 
-/* line 84, ../sass/screen.scss */
+/* line 16, ../sass/_headings.scss */
 h3 {
   font-style: italic;
   font-size: 20px;
@@ -56,7 +48,7 @@ h3 {
   line-height: 22px;
 }
 
-/* line 91, ../sass/screen.scss */
+/* line 23, ../sass/_headings.scss */
 h4 {
   font-weight: bold;
   font-size: 14px;
@@ -64,7 +56,7 @@ h4 {
   line-height: 17px;
 }
 
-/* line 98, ../sass/screen.scss */
+/* line 30, ../sass/_headings.scss */
 h2,
 h3,
 h4,
@@ -72,7 +64,7 @@ h5 {
   padding: 10px 5%;
 }
 
-/* line 107, ../sass/screen.scss */
+/* line 13, ../sass/screen.scss */
 .date-text {
   font-style: italic;
   font-size: 14px;
@@ -82,7 +74,7 @@ h5 {
   margin-right: 5px;
 }
 
-/* line 116, ../sass/screen.scss */
+/* line 22, ../sass/screen.scss */
 .location-text {
   font-style: italic;
   font-size: 14px;
@@ -91,14 +83,14 @@ h5 {
   float: right;
 }
 
-/* line 125, ../sass/screen.scss */
+/* line 31, ../sass/screen.scss */
 p {
   font-size: 14px;
   color: black;
   line-height: 21px;
 }
 
-/* line 131, ../sass/screen.scss */
+/* line 37, ../sass/screen.scss */
 a {
   color: black;
   text-decoration: none;
@@ -106,7 +98,14 @@ a {
   display: block;
 }
 
-/* line 138, ../sass/screen.scss */
+/* line 46, ../sass/screen.scss */
+.education-entry,
+.work-entry,
+.project-entry {
+  padding: 0 5%;
+}
+
+/* line 52, ../sass/screen.scss */
 .welcome-message {
   font-style: italic;
   font-size: 18px;
@@ -114,55 +113,52 @@ a {
   line-height: 28px;
 }
 
-/* line 145, ../sass/screen.scss */
+/* line 59, ../sass/screen.scss */
 #skills-h3 {
   color: #ff0;
   display: none;
 }
 
-/*#skills {
-  flex-flow: column nowrap;
-}*/
-/* line 154, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 .highlight {
   background-color: #ff0;
 }
 
-/* line 158, ../sass/screen.scss */
+/* line 68, ../sass/screen.scss */
 .highlight-text {
   color: #ff0;
 }
 
-/* line 162, ../sass/screen.scss */
+/* line 72, ../sass/screen.scss */
 .white-text {
   font-weight: bold;
   color: #fff;
 }
 
-/* line 167, ../sass/screen.scss */
+/* line 77, ../sass/screen.scss */
 .gray {
   background-color: #f3f3f3;
   padding-bottom: 10px;
   clear: both;
 }
 
-/* line 173, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 .dark-gray {
   background-color: #080808;
 }
 
 /* TODO: Replace with image later */
-/* line 178, ../sass/screen.scss */
+/* line 88, ../sass/screen.scss */
 #header {
   background-color: #1a1a1a;
 }
 
-/* line 182, ../sass/screen.scss */
+/* line 92, ../sass/screen.scss */
 .header-role {
   color: #fff;
 }
 
-/* line 186, ../sass/screen.scss */
+/* line 96, ../sass/screen.scss */
 .flex-box, .flex-box-header, .flex-box-skills, .flex-box-footer {
   display: -webkit-flex;
   display: flex;
@@ -170,34 +166,34 @@ a {
   flex-wrap: wrap;
 }
 
-/* line 194, ../sass/screen.scss */
+/* line 104, ../sass/screen.scss */
 .flex-box-header {
   margin-bottom: 0.5em;
   line-height: 140%;
 }
 
-/* line 200, ../sass/screen.scss */
+/* line 110, ../sass/screen.scss */
 .flex-box-skills {
   justify-content: space-around;
 }
 
-/* line 205, ../sass/screen.scss */
+/* line 115, ../sass/screen.scss */
 .flex-box-footer {
   justify-content: center;
   padding: 10px;
 }
 
-/* line 211, ../sass/screen.scss */
+/* line 121, ../sass/screen.scss */
 .center-content {
   padding: 2.5% 5%;
 }
 
-/* line 215, ../sass/screen.scss */
+/* line 125, ../sass/screen.scss */
 ul {
   list-style-type: none;
 }
 
-/* line 219, ../sass/screen.scss */
+/* line 129, ../sass/screen.scss */
 .biopic {
   float: left;
   padding: 10px;
@@ -205,70 +201,70 @@ ul {
   display: none;
 }
 
-/* line 226, ../sass/screen.scss */
+/* line 136, ../sass/screen.scss */
 img {
   padding: 10px;
 }
 
-/* line 230, ../sass/screen.scss */
+/* line 140, ../sass/screen.scss */
 .project-img {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-/* line 236, ../sass/screen.scss */
+/* line 146, ../sass/screen.scss */
 .online-subtitle {
   margin-top: 11px;
 }
 
-/* line 240, ../sass/screen.scss */
+/* line 150, ../sass/screen.scss */
 span {
   padding: 5px;
 }
 
-/* line 244, ../sass/screen.scss */
+/* line 154, ../sass/screen.scss */
 #lets-connect {
   text-align: center;
 }
 
 /* Media queries to handle various device widths */
 @media only screen and (max-width: 1024px) {
-  /* line 251, ../sass/screen.scss */
+  /* line 161, ../sass/screen.scss */
   #lets-connect {
     margin-top: 5%;
   }
 }
 @media only screen and (max-width: 900px) {
-  /* line 257, ../sass/screen.scss */
+  /* line 167, ../sass/screen.scss */
   .biopic {
     width: 175px;
   }
 }
 @media only screen and (max-width: 750px) {
-  /* line 263, ../sass/screen.scss */
+  /* line 173, ../sass/screen.scss */
   #lets-connect {
     margin-top: 10%;
   }
 
-  /* line 266, ../sass/screen.scss */
+  /* line 176, ../sass/screen.scss */
   .biopic {
     width: 150px;
   }
 
-  /* line 269, ../sass/screen.scss */
+  /* line 179, ../sass/screen.scss */
   .welcome-message {
     display: none;
   }
 }
-/* line 274, ../sass/screen.scss */
+/* line 184, ../sass/screen.scss */
 #map {
   display: block;
   height: 100%;
   margin: 0 5%;
 }
 
-/* line 280, ../sass/screen.scss */
+/* line 190, ../sass/screen.scss */
 #mapDiv {
   height: 400px;
   width: 100%;
@@ -276,13 +272,13 @@ span {
 }
 
 @media only screen and (min-width: 750px) {
-  /* line 287, ../sass/screen.scss */
+  /* line 197, ../sass/screen.scss */
   #skills-h3,
   .biopic {
     display: block;
   }
 }
-/* line 293, ../sass/screen.scss */
+/* line 203, ../sass/screen.scss */
 .marker {
   height: auto;
   max-width: 210px;
@@ -292,7 +288,7 @@ span {
   line-height: 24px;
 }
 
-/* line 302, ../sass/screen.scss */
+/* line 212, ../sass/screen.scss */
 .footer-icon {
   color: #ff0;
   font-size: 1.8em;
@@ -300,7 +296,7 @@ span {
   margin: 0 15px 0 15px;
 }
 
-/* line 309, ../sass/screen.scss */
+/* line 219, ../sass/screen.scss */
 .all-caps {
   text-transform: uppercase;
 }
