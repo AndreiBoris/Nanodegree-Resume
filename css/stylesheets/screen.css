@@ -47,6 +47,11 @@ div {
   border-left: 10px solid #1a1a1a;
 }
 
+/* line 36, ../sass/_general.scss */
+#mapDiv {
+  border-top: 7px solid #1a1a1a;
+}
+
 /* Headings */
 /* line 1, ../sass/_headings.scss */
 h1 {
@@ -385,32 +390,27 @@ img {
   }
 
   /* line 47, ../sass/_media.scss */
-  #mapDiv {
-    border-top: 7px solid #1a1a1a;
-  }
-
-  /* line 50, ../sass/_media.scss */
   #workExperience {
     border-top: 10px solid #1a1a1a;
   }
 
-  /* line 53, ../sass/_media.scss */
+  /* line 50, ../sass/_media.scss */
   #education {
     border-top: 5px solid #1a1a1a;
   }
 }
 @media only screen and (min-width: 1200px) {
-  /* line 59, ../sass/_media.scss */
+  /* line 56, ../sass/_media.scss */
   .subtitle {
     padding-top: 0.5em;
   }
 
-  /* line 62, ../sass/_media.scss */
+  /* line 59, ../sass/_media.scss */
   .project-entry {
     max-width: 1000px;
   }
 
-  /* line 65, ../sass/_media.scss */
+  /* line 62, ../sass/_media.scss */
   #project-line1, #project-line2, #work-line, #edu-line1, #edu-line2, #edu-line3 {
     z-index: 10;
     position: absolute;
@@ -420,41 +420,41 @@ img {
     left: 1040px;
   }
 
-  /* line 73, ../sass/_media.scss */
+  /* line 70, ../sass/_media.scss */
   #project-line2 {
     left: 1070px;
   }
 
-  /* line 77, ../sass/_media.scss */
+  /* line 74, ../sass/_media.scss */
   .work-entry {
     max-width: 1150px;
     padding-right: 0;
   }
 
-  /* line 81, ../sass/_media.scss */
+  /* line 78, ../sass/_media.scss */
   #work-line {
     left: 1170px;
     width: 30px;
   }
 
-  /* line 86, ../sass/_media.scss */
+  /* line 83, ../sass/_media.scss */
   .education-entry {
     max-width: 930px;
     padding-right: 0;
   }
 
-  /* line 90, ../sass/_media.scss */
+  /* line 87, ../sass/_media.scss */
   #edu-line1, #edu-line2, #edu-line3 {
     width: 15px;
     left: 950px;
   }
 
-  /* line 95, ../sass/_media.scss */
+  /* line 92, ../sass/_media.scss */
   #edu-line2 {
     left: 975px;
   }
 
-  /* line 99, ../sass/_media.scss */
+  /* line 96, ../sass/_media.scss */
   #edu-line3 {
     left: 1000px;
   }
