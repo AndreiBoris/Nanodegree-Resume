@@ -8862,6 +8862,9 @@ var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box-skills"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
+// This is a div that gets manipulated into line shapes on displays of width
+// greater than 1200px wide. See _media.scss for the style information.
+// HTMLprojectLines and HTMLeducationLines are also part of the same thing.
 var HTMLworkLine = '<div id="work-line"></div>';
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#" target="_blank">%data%';

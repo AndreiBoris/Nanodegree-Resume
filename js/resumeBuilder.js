@@ -285,7 +285,7 @@ displayHeader = function () {
 // This function is defined using dot notation as part of the resume assignment
 projects.display = function() {
 
-  // HTMLprojectLines create line graphics for displays over 1250px wide, see
+  // HTMLprojectLines create line graphics for displays over 1200px wide, see
   // _media.scss. This is also the case for HTMLworkLine and HTMLeducationLines.
   $("#projects").prepend(HTMLprojectLines);
 
