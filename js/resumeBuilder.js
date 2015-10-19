@@ -378,9 +378,9 @@ $("#header").append(internationalizeButton);*/
 
 
 
-//$(document).click(function(loc) {
-//  console.log("x location: " + loc.pageX, "y location:" + loc.pageY);
-//});
+$(document).click(function(loc) {
+  console.log("x location: " + loc.pageX, "y location:" + loc.pageY);
+});
 
 //$("#workExperience").append(HTMLworkStart);
 //$("#workExperience").append(formattedPosition);
