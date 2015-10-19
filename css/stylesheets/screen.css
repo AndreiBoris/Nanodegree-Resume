@@ -160,12 +160,17 @@ span {
 }
 
 /* line 83, ../sass/_text.scss */
+.subtitle {
+  padding-top: 1em;
+}
+
+/* line 87, ../sass/_text.scss */
 #skills-h3 {
   color: #ff0;
   display: none;
 }
 
-/* line 88, ../sass/_text.scss */
+/* line 92, ../sass/_text.scss */
 #lets-connect {
   text-align: center;
 }
