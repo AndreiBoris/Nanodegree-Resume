@@ -26,5 +26,9 @@ div{
 #workExperience,
 #education,
 #mapDiv {
+  position: relative;
+}
+
+#bordered{
   border-left:10px solid $color-top-background;
 }

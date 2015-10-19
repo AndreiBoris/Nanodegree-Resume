@@ -137,7 +137,7 @@ projects.display = function() {
 
 bio = {
     "name": "Andrei <span id='last-name'>Borissenko</span>",
-    "role": "Web Developer",
+    "role": "<span class='line-break'><br></span>Web Developer",
     "contacts": {
         "mobile": "416 508 1951",
         "email": "Andrei.Borissenko@gmail.com",

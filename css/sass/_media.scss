@@ -11,14 +11,31 @@
 }
 
 @media only screen and (max-width: 750px) {
+  #name{
+    font-size: 1.9em;
+  }
+  .header-role{
+    font-size: 1.5em;
+  }
+  #topContacts {
+    padding-top: 4%;
+  }
+  #mapDiv{
+      padding-bottom: 20%;
+    }
   #lets-connect {
-    margin-top: 10%;
+    margin-top: 0;
   }
   .biopic {
     width: 150px;
   }
   .welcome-message {
     display: none;
+  }
+  .line-break{
+    display:block;
+    height: 0;
+    padding: 0;
   }
 }
 
@@ -42,9 +59,6 @@
   .subtitle{
     padding-top: 0.5em;
   }
-  #projects {
-    position: relative;
-  }
   .project-entry {
     max-width: 1000px;
   }
@@ -60,9 +74,6 @@
     @extend #project-line1;
     left: 1070px;
   }
-  #workExperience{
-    position: relative;
-  }
   .work-entry{
     max-width: 1150px;
     padding-right: 0;
@@ -71,9 +82,6 @@
     @extend #project-line1;
     left: 1170px;
     width:30px
-  }
-  #education{
-    position: relative;
   }
   .education-entry{
     max-width: 930px;
