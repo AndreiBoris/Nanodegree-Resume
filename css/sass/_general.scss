@@ -1,27 +1,5 @@
-body,
-div,
-ul,
-li,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  padding:0;
-  margin:0;
-  font-family: "Roboto", sans-serif;
-}
-
-.clear-fix {
-  overflow: auto;
-}
-
-div{
-  box-sizing: border-box;
-}
-
+// This allows the lines that display on screens wider than 1200px to be
+// positioned correctly.
 #projects,
 #workExperience,
 #education,

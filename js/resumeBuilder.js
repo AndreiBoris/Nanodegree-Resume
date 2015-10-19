@@ -131,6 +131,8 @@ bio = {
     // necessary for the last name to appear in all caps when it is clicked to
     // appeal to international standards. See displayHeader() below.
     "name": "Andrei <span id='last-name'>Borissenko</span>",
+    // The line-break class gets toggled on when the display is sufficiently
+    // small to allow the role to take its own line.
     "role": "<span class='line-break'><br></span>Web Developer",
     "contacts": {
         "mobile": "416 508 1951",

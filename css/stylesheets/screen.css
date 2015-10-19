@@ -1,40 +1,24 @@
-/* line 1, ../sass/screen.scss */
+/* Resets */
+/* line 1, ../sass/_reset.scss */
 * {
   border: 0;
   margin: 0;
   padding: 0;
 }
 
-/* Colors */
-/* General Resets and clear-fix */
-/* line 1, ../sass/_general.scss */
-body,
-div,
-ul,
-li,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  padding: 0;
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-}
-
-/* line 17, ../sass/_general.scss */
-.clear-fix {
-  overflow: auto;
-}
-
-/* line 21, ../sass/_general.scss */
+/* line 7, ../sass/_reset.scss */
 div {
   box-sizing: border-box;
 }
 
-/* line 25, ../sass/_general.scss */
+/* line 11, ../sass/_reset.scss */
+.clear-fix {
+  overflow: auto;
+}
+
+/* Colors */
+/* General Styles and clear-fix */
+/* line 3, ../sass/_general.scss */
 #projects,
 #workExperience,
 #education,
@@ -42,12 +26,12 @@ div {
   position: relative;
 }
 
-/* line 32, ../sass/_general.scss */
+/* line 10, ../sass/_general.scss */
 #bordered {
   border-left: 10px solid #1a1a1a;
 }
 
-/* line 36, ../sass/_general.scss */
+/* line 14, ../sass/_general.scss */
 #mapDiv {
   border-top: 7px solid #1a1a1a;
 }
@@ -82,11 +66,11 @@ h3 {
 h4 {
   font-weight: bold;
   font-size: 14px;
-  color: #4a4a4a;
+  color: #404040;
   line-height: 17px;
 }
 
-/* line 30, ../sass/_headings.scss */
+/* line 31, ../sass/_headings.scss */
 h2,
 h3,
 h4,
@@ -96,18 +80,33 @@ h5 {
 
 /* Text */
 /* line 1, ../sass/_text.scss */
+body,
+div,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
+}
+
+/* line 15, ../sass/_text.scss */
 ul {
   list-style-type: none;
 }
 
-/* line 5, ../sass/_text.scss */
+/* line 19, ../sass/_text.scss */
 p {
   font-size: 14px;
   color: black;
   line-height: 21px;
 }
 
-/* line 11, ../sass/_text.scss */
+/* line 25, ../sass/_text.scss */
 a {
   color: #00c;
   text-decoration: none;
@@ -115,26 +114,26 @@ a {
   display: table-cell;
   padding: 10px 0 10px 0;
 }
-/* line 18, ../sass/_text.scss */
+/* line 34, ../sass/_text.scss */
 a:visited {
   color: #606;
 }
-/* line 22, ../sass/_text.scss */
+/* line 38, ../sass/_text.scss */
 a:hover {
   color: red;
 }
 
-/* line 28, ../sass/_text.scss */
+/* line 44, ../sass/_text.scss */
 span {
   padding: 5px;
 }
 
-/* line 32, ../sass/_text.scss */
+/* line 49, ../sass/_text.scss */
 .header-role {
   color: #fff;
 }
 
-/* line 36, ../sass/_text.scss */
+/* line 53, ../sass/_text.scss */
 .date-text {
   font-style: italic;
   font-size: 14px;
@@ -144,7 +143,7 @@ span {
   margin-right: 5px;
 }
 
-/* line 45, ../sass/_text.scss */
+/* line 66, ../sass/_text.scss */
 .location-text {
   font-style: italic;
   font-size: 14px;
@@ -153,14 +152,14 @@ span {
   float: right;
 }
 
-/* line 53, ../sass/_text.scss */
+/* line 74, ../sass/_text.scss */
 .education-entry,
 .work-entry,
 .project-entry {
   padding: 0 5%;
 }
 
-/* line 59, ../sass/_text.scss */
+/* line 80, ../sass/_text.scss */
 .welcome-message {
   font-style: italic;
   font-size: 18px;
@@ -168,39 +167,39 @@ span {
   line-height: 28px;
 }
 
-/* line 66, ../sass/_text.scss */
+/* line 87, ../sass/_text.scss */
 .highlight-text {
   color: #ff0;
 }
 
-/* line 70, ../sass/_text.scss */
+/* line 91, ../sass/_text.scss */
 .white-text {
   font-weight: bold;
   color: #fff;
 }
 
-/* line 75, ../sass/_text.scss */
+/* line 98, ../sass/_text.scss */
 .all-caps {
   text-transform: uppercase;
 }
 
-/* line 79, ../sass/_text.scss */
+/* line 102, ../sass/_text.scss */
 .online-subtitle {
-  margin-top: 11px;
+  margin-top: 9px;
 }
 
-/* line 83, ../sass/_text.scss */
+/* line 109, ../sass/_text.scss */
 .line-break {
   display: none;
 }
 
-/* line 87, ../sass/_text.scss */
+/* line 113, ../sass/_text.scss */
 #skills-h3 {
   color: #ff0;
   display: none;
 }
 
-/* line 92, ../sass/_text.scss */
+/* line 120, ../sass/_text.scss */
 #lets-connect {
   text-align: center;
 }
@@ -219,11 +218,16 @@ span {
 }
 
 /* line 11, ../sass/_background.scss */
+.white {
+  padding-bottom: 10px;
+}
+
+/* line 15, ../sass/_background.scss */
 .dark-gray {
   background-color: #080808;
 }
 
-/* line 15, ../sass/_background.scss */
+/* line 19, ../sass/_background.scss */
 #header {
   background-color: #1a1a1a;
 }

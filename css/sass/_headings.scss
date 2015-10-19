@@ -23,10 +23,11 @@ h3 {
 h4 {
   font-weight: bold;
   font-size: 14px;
-  color: #4a4a4a;
+  color: $color-support;
   line-height: 17px;
 }
 
+// Line up the headings with the rest of the resume content
 h2,
 h3,
 h4,
