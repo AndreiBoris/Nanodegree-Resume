@@ -28,3 +28,58 @@
     display: block;
   }
 }
+
+@media only screen and (min-width: 1200px) {
+  #projects {
+    position: relative;
+  }
+  .project-entry {
+    max-width: 1000px;
+  }
+  #project-line1 {
+    z-index: 10;
+    position: absolute;
+    background-color: $color-top-background;
+    width: 20px;
+    height: 100%;
+    left: 1040px;
+  }
+  #project-line2 {
+    @extend #project-line1;
+    left: 1070px;
+  }
+  #workExperience{
+    position: relative;
+    border-top: 10px solid $color-top-background;
+  }
+  .work-entry{
+    max-width: 1150px;
+    padding-right: 0;
+  }
+  #work-line {
+    @extend #project-line1;
+    left: 1170px;
+    width:30px
+  }
+  #education{
+    position: relative;
+    border-top: 10px solid $color-top-background;
+  }
+  #edu-line1{
+    @extend #project-line1;
+    width: 15px;
+    left: 700px;
+  }
+  #edu-line2{
+    @extend #edu-line1;
+    left: 725px;
+  }
+  #edu-line3{
+    @extend #edu-line1;
+    left: 750px;
+  }
+  #mapDiv{
+    border-top: 10px solid $color-top-background;
+  }
+
+}

@@ -111,6 +111,7 @@ projects = {
 };
 
 projects.display = function() {
+  $("#projects").prepend(HTMLprojectLines);
   for (var i in projects.projects) {
     $("#projects").append(HTMLprojectStart);
 
@@ -246,6 +247,7 @@ footerContacts = {
 };
 
 education.display = function() {
+  $("#education").prepend(HTMLeducationLines);
   for (var school in education.schools) {
     $("#education").append(HTMLschoolStart);
 
@@ -315,6 +317,7 @@ for (i = 0; i < bio.skills.length; i++) {
 
 var displayWork = function(){
 if (work.jobs.length > 0){
+  $("#workExperience").prepend(HTMLworkLine);
   for (var job in work.jobs){
     $("#workExperience").append(HTMLworkStart);
     formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);

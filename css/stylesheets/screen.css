@@ -22,6 +22,11 @@ h6 {
   overflow: auto;
 }
 
+/* line 21, ../sass/_general.scss */
+div {
+  box-sizing: border-box;
+}
+
 /* Headings */
 /* line 1, ../sass/_headings.scss */
 h1 {
@@ -329,5 +334,76 @@ img {
   #skills-h3,
   .biopic {
     display: block;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 33, ../sass/_media.scss */
+  #projects {
+    position: relative;
+  }
+
+  /* line 36, ../sass/_media.scss */
+  .project-entry {
+    max-width: 1000px;
+  }
+
+  /* line 39, ../sass/_media.scss */
+  #project-line1, #project-line2, #work-line, #edu-line1, #edu-line2, #edu-line3 {
+    z-index: 10;
+    position: absolute;
+    background-color: #1a1a1a;
+    width: 20px;
+    height: 100%;
+    left: 1040px;
+  }
+
+  /* line 47, ../sass/_media.scss */
+  #project-line2 {
+    left: 1070px;
+  }
+
+  /* line 51, ../sass/_media.scss */
+  #workExperience {
+    position: relative;
+    border-top: 10px solid #1a1a1a;
+  }
+
+  /* line 55, ../sass/_media.scss */
+  .work-entry {
+    max-width: 1150px;
+    padding-right: 0;
+  }
+
+  /* line 59, ../sass/_media.scss */
+  #work-line {
+    left: 1170px;
+    width: 30px;
+  }
+
+  /* line 64, ../sass/_media.scss */
+  #education {
+    position: relative;
+    border-top: 10px solid #1a1a1a;
+  }
+
+  /* line 68, ../sass/_media.scss */
+  #edu-line1, #edu-line2, #edu-line3 {
+    width: 15px;
+    left: 700px;
+  }
+
+  /* line 73, ../sass/_media.scss */
+  #edu-line2 {
+    left: 725px;
+  }
+
+  /* line 77, ../sass/_media.scss */
+  #edu-line3 {
+    left: 750px;
+  }
+
+  /* line 81, ../sass/_media.scss */
+  #mapDiv {
+    border-top: 10px solid #1a1a1a;
   }
 }

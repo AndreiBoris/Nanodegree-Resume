@@ -29,6 +29,7 @@ var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box-skills"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
+var HTMLworkLine = '<div id="work-line"></div>';
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#" target="_blank">%data%';
 var HTMLworkTitle = ' - %data%</a>';
@@ -36,12 +37,14 @@ var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
 
-var HTMLprojectStart = '<div class="project-entry"></div>';
+var HTMLprojectLines = '<div id="project-line1"></div><div id="project-line2"></div>';
+var HTMLprojectStart = '</div><div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#" target="_blank">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImage = '<a href="#" target="_blank"><img class="project-img" src="%data%"></a>';
 
+var HTMLeducationLines = '<div id="edu-line1"></div><div id="edu-line2"></div><div id="edu-line3"></div>';
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#" target="_blank">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
