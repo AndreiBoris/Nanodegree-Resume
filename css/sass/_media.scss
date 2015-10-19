@@ -27,6 +27,15 @@
   .biopic {
     display: block;
   }
+  #mapDiv{
+    border-top: 7px solid $color-top-background;
+  }
+  #workExperience{
+    border-top: 10px solid $color-top-background;
+  }
+  #education{
+    border-top: 5px solid $color-top-background;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -53,13 +62,8 @@
   }
   #workExperience{
     position: relative;
-    border-top: 10px solid $color-top-background;
   }
   .work-entry{
-    max-width: 1150px;
-    padding-right: 0;
-  }
-  .education-entry{
     max-width: 1150px;
     padding-right: 0;
   }
@@ -70,23 +74,22 @@
   }
   #education{
     position: relative;
-    border-top: 10px solid $color-top-background;
+  }
+  .education-entry{
+    max-width: 930px;
+    padding-right: 0;
   }
   #edu-line1{
     @extend #project-line1;
     width: 15px;
-    left: 700px;
+    left: 950px;
   }
   #edu-line2{
     @extend #edu-line1;
-    left: 725px;
+    left: 975px;
   }
   #edu-line3{
     @extend #edu-line1;
-    left: 750px;
+    left: 1000px;
   }
-  #mapDiv{
-    border-top: 10px solid $color-top-background;
-  }
-
 }

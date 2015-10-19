@@ -150,11 +150,13 @@ bio = {
     "skills": [
         "Python",
         "HTML",
-        "CSS/Sass",
-        "JavaScript/jQuery",
+        "CSS",
+        "Sass",
+        "JavaScript",
+        "jQuery",
         "Grunt",
         "English proficiency",
-        "Creative analysis/approach",
+        "Creative approach",
         "Philosophical reflection"
     ]
 };
