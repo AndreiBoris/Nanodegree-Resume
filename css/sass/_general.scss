@@ -21,3 +21,10 @@ h6 {
 div{
   box-sizing: border-box;
 }
+
+#projects,
+#workExperience,
+#education,
+#mapDiv {
+  border-left:10px solid $color-top-background;
+}
