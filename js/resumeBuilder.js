@@ -125,8 +125,7 @@ projects.display = function() {
 
     formattedProjectDesc = HTMLprojectDescription.replace("%data%", concatDescription);
     formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].image[0]);
-    formattedProjectImage = formattedProjectImage.replace("%small%", projects.projects[i].image[0]);
-    formattedProjectImage = formattedProjectImage.replace("%large%", projects.projects[i].image[1]);
+    formattedProjectImage = formattedProjectImage.replace("#", projects.projects[i].url);
 
     $(".project-entry:last").append(formattedProjectTitle);
     $(".project-entry:last").append(formattedProjectDates);
