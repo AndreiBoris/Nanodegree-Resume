@@ -16,12 +16,16 @@ formattedDates,
 formattedFooter,
 concatDescription,
 formattedDesc,
-skillsObj,
 work,
 projects,
 bio,
 footerContacts;
 
+/*
+description inside work.jobs and projects.projects uses an array of short lines
+in order to be more presentable. These items then get concatinated in the
+display functions defined below.
+*/
 work = {
     "jobs": [
         {
@@ -110,31 +114,6 @@ projects = {
     ]
 };
 
-projects.display = function() {
-  $("#projects").prepend(HTMLprojectLines);
-  for (var i in projects.projects) {
-    $("#projects").append(HTMLprojectStart);
-
-    formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
-    formattedProjectTitle = formattedProjectTitle.replace("#", projects.projects[i].url);
-    formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[i].date);
-    concatDescription = "";
-
-    for (var sentence in projects.projects[i].description){
-      concatDescription = concatDescription + projects.projects[i].description[sentence];
-    }
-
-    formattedProjectDesc = HTMLprojectDescription.replace("%data%", concatDescription);
-    formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].image[0]);
-    formattedProjectImage = formattedProjectImage.replace("#", projects.projects[i].url);
-
-    $(".project-entry:last").append(formattedProjectTitle);
-    $(".project-entry:last").append(formattedProjectDates);
-    $(".project-entry:last").append(formattedProjectDesc);
-    $(".project-entry:last").append(formattedProjectImage);
-    }
-};
-
 bio = {
     "name": "Andrei <span id='last-name'>Borissenko</span>",
     "role": "<span class='line-break'><br></span>Web Developer",
@@ -161,7 +140,30 @@ bio = {
     ]
 };
 
-skillsObj = {};
+projects.display = function() {
+  $("#projects").prepend(HTMLprojectLines);
+  for (var i in projects.projects) {
+    $("#projects").append(HTMLprojectStart);
+
+    formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
+    formattedProjectTitle = formattedProjectTitle.replace("#", projects.projects[i].url);
+    formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[i].date);
+    concatDescription = "";
+
+    for (var sentence in projects.projects[i].description){
+      concatDescription = concatDescription + projects.projects[i].description[sentence];
+    }
+
+    formattedProjectDesc = HTMLprojectDescription.replace("%data%", concatDescription);
+    formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].image[0]);
+    formattedProjectImage = formattedProjectImage.replace("#", projects.projects[i].url);
+
+    $(".project-entry:last").append(formattedProjectTitle);
+    $(".project-entry:last").append(formattedProjectDates);
+    $(".project-entry:last").append(formattedProjectDesc);
+    $(".project-entry:last").append(formattedProjectImage);
+    }
+};
 
 var education = {
     "schools": [
@@ -294,11 +296,6 @@ var formattedName = HTMLheaderName.replace("%data%", bio.name),
     formattedBioPic = HTMLbioPic.replace("%data%", bio.picture),
     formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcome);
 
-if (bio.skills.length > 0){
-for (i = 0; i < bio.skills.length; i++) {
-    skillsObj["formattedSkill" + (i + 1)] = HTMLskills.replace("%data%", bio.skills[i]);
-}}
-
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 
@@ -314,7 +311,7 @@ $("#header").append(formattedWelcome);
 if (bio.skills.length > 0){
 $("#header").append(HTMLskillsStart);
 for (i = 0; i < bio.skills.length; i++) {
-    $("#skills").append(skillsObj["formattedSkill" + (i + 1)]);
+    $("#skills").append(HTMLskills.replace("%data%", bio.skills[i]));
 }}
 
 var displayWork = function(){
