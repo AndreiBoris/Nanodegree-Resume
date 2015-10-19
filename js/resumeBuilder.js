@@ -92,7 +92,6 @@ projects = {
                 "riddles. The game is available on my GitHub account."
             ],
             "image": [
-                "images/riddle_game_small.jpeg",
                 "images/riddle_game.jpeg"
             ],
             "url": "https://github.com/AndreiCommunication/riddle-game"
@@ -104,7 +103,6 @@ projects = {
                 "A website set up to showcase web-based projects as they get completed."
             ],
             "image": [
-                "images/portfolio_site_small.jpeg",
                 "images/portfolio_site.jpeg"
             ],
             "url": "http://andreicommunication.github.io/portfolio-website"
