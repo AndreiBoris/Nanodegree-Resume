@@ -1,36 +1,3 @@
-/* Pre-declared variables */
-
-var formattedDates,
-formattedName,
-formattedDegree,
-formattedLocation,
-formattedMajor,
-formattedTitle,
-formattedSchool,
-formattedProjectTitle,
-formattedProjectDates,
-formattedProjectDesc,
-concatDescription,
-formattedProjectImage,
-formattedEmployer,
-formattedEmployerTitle,
-formattedDates,
-formattedFooter,
-formattedBioPic,
-formattedWelcome,
-formattedTwitter,
-formattedGithub,
-formattedEmail,
-formattedMobile,
-formattedRole,
-concatDescription,
-formattedDesc,
-work,
-projects,
-bio,
-footerContacts,
-displayHeader;
-
 /* All information objects */
 
 /*
@@ -38,7 +5,7 @@ description inside work.jobs and projects.projects uses an array of short lines
 in order to be more presentable. These items then get concatinated in the
 display functions defined below.
 */
-work = {
+var work = {
     'jobs': [
         {
             'employer': 'City of Vaughan',
@@ -98,7 +65,7 @@ work = {
     ]
 };
 
-projects = {
+var projects = {
     'projects': [
         {
             'title': 'Riddle Game',
@@ -126,7 +93,7 @@ projects = {
     ]
 };
 
-bio = {
+var bio = {
     // The span element around the last name with the last-name class is
     // necessary for the last name to appear in all caps when it is clicked to
     // appeal to international standards. See displayHeader() below.
@@ -154,6 +121,23 @@ bio = {
         'English proficiency',
         'Creative approach',
         'Philosophical reflection'
+    ],
+    'icons': [{
+      'icon': 'fa fa-git',
+      'url': 'https://github.com/AndreiCommunication'
+    },
+    {
+      'icon': 'fa fa-linkedin',
+      'url': '#'
+    },
+    {
+      'icon': 'fa fa-twitter',
+      'url': 'https://twitter.com/BreathMachine'
+    },
+    {
+      'icon': 'fa fa-envelope',
+      'url': 'mailto:Andrei.Borissenko@gmail.com'
+    }
     ]
 };
 
@@ -222,41 +206,20 @@ var education = {
     ]
 };
 
-footerContacts = {
-  'icons': [{
-    'icon': 'fa fa-git',
-    'url': 'https://github.com/AndreiCommunication'
-  },
-  {
-    'icon': 'fa fa-linkedin',
-    'url': '#'
-  },
-  {
-    'icon': 'fa fa-twitter',
-    'url': 'https://twitter.com/BreathMachine'
-  },
-  {
-    'icon': 'fa fa-envelope',
-    'url': 'mailto:Andrei.Borissenko@gmail.com'
-  }
-  ]
-};
-
-/* Variable assignments using information from bio object */
-
-formattedName = HTMLheaderName.replace('%data%', bio.name);
-formattedRole = HTMLheaderRole.replace('%data%', bio.role);
-formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
-formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
-formattedGithub = HTMLgithub.replace('%data%', bio.contacts.github);
-formattedTwitter = HTMLtwitter.replace('%data%', bio.contacts.twitter);
-formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
-formattedBioPic = HTMLbioPic.replace('%data%', bio.picture);
-formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.welcome);
-
 /* Display functions */
 
-displayHeader = function () {
+// This function is defined using dot notation as part of the resume assignment
+bio.display = function () {
+  var formattedName = HTMLheaderName.replace('%data%', bio.name),
+  formattedRole = HTMLheaderRole.replace('%data%', bio.role),
+  formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile),
+  formattedEmail = HTMLemail.replace('%data%', bio.contacts.email),
+  formattedGithub = HTMLgithub.replace('%data%', bio.contacts.github),
+  formattedTwitter = HTMLtwitter.replace('%data%', bio.contacts.twitter),
+  formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location),
+  formattedBioPic = HTMLbioPic.replace('%data%', bio.picture);
+  formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.welcome);
+
   $('#header').prepend(formattedRole);
   $('#header').prepend(formattedName);
 
@@ -269,11 +232,20 @@ displayHeader = function () {
   $('#header').append(formattedBioPic);
   $('#header').append(formattedWelcome);
 
+  // Display header skills.
   if (bio.skills.length > 0){
       $('#header').append(HTMLskillsStart);
       for (i = 0; i < bio.skills.length; i++) {
         $('#skills').append(HTMLskills.replace('%data%', bio.skills[i]));
       }
+  }
+
+  // Display footer icons.
+  for (var i = 0; i < bio.icons.length; i++){
+    $('#footerContacts').append(HTMLfooterStart);
+    var formattedFooter = HTMLfooterContact.replace('%data%', bio.icons[i].icon);
+    formattedFooter = formattedFooter.replace('#', bio.icons[i].url);
+    $('.footer-entry:last').append(formattedFooter);
   }
 
   // This makes the last name appear in all caps when clicked on to appeal to
@@ -284,7 +256,6 @@ displayHeader = function () {
   });
 };
 
-// This function is defined using dot notation as part of the resume assignment
 projects.display = function() {
 
   // HTMLprojectLines create line graphics for displays over 1200px wide, see
@@ -294,9 +265,10 @@ projects.display = function() {
   for (var i = 0; i < projects.projects.length; i++) {
     $('#projects').append(HTMLprojectStart);
 
-    formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.projects[i].title);
+    var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.projects[i].title);
     formattedProjectTitle = formattedProjectTitle.replace('#', projects.projects[i].url);
-    formattedProjectDates = HTMLprojectDates.replace('%data%', projects.projects[i].date);
+
+    var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.projects[i].date),
     concatDescription = '';
 
     // This done in order to connect all the sentences in the description array
@@ -307,7 +279,7 @@ projects.display = function() {
       concatDescription = concatDescription + projects.projects[i].description[sentence];
     }
 
-    formattedProjectDesc = HTMLprojectDescription.replace('%data%', concatDescription);
+    var formattedProjectDesc = HTMLprojectDescription.replace('%data%', concatDescription);
     formattedProjectImage = HTMLprojectImage.replace('%data%', projects.projects[i].image[0]);
     formattedProjectImage = formattedProjectImage.replace('#', projects.projects[i].url);
 
@@ -325,11 +297,12 @@ education.display = function() {
   for (var i = 0; i < education.schools.length; i++) {
     $('#education').append(HTMLschoolStart);
 
-    formattedName = HTMLschoolName.replace('%data%', education.schools[i].name);
+    var formattedName = HTMLschoolName.replace('%data%', education.schools[i].name);
     formattedName = formattedName.replace('#', education.schools[i].url);
-    formattedDegree = HTMLschoolDegree.replace('%data%', education.schools[i].degree);
-    formattedDates = HTMLschoolDates.replace('%data%', education.schools[i].dates);
-    formattedLocation = HTMLschoolLocation.replace('%data%', education.schools[i].location);
+
+    var formattedDegree = HTMLschoolDegree.replace('%data%', education.schools[i].degree),
+    formattedDates = HTMLschoolDates.replace('%data%', education.schools[i].dates),
+    formattedLocation = HTMLschoolLocation.replace('%data%', education.schools[i].location),
     formattedMajor = HTMLschoolMajor.replace('%data%', education.schools[i].majors.join(', '));
 
     $('.education-entry:last').append(formattedName);
@@ -347,18 +320,19 @@ education.display = function() {
   for (var school = 0; school < education.online.length; school++){
     $('#education').append(HTMLschoolStart);
 
-    formattedTitle = HTMLonlineTitle.replace('%data%', education.online[school].title);
+    var formattedTitle = HTMLonlineTitle.replace('%data%', education.online[school].title);
     formattedTitle = formattedTitle.replace('#', education.online[school].url);
-    formattedSchool = HTMLonlineSchool.replace('%data%', education.online[school].school);
-    formattedDates = HTMLonlineDates.replace('%data%', education.online[school].dates);
+
+    var formattedSchool = HTMLonlineSchool.replace('%data%', education.online[school].school);
+    var formattedDatesOnline = HTMLonlineDates.replace('%data%', education.online[school].dates);
 
     $('.education-entry:last').append(formattedTitle);
     $('.education-entry:last').append(formattedSchool);
-    $('.education-entry:last').append(formattedDates);
+    $('.education-entry:last').append(formattedDatesOnline);
   }
 };
 
-var displayWork = function(){
+work.display = function(){
 
   if (work.jobs.length > 0){
 
@@ -366,19 +340,20 @@ var displayWork = function(){
 
     for (var job = 0; job < work.jobs.length; job++){
       $('#workExperience').append(HTMLworkStart);
-      formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
+      var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
       formattedEmployer = formattedEmployer.replace('#', work.jobs[job].url);
-      formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
-      formattedEmployerTitle = formattedEmployer + formattedTitle;
-      formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].date);
-      formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
+
+      var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title),
+      formattedEmployerTitle = formattedEmployer + formattedTitle,
+      formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].date),
+      formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location),
       concatDescription = '';
 
       for (var sentence = 0; sentence < work.jobs[job].description.length; sentence++){
         concatDescription = concatDescription + work.jobs[job].description[sentence];
       }
 
-      formattedDesc = HTMLworkDescription.replace('%data%', concatDescription);
+      var formattedDesc = HTMLworkDescription.replace('%data%', concatDescription);
 
       $('.work-entry:last').append(formattedEmployerTitle);
       $('.work-entry:last').append(formattedDates);
@@ -389,27 +364,16 @@ var displayWork = function(){
   }
 };
 
-var displayFooter = function(){
 
-  for (var i = 0; i < footerContacts.icons.length; i++){
-    $('#footerContacts').append(HTMLfooterStart);
-    formattedFooter = HTMLfooterContact.replace('%data%', footerContacts.icons[i].icon);
-    formattedFooter = formattedFooter.replace('#', footerContacts.icons[i].url);
-    $('.footer-entry:last').append(formattedFooter);
-  }
-};
+bio.display();
 
-displayHeader();
-
-displayWork();
+work.display();
 
 projects.display();
 
 education.display();
 
 $('#mapDiv').append(googleMap);
-
-displayFooter();
 
 // This console.logs click locations as part of the resume assignment.
 $(document).click(function(loc) {
