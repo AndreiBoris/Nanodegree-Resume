@@ -82,10 +82,7 @@ var projects = {
 };
 
 var bio = {
-    // The span element around the last name with the last-name class is
-    // necessary for the last name to appear in all caps when it is clicked to
-    // appeal to international standards. See displayHeader() below.
-    'name': 'Andrei <span id="last-name">Borissenko</span>',
+    'name': 'Andrei Borissenko',
     // The line-break class gets toggled on when the display is sufficiently
     // small to allow the role to take its own line.
     'role': '<span class="line-break"><br></span>Web Developer',
@@ -229,19 +226,13 @@ bio.display = function () {
   }
 
   // Display footer icons.
-  for (var i = 0; i < bio.icons.length; i++){
+  var length = bio.icons.length;
+  for (var i = 0; i < length; i++){
     $('#footerContacts').append(HTMLfooterStart);
     var formattedFooter = HTMLfooterContact.replace('%data%', bio.icons[i].icon);
     formattedFooter = formattedFooter.replace('#', bio.icons[i].url);
     $('.footer-entry:last').append(formattedFooter);
   }
-
-  // This makes the last name appear in all caps when clicked on to appeal to
-  // international standards. This only works when the span element with the
-  // class last-name is applied to the last name in the bio object above.
-  $('#name').on('click', function(){
-    $('#last-name').toggleClass('all-caps');
-  });
 };
 
 projects.display = function() {
@@ -250,7 +241,8 @@ projects.display = function() {
   // _media.scss. This is also the case for HTMLworkLine and HTMLeducationLines.
   $('#projects').prepend(HTMLprojectLines);
 
-  for (var i = 0; i < projects.projects.length; i++) {
+  var length = projects.projects.length;
+  for (var i = 0; i < length; i++) {
     $('#projects').append(HTMLprojectStart);
 
     var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.projects[i].title);
@@ -272,7 +264,8 @@ education.display = function() {
 
   $('#education').prepend(HTMLeducationLines);
 
-  for (var i = 0; i < education.schools.length; i++) {
+  var length = education.schools.length;
+  for (var i = 0; i < length; i++) {
     $('#education').append(HTMLschoolStart);
 
     var formattedName = HTMLschoolName.replace('%data%', education.schools[i].name);
@@ -295,7 +288,8 @@ education.display = function() {
     $('#education').append(HTMLonlineClasses);
   }
 
-  for (var school = 0; school < education.online.length; school++){
+  length = education.online.length;
+  for (var school = 0; school < length; school++){
     $('#education').append(HTMLschoolStart);
 
     var formattedTitle = HTMLonlineTitle.replace('%data%', education.online[school].title);
@@ -316,16 +310,17 @@ work.display = function(){
 
     $('#workExperience').prepend(HTMLworkLine);
 
-    for (var job = 0; job < work.jobs.length; job++){
+    var length = work.jobs.length;
+    for (var i = 0; i < length; i++){
       $('#workExperience').append(HTMLworkStart);
-      var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
-      formattedEmployer = formattedEmployer.replace('#', work.jobs[job].url);
+      var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[i].employer);
+      formattedEmployer = formattedEmployer.replace('#', work.jobs[i].url);
 
-      var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title),
+      var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[i].title),
       formattedEmployerTitle = formattedEmployer + formattedTitle,
-      formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].date),
-      formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location),
-      formattedDesc = HTMLworkDescription.replace('%data%', work.jobs[job].description);
+      formattedDates = HTMLworkDates.replace('%data%', work.jobs[i].date),
+      formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[i].location),
+      formattedDesc = HTMLworkDescription.replace('%data%', work.jobs[i].description);
 
       $('.work-entry:last').append(formattedEmployerTitle);
       $('.work-entry:last').append(formattedDates);

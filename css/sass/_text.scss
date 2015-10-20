@@ -93,12 +93,6 @@ span {
   color: $color-top-content;
 }
 
-// Used with the event listener that internationalizes the main name upon click.
-// See displayHeader() in resumeBuilder.js for details.
-.all-caps {
-  text-transform: uppercase;
-}
-
 .online-subtitle {
   margin-top: 9px;
 }

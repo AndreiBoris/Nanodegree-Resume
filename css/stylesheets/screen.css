@@ -178,28 +178,23 @@ span {
   color: #fff;
 }
 
-/* line 98, ../sass/_text.scss */
-.all-caps {
-  text-transform: uppercase;
-}
-
-/* line 102, ../sass/_text.scss */
+/* line 96, ../sass/_text.scss */
 .online-subtitle {
   margin-top: 9px;
 }
 
-/* line 109, ../sass/_text.scss */
+/* line 103, ../sass/_text.scss */
 .line-break {
   display: none;
 }
 
-/* line 113, ../sass/_text.scss */
+/* line 107, ../sass/_text.scss */
 #skills-h3 {
   color: #ff0;
   display: none;
 }
 
-/* line 120, ../sass/_text.scss */
+/* line 114, ../sass/_text.scss */
 #lets-connect {
   text-align: center;
 }
