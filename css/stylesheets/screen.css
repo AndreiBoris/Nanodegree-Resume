@@ -32,8 +32,8 @@ div {
 }
 
 /* line 14, ../sass/_general.scss */
-#mapDiv {
-  border-top: 7px solid #1a1a1a;
+#education {
+  border-bottom: 7px solid #1a1a1a;
 }
 
 /* Headings */
@@ -41,7 +41,7 @@ div {
 h1 {
   font-size: 40px;
   color: #ff0;
-  line-height: 48px;
+  line-height: 44px;
   display: inline;
 }
 
@@ -356,7 +356,7 @@ img {
 
   /* line 20, ../sass/_media.scss */
   #topContacts {
-    padding-top: 4%;
+    padding-top: 2%;
   }
 
   /* line 23, ../sass/_media.scss */
