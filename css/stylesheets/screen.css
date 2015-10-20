@@ -390,19 +390,38 @@ span {
     border-top: 5px solid #1a1a1a;
   }
 }
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1000px) {
   /* line 59, ../sass/_media.scss */
+  h2 {
+    font-size: 1.5em;
+  }
+
+  /* line 63, ../sass/_media.scss */
+  #bordered a {
+    font-size: 1.3em;
+  }
+
+  /* line 66, ../sass/_media.scss */
+  .date-text,
+  .location-text,
+  .education-entry,
+  p {
+    font-size: 1.1em;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 75, ../sass/_media.scss */
   .subtitle {
     padding-top: 0.5em;
   }
 
-  /* line 63, ../sass/_media.scss */
+  /* line 79, ../sass/_media.scss */
   .project-entry {
     max-width: 1000px;
     padding-right: 0;
   }
 
-  /* line 68, ../sass/_media.scss */
+  /* line 84, ../sass/_media.scss */
   #project-line1, #project-line2, #work-line, #edu-line1, #edu-line2, #edu-line3 {
     z-index: 10;
     position: absolute;
@@ -412,41 +431,41 @@ span {
     left: 1040px;
   }
 
-  /* line 76, ../sass/_media.scss */
+  /* line 92, ../sass/_media.scss */
   #project-line2 {
     left: 1070px;
   }
 
-  /* line 80, ../sass/_media.scss */
+  /* line 96, ../sass/_media.scss */
   .work-entry {
     max-width: 1150px;
     padding-right: 0;
   }
 
-  /* line 85, ../sass/_media.scss */
+  /* line 101, ../sass/_media.scss */
   #work-line {
     left: 1170px;
     width: 30px;
   }
 
-  /* line 90, ../sass/_media.scss */
+  /* line 106, ../sass/_media.scss */
   .education-entry {
     max-width: 930px;
     padding-right: 0;
   }
 
-  /* line 94, ../sass/_media.scss */
+  /* line 110, ../sass/_media.scss */
   #edu-line1, #edu-line2, #edu-line3 {
     width: 15px;
     left: 950px;
   }
 
-  /* line 99, ../sass/_media.scss */
+  /* line 115, ../sass/_media.scss */
   #edu-line2 {
     left: 975px;
   }
 
-  /* line 103, ../sass/_media.scss */
+  /* line 119, ../sass/_media.scss */
   #edu-line3 {
     left: 1000px;
   }

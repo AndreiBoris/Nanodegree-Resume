@@ -55,6 +55,22 @@
   }
 }
 
+@media only screen and (min-width: 1000px) {
+  h2 {
+    font-size: 1.5em;
+  }
+
+  #bordered a {
+    font-size: 1.3em;
+  }
+  .date-text,
+  .location-text,
+  .education-entry,
+  p {
+    font-size: 1.1em;
+  }
+}
+
 @media only screen and (min-width: 1200px) {
   .subtitle{
     padding-top: 0.5em;
