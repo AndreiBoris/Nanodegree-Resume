@@ -17,58 +17,62 @@ ul {
 }
 
 p {
-  font-size: 14px;
-  color: $color-text;
+  font-size  : 14px;
+  color      : $color-text;
   line-height: 21px;
 }
 
 a {
-  color: $color-link;
+  color          : $color-link;
   text-decoration: none;
-  margin-top: 10px;
+  margin-top     : 10px;
+
   // display: table-cell; makes the a elements not extend across the page, so
   // that they keep confined to just where the content is.
-  display: table-cell;
-  padding: 10px 0;
+  display        : table-cell;
+  padding        : 10px 0;
 
   &:visited {
     color: $color-link-visited;
   }
+
   // :hover appears after :visited so that it overrides :visited on the page.
   &:hover {
     color: $color-link-hover;
   }
-
 }
 
 span {
+
   // Used to keep items in header spaced out from one another.
   padding: 5px;
 }
 
-.header-role{
+.header-role {
   color: $color-top-content;
 }
 
 .date-text {
-  font-style: italic;
-  font-size: 14px;
-  color: $color-support;
-  line-height: 16px;
+  font-style  : italic;
+  font-size   : 14px;
+  color       : $color-support;
+  line-height : 16px;
+
   // float: left; sends the #education dates to the left so that they line up
   // with the school name instead of appearing after the school name.
-  float: left;
+  float       : left;
+
   // margin-right: 5px; adds some space between the dates and the dash that
   // follows them.
   margin-right: 5px;
 }
 
 .location-text {
-  font-style: italic;
-  font-size: 14px;
-  color: $color-support;
+  font-style : italic;
+  font-size  : 14px;
+  color      : $color-support;
   line-height: 16px;
-  float: right;
+  float      : right;
 }
 
 .education-entry,
@@ -78,9 +82,9 @@ span {
 }
 
 .welcome-message {
-  font-style: italic;
-  font-size: 18px;
-  color: $color-background;
+  font-style : italic;
+  font-size  : 18px;
+  color      : $color-background;
   line-height: 28px;
 }
 
@@ -90,7 +94,7 @@ span {
 
 .white-text {
   font-weight: bold;
-  color: $color-top-content;
+  color      : $color-top-content;
 }
 
 .online-subtitle {
@@ -100,12 +104,14 @@ span {
 // This class is added to a <br> element before the role in the #header and is
 // set to display: block; on smaller screens to send the role in #header to its
 // own line to avoid crowding.
-.line-break{
+
+.line-break {
   display: none;
 }
 
 #skills-h3 {
-  color: $color-highlight;
+  color  : $color-highlight;
+
   // See _media.scss, this is set to display: block; when the screen is at least
   // 750px wide.
   display: none;

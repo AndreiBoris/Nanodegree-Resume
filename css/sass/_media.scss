@@ -1,5 +1,6 @@
 @media only screen and (max-width: 1024px) {
   #lets-connect {
+
     // Otherwise the map will spill under this div on smaller displays.
     margin-top: 5%;
   }
@@ -12,32 +13,39 @@
 }
 
 @media only screen and (max-width: 750px) {
+
   // Overrides h1 style in _headings.scss
-  #name{
+  #name {
     font-size: 1.9em;
   }
+
   // Bumps up .header-role on smaller displays for aesthetic effect
-  .header-role{
+  .header-role {
     font-size: 1.5em;
   }
+
   // Keeps #topContacts away .header-role
   #topContacts {
     padding-top: 2%;
   }
+
   // Keeps map from spilling under #lets-connect on small displays
-  #mapDiv{
-      padding-bottom: 20%;
-    }
+  #mapDiv {
+    padding-bottom: 20%;
+  }
+
   #lets-connect {
     margin-top: 0;
   }
+
   .welcome-message {
     display: none;
   }
+
   // Shows a <br> element to put .header-role on a new line
-  .line-break{
-    display:block;
-    height: 0;
+  .line-break {
+    display: block;
+    height : 0;
     padding: 0;
   }
 }
@@ -47,10 +55,12 @@
   .biopic {
     display: block;
   }
-  #workExperience{
+
+  #workExperience {
     border-top: 10px solid $color-top-background;
   }
-  #education{
+
+  #education {
     border-top: 5px solid $color-top-background;
   }
 }
@@ -63,6 +73,7 @@
   #bordered a {
     font-size: 1.3em;
   }
+
   .date-text,
   .location-text,
   .education-entry,
@@ -72,51 +83,61 @@
 }
 
 @media only screen and (min-width: 1200px) {
-  .subtitle{
+  .subtitle {
     padding-top: 0.5em;
   }
+
   // Make sure there is room for #project-line1 and 2
   .project-entry {
-    max-width: 1000px;
+    max-width    : 1000px;
     padding-right: 0;
   }
+
   // Graphic <div>, decorative
   #project-line1 {
-    z-index: 10;
-    position: absolute;
+    z-index         : 10;
+    position        : absolute;
     background-color: $color-top-background;
-    width: 20px;
-    height: 100%;
-    left: 1040px;
+    width           : 20px;
+    height          : 100%;
+    left            : 1040px;
   }
+
   #project-line2 {
     @extend #project-line1;
     left: 1070px;
   }
-  .work-entry{
-    max-width: 1150px;
+
+  .work-entry {
+    max-width    : 1150px;
+
     // Makes it easy to put #work-line really close to the text.
     padding-right: 0;
   }
+
   #work-line {
     @extend #project-line1;
-    left: 1170px;
-    width:30px
+    left : 1170px;
+    width: 30px;
   }
-  .education-entry{
-    max-width: 930px;
+
+  .education-entry {
+    max-width    : 930px;
     padding-right: 0;
   }
-  #edu-line1{
+
+  #edu-line1 {
     @extend #project-line1;
     width: 15px;
-    left: 950px;
+    left : 950px;
   }
-  #edu-line2{
+
+  #edu-line2 {
     @extend #edu-line1;
     left: 975px;
   }
-  #edu-line3{
+
+  #edu-line3 {
     @extend #edu-line1;
     left: 1000px;
   }
