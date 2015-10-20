@@ -374,7 +374,7 @@ var displayWork = function(){
       formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
       concatDescription = '';
 
-      for (var sentence = 0; sentence < work.jobs[job].description; sentence++){
+      for (var sentence = 0; sentence < work.jobs[job].description.length; sentence++){
         concatDescription = concatDescription + work.jobs[job].description[sentence];
       }
 
