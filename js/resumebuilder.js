@@ -12,14 +12,12 @@ var work = {
             'title': 'Front of House Manager',
             'location': 'Vaughan, Ontario, Canada',
             'date': '07/2014 - present',
-            'description': [
-                'I talk to the client who is running the performance, as well as ',
-                'the theatre technicians, the front of house staff, and the ',
-                'patrons in order to ensure that everything runs smoothly. ',
-                'Mainly, it is a matter of keeping things running on time, ',
-                'making sure everyone is informed about current conditions, and ',
-                'dealing with situations so as to avoid problems.'
-            ],
+            'description': 'I talk to the client who is running the performance, as well as ' +
+                'the theatre technicians, the front of house staff, and the ' +
+                'patrons in order to ensure that everything runs smoothly. ' +
+                'Mainly, it is a matter of keeping things running on time, ' +
+                'making sure everyone is informed about current conditions, and ' +
+                'dealing with situations so as to avoid problems.',
             'url': 'http://www.vaughan.ca/services/cultural/city_playhouse_theatre/Pages/About.aspx'
         },
         {
@@ -27,14 +25,12 @@ var work = {
             'title': 'Standardized Patient',
             'location': 'Toronto, Ontario, Canada',
             'date': '10/2014 - present',
-            'description': [
-                'This job is involves learning and demonstrating particular ',
-                'ailments and medical conditions so as to allow medical ',
-                'students and practitioners to be tested for their knowledge ',
-                'and aptitude for dealing with a variety of situations. ',
-                'Due to the sensitive nature of dealing with examinations, ',
-                'particulars are strictly confidential.'
-            ],
+            'description': 'This job is involves learning and demonstrating particular ' +
+                'ailments and medical conditions so as to allow medical ' +
+                'students and practitioners to be tested for their knowledge ' +
+                'and aptitude for dealing with a variety of situations. ' +
+                'Due to the sensitive nature of dealing with examinations, ' +
+                'particulars are strictly confidential.',
             'url': 'http://www.spp.utoronto.ca/'
         },
         {
@@ -42,9 +38,7 @@ var work = {
             'title': 'Standardized Patient',
             'location': 'Toronto, Ontario, Canada',
             'date': '08/2015 - present',
-            'description': [
-                'See University of Toronto - Standardized Patient, above.'
-            ],
+            'description': 'See University of Toronto - Standardized Patient, above.',
             'url': 'http://www.touchstoneinstitute.ca/'
         },
         {
@@ -52,14 +46,12 @@ var work = {
             'title': 'Studio Monitor',
             'location': 'Toronto, Ontario, Canada',
             'date': '09/2013 - 04/2014',
-            'description': [
-                'I was tasked with keeping certainly rooms organized. It was ',
-                'important to keep track of the dates when tasks were done and ',
-                'to keep immediate supervisors informed of issues pertaining ',
-                'to them. This was flexibly scheduled work ',
-                'that had me working with little insturction. This job ',
-                'terminated when I finished my degree at York.'
-            ],
+            'description': 'I was tasked with keeping certainly rooms organized. It was ' +
+                'important to keep track of the dates when tasks were done and ' +
+                'to keep immediate supervisors informed of issues pertaining ' +
+                'to them. This was flexibly scheduled work ' +
+                'that had me working with little insturction. This job ' +
+                'terminated when I finished my degree at York.',
             'url': 'http://theatre.ampd.yorku.ca/'
         }
     ]
@@ -70,10 +62,8 @@ var projects = {
         {
             'title': 'Riddle Game',
             'date': '21/09/15 - 25/09/15',
-            'description': [
-                'An object oriented game in Python 2.7. Player walks around to complete ',
-                'riddles. The game is available on my GitHub account.'
-            ],
+            'description': 'An object oriented game in Python 2.7. Player walks around to complete ' +
+                'riddles. The game is available on my GitHub account.',
             'image': [
                 'images/riddle_game.jpeg'
             ],
@@ -82,9 +72,7 @@ var projects = {
         {
             'title': 'Portfolio Website',
             'date': '03/09/15 - 05/09/15',
-            'description': [
-                'A website set up to showcase web-based projects as they get completed.'
-            ],
+            'description': 'A website set up to showcase web-based projects as they get completed.',
             'image': [
                 'images/portfolio_site.jpeg'
             ],
@@ -269,17 +257,7 @@ projects.display = function() {
     formattedProjectTitle = formattedProjectTitle.replace('#', projects.projects[i].url);
 
     var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.projects[i].date),
-    concatDescription = '';
-
-    // This done in order to connect all the sentences in the description array
-    // so that they display properly on the page. They were put in an array in
-    // the first place to be easier to read in this javascript file. This is
-    // also done in displayWork.
-    for (var sentence = 0; sentence < projects.projects[i].description.length; sentence++){
-      concatDescription = concatDescription + projects.projects[i].description[sentence];
-    }
-
-    var formattedProjectDesc = HTMLprojectDescription.replace('%data%', concatDescription);
+    formattedProjectDesc = HTMLprojectDescription.replace('%data%', projects.projects[i].description),
     formattedProjectImage = HTMLprojectImage.replace('%data%', projects.projects[i].image[0]);
     formattedProjectImage = formattedProjectImage.replace('#', projects.projects[i].url);
 
@@ -347,13 +325,7 @@ work.display = function(){
       formattedEmployerTitle = formattedEmployer + formattedTitle,
       formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].date),
       formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location),
-      concatDescription = '';
-
-      for (var sentence = 0; sentence < work.jobs[job].description.length; sentence++){
-        concatDescription = concatDescription + work.jobs[job].description[sentence];
-      }
-
-      var formattedDesc = HTMLworkDescription.replace('%data%', concatDescription);
+      formattedDesc = HTMLworkDescription.replace('%data%', work.jobs[job].description);
 
       $('.work-entry:last').append(formattedEmployerTitle);
       $('.work-entry:last').append(formattedDates);
