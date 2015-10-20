@@ -189,6 +189,23 @@ bio.display = function() {
   $( '#header' ).append( formattedBioPic );
   $( '#header' ).append( formattedWelcome );
 
+  // Stores both fullName and intName to allow toggle.
+  var fullName = $('#name').text();
+  var intName = fullName.split(' ');
+  intName[1] = intName[1].toUpperCase();
+  intName = intName.join(' ');
+
+  // Toggle between fullName and intName for internationalization upon clicking
+  // on name.
+  $('#name').on('click', function() {
+    if ($('#name').text() == fullName){
+      $('#name').text(intName);
+    }
+    else {
+      $('#name').text(fullName);
+    }
+  });
+
   // Display header skills.
   if ( bio.skills.length > 0 ) {
     $( '#header' ).append( HTMLskillsStart );
