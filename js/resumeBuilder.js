@@ -166,7 +166,7 @@ var education = {
             "majors": [
                 "theatre",
             ],
-            "dates": "09/2010 - 05/2014",
+            "dates": "2014",
             "url": "http://www.yorku.ca/index.html"
         }
     ],
@@ -174,49 +174,49 @@ var education = {
         {
             "title": "Intro to jQuery",
             "school": "Udacity",
-            "dates": "10/2015 - 10/2015",
+            "dates": "2015",
             "url": "https://www.udacity.com/course/intro-to-jquery--ud245"
         },
         {
             "title": "JavaScript Basics",
             "school": "Udacity",
-            "dates": "09/2015 - 10/2015",
+            "dates": "2015",
             "url": "https://www.udacity.com/course/javascript-basics--ud804"
         },
         {
             "title": "How to Use Git and GitHub",
             "school": "Udacity",
-            "dates": "09/2015 - 09/2015",
+            "dates": "2015",
             "url": "https://www.udacity.com/course/how-to-use-git-and-github--ud775"
         },
         {
             "title": "Programming Foundations with Python",
             "school": "Udacity",
-            "dates": "09/2015 - 09/2015",
+            "dates": "2015",
             "url": "https://www.udacity.com/course/programming-foundations-with-python--ud036"
         },
         {
             "title": "Responsive Images",
             "school": "Udacity",
-            "dates": "08/2015 - 09/2015",
+            "dates": "2015",
             "url": "https://www.udacity.com/course/responsive-images--ud882"
         },
         {
             "title": "Responsive Web Design Fundamentals",
             "school": "Udacity",
-            "dates": "08/2015 - 09/2015",
+            "dates": "2015",
             "url": "https://www.udacity.com/course/responsive-web-design-fundamentals--ud893"
         },
         {
             "title": "Intro to HTML and CSS",
             "school": "Udacity",
-            "dates": "08/2015 - 09/2015",
+            "dates": "2015",
             "url": "https://www.udacity.com/course/intro-to-html-and-css--ud304"
         },
         {
             "title": "Intro to Computer Science",
             "school": "Udacity",
-            "dates": "07/2015 - 09/2015",
+            "dates": "2015",
             "url": "https://www.udacity.com/course/intro-to-computer-science--cs101"
         }
     ]
