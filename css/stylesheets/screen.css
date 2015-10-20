@@ -112,7 +112,7 @@ a {
   text-decoration: none;
   margin-top: 10px;
   display: table-cell;
-  padding: 10px 0 10px 0;
+  padding: 10px 0;
 }
 /* line 34, ../sass/_text.scss */
 a:visited {
@@ -214,7 +214,6 @@ span {
 .gray {
   background-color: #f3f3f3;
   padding-bottom: 10px;
-  clear: both;
 }
 
 /* line 11, ../sass/_background.scss */
@@ -244,7 +243,6 @@ span {
 /* line 8, ../sass/_flow.scss */
 .flex-box-header {
   margin-bottom: 0.5em;
-  line-height: 140%;
 }
 
 /* line 14, ../sass/_flow.scss */
@@ -255,10 +253,9 @@ span {
 /* line 19, ../sass/_flow.scss */
 .flex-box-footer {
   justify-content: center;
-  padding: 10px;
 }
 
-/* line 25, ../sass/_flow.scss */
+/* line 24, ../sass/_flow.scss */
 .center-content {
   padding: 2.5% 5%;
 }
@@ -272,25 +269,20 @@ span {
   display: none;
 }
 
-/* line 8, ../sass/_images.scss */
-img {
-  padding: 10px;
-}
-
-/* line 12, ../sass/_images.scss */
+/* line 9, ../sass/_images.scss */
 .project-img {
   display: block;
   max-width: 90%;
   height: auto;
 }
 
-/* line 18, ../sass/_images.scss */
+/* line 15, ../sass/_images.scss */
 .footer-entry, .footer-icon {
-  padding: 5px 5px 5px 5px;
-  margin: 0 15px 0 15px;
+  padding: 5px;
+  margin: 0 15px;
 }
 
-/* line 23, ../sass/_images.scss */
+/* line 21, ../sass/_images.scss */
 .footer-icon {
   color: #ff0;
   font-size: 1.8em;
@@ -338,48 +330,43 @@ img {
   }
 }
 @media only screen and (max-width: 900px) {
-  /* line 8, ../sass/_media.scss */
+  /* line 9, ../sass/_media.scss */
   .biopic {
     width: 175px;
   }
 }
 @media only screen and (max-width: 750px) {
-  /* line 14, ../sass/_media.scss */
+  /* line 16, ../sass/_media.scss */
   #name {
     font-size: 1.9em;
   }
 
-  /* line 17, ../sass/_media.scss */
+  /* line 20, ../sass/_media.scss */
   .header-role {
     font-size: 1.5em;
   }
 
-  /* line 20, ../sass/_media.scss */
+  /* line 24, ../sass/_media.scss */
   #topContacts {
     padding-top: 2%;
   }
 
-  /* line 23, ../sass/_media.scss */
+  /* line 28, ../sass/_media.scss */
   #mapDiv {
     padding-bottom: 20%;
   }
 
-  /* line 26, ../sass/_media.scss */
+  /* line 31, ../sass/_media.scss */
   #lets-connect {
     margin-top: 0;
   }
 
-  /* line 29, ../sass/_media.scss */
-  .biopic {
-    width: 150px;
-  }
-
-  /* line 32, ../sass/_media.scss */
+  /* line 34, ../sass/_media.scss */
   .welcome-message {
     display: none;
   }
 
-  /* line 35, ../sass/_media.scss */
+  /* line 38, ../sass/_media.scss */
   .line-break {
     display: block;
     height: 0;
@@ -387,34 +374,35 @@ img {
   }
 }
 @media only screen and (min-width: 750px) {
-  /* line 43, ../sass/_media.scss */
+  /* line 46, ../sass/_media.scss */
   #skills-h3,
   .biopic {
     display: block;
   }
 
-  /* line 47, ../sass/_media.scss */
+  /* line 50, ../sass/_media.scss */
   #workExperience {
     border-top: 10px solid #1a1a1a;
   }
 
-  /* line 50, ../sass/_media.scss */
+  /* line 53, ../sass/_media.scss */
   #education {
     border-top: 5px solid #1a1a1a;
   }
 }
 @media only screen and (min-width: 1200px) {
-  /* line 56, ../sass/_media.scss */
+  /* line 59, ../sass/_media.scss */
   .subtitle {
     padding-top: 0.5em;
   }
 
-  /* line 59, ../sass/_media.scss */
+  /* line 63, ../sass/_media.scss */
   .project-entry {
     max-width: 1000px;
+    padding-right: 0;
   }
 
-  /* line 62, ../sass/_media.scss */
+  /* line 68, ../sass/_media.scss */
   #project-line1, #project-line2, #work-line, #edu-line1, #edu-line2, #edu-line3 {
     z-index: 10;
     position: absolute;
@@ -424,41 +412,41 @@ img {
     left: 1040px;
   }
 
-  /* line 70, ../sass/_media.scss */
+  /* line 76, ../sass/_media.scss */
   #project-line2 {
     left: 1070px;
   }
 
-  /* line 74, ../sass/_media.scss */
+  /* line 80, ../sass/_media.scss */
   .work-entry {
     max-width: 1150px;
     padding-right: 0;
   }
 
-  /* line 78, ../sass/_media.scss */
+  /* line 85, ../sass/_media.scss */
   #work-line {
     left: 1170px;
     width: 30px;
   }
 
-  /* line 83, ../sass/_media.scss */
+  /* line 90, ../sass/_media.scss */
   .education-entry {
     max-width: 930px;
     padding-right: 0;
   }
 
-  /* line 87, ../sass/_media.scss */
+  /* line 94, ../sass/_media.scss */
   #edu-line1, #edu-line2, #edu-line3 {
     width: 15px;
     left: 950px;
   }
 
-  /* line 92, ../sass/_media.scss */
+  /* line 99, ../sass/_media.scss */
   #edu-line2 {
     left: 975px;
   }
 
-  /* line 96, ../sass/_media.scss */
+  /* line 103, ../sass/_media.scss */
   #edu-line3 {
     left: 1000px;
   }

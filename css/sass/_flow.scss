@@ -7,8 +7,8 @@
 
 .flex-box-header {
   @extend .flex-box;
+  // Seperate #topContacts from .welcome-message
   margin-bottom: 0.5em;
-  line-height: 140%;
 }
 
 .flex-box-skills {
@@ -19,9 +19,9 @@
 .flex-box-footer {
   @extend .flex-box;
   justify-content: center;
-  padding: 10px;
 }
 
 .center-content {
+  // Centers the header
   padding: 2.5% 5%;
 }

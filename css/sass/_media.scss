@@ -1,5 +1,6 @@
 @media only screen and (max-width: 1024px) {
   #lets-connect {
+    // Otherwise the map will spill under this div on smaller displays.
     margin-top: 5%;
   }
 }
@@ -11,27 +12,29 @@
 }
 
 @media only screen and (max-width: 750px) {
+  // Overrides h1 style in _headings.scss
   #name{
     font-size: 1.9em;
   }
+  // Bumps up .header-role on smaller displays for aesthetic effect
   .header-role{
     font-size: 1.5em;
   }
+  // Keeps #topContacts away .header-role
   #topContacts {
     padding-top: 2%;
   }
+  // Keeps map from spilling under #lets-connect on small displays
   #mapDiv{
       padding-bottom: 20%;
     }
   #lets-connect {
     margin-top: 0;
   }
-  .biopic {
-    width: 150px;
-  }
   .welcome-message {
     display: none;
   }
+  // Shows a <br> element to put .header-role on a new line
   .line-break{
     display:block;
     height: 0;
@@ -56,9 +59,12 @@
   .subtitle{
     padding-top: 0.5em;
   }
+  // Make sure there is room for #project-line1 and 2
   .project-entry {
     max-width: 1000px;
+    padding-right: 0;
   }
+  // Graphic <div>, decorative
   #project-line1 {
     z-index: 10;
     position: absolute;
@@ -73,6 +79,7 @@
   }
   .work-entry{
     max-width: 1150px;
+    // Makes it easy to put #work-line really close to the text.
     padding-right: 0;
   }
   #work-line {

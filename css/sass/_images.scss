@@ -2,11 +2,8 @@
   float: left;
   padding: 10px;
   width: 200px;
+  // This will display as long as the screen is at least 750px. See _media.scss
   display: none;
-}
-
-img {
-  padding: 10px;
 }
 
 .project-img {
@@ -16,8 +13,9 @@ img {
 }
 
 .footer-entry{
-  padding: 5px 5px 5px 5px;
-  margin: 0 15px 0 15px;
+  padding: 5px;
+  // Needed to keep .footer-icon anchors spread apart.
+  margin: 0 15px;
 }
 
 .footer-icon {
@@ -25,6 +23,8 @@ img {
   font-size: 1.8em;
   @extend .footer-entry;
 
+  // _text.scss sets links to display $color-link-visited when they are visited,
+  // and this resets this so that they remain uniform when not hovered over.
   &:visited {
     color: $color-icons;
   }

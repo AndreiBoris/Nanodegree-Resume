@@ -29,7 +29,7 @@ a {
   // display: table-cell; makes the a elements not extend across the page, so
   // that they keep confined to just where the content is.
   display: table-cell;
-  padding: 10px 0 10px 0;
+  padding: 10px 0;
 
   &:visited {
     color: $color-link-visited;
