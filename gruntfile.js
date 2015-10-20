@@ -15,21 +15,21 @@ module.exports = function(grunt) {
 	      concat:{
 	         dist: {
 	            src: [
-	               'js/jQuery.js', 'js/helper.js'
+	               'js/jquery.js', 'js/helper.js'
 	            ],
-	            dest: 'js/jQueryAndHelper.js',
+	            dest: 'js/jqueryandhelper.js',
 	         },
 	      },
 	      uglify: {
           my_target: {
             files: {
-              'js/build/resumeBuilder.min.js': ['js/resumeBuilder.js'],
-              'js/build/jQueryAndHelper.min.js': ['js/jQueryAndHelper.js']
+              'js/build/resumebuilder.min.js': ['js/resumebuilder.js'],
+              'js/build/jqueryandhelper.min.js': ['js/jqueryandhelper.js']
             }
           }
 	       },
          jshint: {
-           all: ['gruntfile.js', 'js/helper.js', 'js/resumeBuilder.js'],
+           all: ['gruntfile.js', 'js/helper.js', 'js/resumebuilder.js'],
          },
          compass: {
            dist: {
