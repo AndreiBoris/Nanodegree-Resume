@@ -1,10 +1,5 @@
 /* All information objects */
 
-/*
-description inside work.jobs and projects.projects uses an array of short lines
-in order to be more presentable. These items then get concatinated in the
-display functions defined below.
-*/
 var work = {
     'jobs': [
         {
