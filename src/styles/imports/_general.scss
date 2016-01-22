@@ -1,0 +1,16 @@
+// This allows the lines that display on screens wider than 1200px to be
+// positioned correctly.
+#projects,
+#workExperience,
+#education,
+#mapDiv {
+  position: relative;
+}
+
+#bordered{
+  border-left:10px solid $color-top-background;
+}
+
+#education{
+  border-bottom: 7px solid $color-top-background;
+}

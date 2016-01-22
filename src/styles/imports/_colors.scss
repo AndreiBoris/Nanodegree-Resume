@@ -1,0 +1,36 @@
+// $base-color possibilities: #333, #000047, #001400, black **MUST BE VERY DARK**
+
+$base-color: black;
+$secondary-color: #ff0;
+$link-color: #00c;
+$color-link-hover: red;
+$color-link-visited: #606;
+
+$base-hue: hue($base-color);
+$base-sat: saturation($base-color);
+$base-light: lightness($base-color);
+$base-red: red($base-color);
+$base-green: green($base-color);
+$base-blue: blue($base-color);
+
+$color-name: $secondary-color;
+
+$color-text: $base-color;
+
+$color-top-background: lighten($base-color, 10%);
+
+$color-support: lighten($color-top-background, 15%);
+
+$color-link: $link-color;
+
+$color-top-content: #fff;
+
+$color-standout: #000;
+
+$color-background: #f3f3f3;
+
+$color-highlight: $secondary-color;
+
+$color-bottom: lighten($base-color, 3%);
+
+$color-icons: $secondary-color;

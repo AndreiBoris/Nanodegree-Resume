@@ -1,3 +1,5 @@
+'use strict';
+
 // Load plugins
 var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),
@@ -5,83 +7,109 @@ var gulp = require('gulp'),
     cssnano = require('gulp-cssnano'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
-    cache = require('gulp-cache'),
-    livereload = require('gulp-livereload'),
     del = require('del'),
     htmlmin = require('gulp-htmlmin'),
     imageResize = require('gulp-image-resize');
 
 // Styles
 gulp.task('styles', function() {
-  return sass('css/sass/screen.scss', { style: 'expanded' })
-    .pipe(autoprefixer('last 2 version'))
-    .pipe(gulp.dest('css/build'))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(cssnano())
-    .pipe(gulp.dest('css/build'))
-    .pipe(notify({ message: 'Styles task complete' }));
+    return sass('src/styles/**/*.scss', {
+            style: 'expanded'
+        })
+        .pipe(autoprefixer('last 2 version'))
+        .pipe(gulp.dest('dist/styles/'))
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(cssnano())
+        .pipe(gulp.dest('dist/styles/'))
+        .pipe(notify({
+            message: 'Styles task complete'
+        }));
 });
 
 // Scripts
 gulp.task('scripts', function() {
-  return gulp.src('js/resumebuilder.js')
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'))
-    .pipe(gulp.dest('js/build'))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(uglify())
-    .pipe(gulp.dest('js/build'))
-    .pipe(notify({ message: 'Scripts task complete' }));
+    return gulp.src(['src/scripts/helper.js', 'src/scripts/**/*.js'])
+        .pipe(jshint('.jshintrc'))
+        .pipe(jshint.reporter('default'))
+        .pipe(concat('main.js'))
+        .pipe(gulp.dest('dist/scripts'))
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/scripts'))
+        .pipe(notify({
+            message: 'Scripts task complete'
+        }));
 });
 
 // Clean images
 gulp.task('clean-images', function() {
-  return del(['dist/images'])
-})
+    return del(['dist/images']);
+});
 
 // Resize images
 gulp.task('images', ['clean-images'], function() {
-  gulp.src('images/**/*')
-    .pipe(imageResize({
-      width: 400
-    }))
-    .pipe(gulp.dest('dist/images'))
-    .pipe(notify({ message: 'Resize (no minification) task complete' }));
+    gulp.src('src/images/**/*')
+        .pipe(imageResize({
+            width: 500
+        }))
+        .pipe(gulp.dest('dist/images'))
+        .pipe(notify({
+            message: 'Resize (no minification) task complete'
+        }));
 });
 
 // Clean
 gulp.task('clean', function() {
-  return del(['dist/images']);
+    return del(['dist/styles', 'dist/scripts', 'dist/images', './index.html']);
 });
 
-// Main task
-gulp.task('main', ['clean'], function() {
-  gulp.start('styles', 'scripts', 'images');
-});
 
 // Default
-gulp.task('default', function() {
-  gulp.start('main', 'minify-html');
-})
+gulp.task('default', ['clean'], function() {
+    gulp.start('styles', 'scripts', 'images', 'minify-html');
+});
 
 // Minify HTML
 gulp.task('minify-html', function() {
-  return gulp.src('src/*.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('.'))
+    return gulp.src('src/*.html')
+        .pipe(htmlmin({
+            collapseWhitespace: true
+        }))
+        .pipe(gulp.dest('.'));
+});
+
+// Lint gulpfile.js
+gulp.task('gulpfile-lint', function() {
+    return gulp.src('gulpfile.js')
+        .pipe(jshint('.jshintrc'))
+        .pipe(jshint.reporter('default'))
+        .pipe(notify({
+            message: 'Gulpfile-lint task complete'
+        }));
 });
 
 // Watch
 gulp.task('watch', function() {
 
-  // Watch .scss files
-  gulp.watch('css/sass/**/*.scss', ['styles']);
+    // Watch .scss files
+    gulp.watch('src/styles/**/*.scss', ['styles']);
 
-  // Watch .js files
-  gulp.watch('js/resumebuilder.js', ['scripts']);
+    // Watch .js files
+    gulp.watch('src/scripts/**/*.js', ['scripts']);
 
+    // Watch image files
+    gulp.watch('src/images/**/*', ['images']);
+
+    // Watch src/index.html
+    gulp.watch('src/*.html', ['minify-html']);
+
+    // Watch this file
+    gulp.watch('gulpfile.js', ['gulpfile-lint']);
 });

@@ -1,0 +1,21 @@
+.highlight {
+  background-color: $color-highlight;
+}
+
+.gray {
+  background-color: $color-background;
+  // Add spacing between resume content.
+  padding-bottom: 10px;
+}
+
+.white{
+  padding-bottom: 10px;
+}
+
+.dark-gray {
+  background-color: $color-bottom;
+}
+
+#header {
+  background-color: $color-top-background;
+}
