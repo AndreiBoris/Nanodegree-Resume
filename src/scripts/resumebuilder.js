@@ -1,9 +1,10 @@
 'use strict';
-/* All information objects */
+
 var helper;
 
-var model, octopus, view;
+var model, bridge, view;
 
+/* All information objects */
 model = {
     // store all arrays with information
     work: {
@@ -214,189 +215,221 @@ model = {
     }
 };
 
-octopus = {
+bridge = {
 
+    init: function() {
+        view.init();
+    },
+
+    getBio: function(detail){
+        return model.bio[detail];
+    },
+
+    getBioContacts: function(detail){
+        return model.bio.contacts[detail];
+    },
+    getSkills: function(){
+        return model.bio.skills;
+    },
+    getIcons: function(){
+        return model.bio.icons;
+    },
+    getProjects: function() {
+        return model.projects.projects;
+    },
+    getSchools: function() {
+        return model.education.schools;
+    },
+    getOnlineCourses: function() {
+        return model.education.online;
+    },
+    getJobs: function() {
+        return model.work.jobs;
+    }
 };
 
 view = {
 
-};
+    init: function() {
 
+        this.renderBio();
+        this.renderProjects();
+        this.renderEducation();
+        this.renderWork();
 
+        $('#mapDiv').append(helper.googleMap);
 
+        // This console.logs click locations as part of the resume assignment.
+        $(document).click(function(loc) {
+            console.log('x location: ' + loc.pageX, 'y location:' + loc.pageY);
+        });
 
-/* Display functions */
+    },
 
-// This function is defined using dot notation as part of the resume assignment
-var renderBio = function() {
-    var formattedName = helper.HTMLheaderName.replace('%data%', model.bio.name),
-        formattedRole = helper.HTMLheaderRole.replace('%data%', model.bio.role),
-        formattedMobile = helper.HTMLmobile.replace('%data%', model.bio.contacts.mobile),
-        formattedEmail = helper.HTMLemail.replace('%data%', model.bio.contacts.email),
-        formattedGithub = helper.HTMLgithub.replace('%data%', model.bio.contacts.github),
-        formattedTwitter = helper.HTMLtwitter.replace('%data%', model.bio.contacts.twitter),
-        formattedLocation = helper.HTMLlocation.replace('%data%', model.bio.contacts.location),
-        formattedBioPic = helper.HTMLbioPic.replace('%data%', model.bio.picture),
-        formattedWelcome = helper.HTMLwelcomeMsg.replace('%data%', model.bio.welcome);
+    renderBio: function() {
+        var formattedName = helper.HTMLheaderName.replace('%data%', bridge.getBio('name')),
+            formattedRole = helper.HTMLheaderRole.replace('%data%', bridge.getBio('role')),
+            formattedMobile = helper.HTMLmobile.replace('%data%', bridge.getBioContacts('mobile')),
+            formattedEmail = helper.HTMLemail.replace('%data%', bridge.getBioContacts('email')),
+            formattedGithub = helper.HTMLgithub.replace('%data%', bridge.getBioContacts('github')),
+            formattedTwitter = helper.HTMLtwitter.replace('%data%', bridge.getBioContacts('twitter')),
+            formattedLocation = helper.HTMLlocation.replace('%data%', bridge.getBioContacts('location')),
+            formattedBioPic = helper.HTMLbioPic.replace('%data%', bridge.getBio('picture')),
+            formattedWelcome = helper.HTMLwelcomeMsg.replace('%data%', bridge.getBio('welcome'));
 
-    $('#header').prepend(formattedRole);
-    // This .line-break will be toggled on when the display is sufficiently small
-    // in order to give extra space to the role.
-    $('.header-role').prepend('<span class="line-break"><br></span>');
-    $('#header').prepend(formattedName);
+        $('#header').prepend(formattedRole);
+        // This .line-break will be toggled on when the display is sufficiently small
+        // in order to give extra space to the role.
+        $('.header-role').prepend('<span class="line-break"><br></span>');
+        $('#header').prepend(formattedName);
 
-    $('#topContacts').append(formattedMobile);
-    $('#topContacts').append(formattedEmail);
-    $('#topContacts').append(formattedGithub);
-    $('#topContacts').append(formattedTwitter);
-    $('#topContacts').append(formattedLocation);
+        $('#topContacts').append(formattedMobile);
+        $('#topContacts').append(formattedEmail);
+        $('#topContacts').append(formattedGithub);
+        $('#topContacts').append(formattedTwitter);
+        $('#topContacts').append(formattedLocation);
 
-    $('#header').append(formattedBioPic);
-    $('#header').append(formattedWelcome);
+        $('#header').append(formattedBioPic);
+        $('#header').append(formattedWelcome);
 
-    // Stores both fullName and intName to allow toggle.
-    var fullName = $('#name').text();
-    var intName = fullName.split(' ');
-    intName[1] = intName[1].toUpperCase();
-    intName = intName.join(' ');
+        // Stores both fullName and intName to allow toggle.
+        var fullName = $('#name').text();
+        var intName = fullName.split(' ');
+        intName[1] = intName[1].toUpperCase();
+        intName = intName.join(' ');
 
-    // Toggle between fullName and intName for internationalization upon clicking
-    // on name.
-    $('#name').on('click', function() {
-        if ($('#name').text() === fullName) {
-            $('#name').text(intName);
-        } else {
-            $('#name').text(fullName);
+        // Toggle between fullName and intName for internationalization upon clicking
+        // on name.
+        $('#name').on('click', function() {
+            if ($('#name').text() === fullName) {
+                $('#name').text(intName);
+            } else {
+                $('#name').text(fullName);
+            }
+        });
+
+        var i;
+        // Display header skills.
+        var usefulSkills = bridge.getSkills();
+        var numSkills = usefulSkills.length;
+        if (numSkills > 0) {
+            $('#header').append(helper.HTMLskillsStart);
+            for (i = 0; i < numSkills; i++) {
+                $('#skills').append(helper.HTMLskills.replace('%data%', usefulSkills[i]));
+            }
         }
-    });
 
-    var i;
-    // Display header skills.
-    if (model.bio.skills.length > 0) {
-        $('#header').append(helper.HTMLskillsStart);
-        for (i = 0; i < model.bio.skills.length; i++) {
-            $('#skills').append(helper.HTMLskills.replace('%data%', model.bio.skills[i]));
+        // Display footer icons.
+        var footerIcons = bridge.getIcons();
+        var numIcons = footerIcons.length;
+        for (i = 0; i < numIcons; i++) {
+            $('#footerContacts').append(helper.HTMLfooterStart);
+            var formattedFooter = helper.HTMLfooterContact.replace('%data%', footerIcons[i].icon);
+            formattedFooter = formattedFooter.replace('#', footerIcons[i].url);
+            $('.footer-entry:last').append(formattedFooter);
+        }
+    },
+
+    renderProjects: function() {
+
+        // helper.HTMLprojectLines create line graphics for displays over 1200px wide, see
+        // _media.scss. This is also the case for helper.HTMLworkLine and helper.HTMLeducationLines.
+        $('#projects').prepend(helper.HTMLprojectLines);
+
+        var allProjects = bridge.getProjects();
+        var numProjects = allProjects.length;
+        for (var i = 0; i < numProjects; i++) {
+            $('#projects').append(helper.HTMLprojectStart);
+
+            var formattedProjectTitle = helper.HTMLprojectTitle.replace('%data%', allProjects[i].title);
+            formattedProjectTitle = formattedProjectTitle.replace('#', allProjects[i].url);
+
+            var formattedProjectDates = helper.HTMLprojectDates.replace('%data%', allProjects[i].date),
+                formattedProjectDesc = helper.HTMLprojectDescription.replace('%data%', allProjects[i].description),
+                formattedProjectImage = helper.HTMLprojectImage.replace('%data%', allProjects[i].image[0]);
+            formattedProjectImage = formattedProjectImage.replace('#', allProjects[i].url);
+
+            $('.project-entry:last').append(formattedProjectTitle);
+            $('.project-entry:last').append(formattedProjectDates);
+            $('.project-entry:last').append(formattedProjectDesc);
+            $('.project-entry:last').append(formattedProjectImage);
+        }
+    },
+
+    renderEducation: function() {
+
+        $('#education').prepend(helper.HTMLeducationLines);
+
+        var allSchools = bridge.getSchools();
+        var numSchools = allSchools.length;
+        var i;
+        for (i = 0; i < numSchools; i++) {
+            $('#education').append(helper.HTMLschoolStart);
+
+            var formattedName = helper.HTMLschoolName.replace('%data%', allSchools[i].name);
+            formattedName = formattedName.replace('#', allSchools[i].url);
+
+            var formattedDegree = helper.HTMLschoolDegree.replace('%data%', allSchools[i].degree),
+                formattedDates = helper.HTMLschoolDates.replace('%data%', allSchools[i].dates),
+                formattedLocation = helper.HTMLschoolLocation.replace('%data%', allSchools[i].location),
+                formattedMajor = helper.HTMLschoolMajor.replace('%data%', allSchools[i].majors.join(', '));
+
+            $('.education-entry:last').append(formattedName);
+            $('.education-entry:last').append(formattedDegree);
+            $('.education-entry:last').append(formattedDates);
+            $('.education-entry:last').append(formattedLocation);
+            $('.education-entry:last').append(formattedMajor);
+        }
+
+        var allOnlineCourses = bridge.getOnlineCourses();
+        var numOnlineCourses = allOnlineCourses.length;
+        // If there are no online classes, this heading won't be added to the resume
+        if (numOnlineCourses > 0) {
+            $('#education').append(helper.HTMLonlineClasses);
+        }
+
+        for (i = 0; i < numOnlineCourses; i++) {
+            $('#education').append(helper.HTMLschoolStart);
+
+            var formattedTitle = helper.HTMLonlineTitle.replace('%data%', allOnlineCourses[i].title);
+            formattedTitle = formattedTitle.replace('#', allOnlineCourses[i].url);
+
+            var formattedSchool = helper.HTMLonlineSchool.replace('%data%', allOnlineCourses[i].school);
+            var formattedDatesOnline = helper.HTMLonlineDates.replace('%data%', allOnlineCourses[i].dates);
+
+            $('.education-entry:last').append(formattedTitle);
+            $('.education-entry:last').append(formattedSchool);
+            $('.education-entry:last').append(formattedDatesOnline);
+        }
+    },
+    renderWork: function() {
+
+        var allJobs = bridge.getJobs();
+        var numJobs = allJobs.length;
+        if (numJobs > 0) {
+
+            $('#workExperience').prepend(helper.HTMLworkLine);
+
+            for (var i = 0; i < numJobs; i++) {
+                $('#workExperience').append(helper.HTMLworkStart);
+                var formattedEmployer = helper.HTMLworkEmployer.replace('%data%', allJobs[i].employer);
+                formattedEmployer = formattedEmployer.replace('#', allJobs[i].url);
+
+                var formattedTitle = helper.HTMLworkTitle.replace('%data%', allJobs[i].title),
+                    formattedEmployerTitle = formattedEmployer + formattedTitle,
+                    formattedDates = helper.HTMLworkDates.replace('%data%', allJobs[i].date),
+                    formattedLocation = helper.HTMLworkLocation.replace('%data%', allJobs[i].location),
+                    formattedDesc = helper.HTMLworkDescription.replace('%data%', allJobs[i].description);
+
+                $('.work-entry:last').append(formattedEmployerTitle);
+                $('.work-entry:last').append(formattedDates);
+                $('.work-entry:last').append(formattedLocation);
+                $('.work-entry:last').append(formattedDesc);
+
+            }
         }
     }
 
-    // Display footer icons.
-    var length = model.bio.icons.length;
-    for (i = 0; i < length; i++) {
-        $('#footerContacts').append(helper.HTMLfooterStart);
-        var formattedFooter = helper.HTMLfooterContact.replace('%data%', model.bio.icons[i].icon);
-        formattedFooter = formattedFooter.replace('#', model.bio.icons[i].url);
-        $('.footer-entry:last').append(formattedFooter);
-    }
 };
 
-var renderProjects = function() {
-
-    // helper.HTMLprojectLines create line graphics for displays over 1200px wide, see
-    // _media.scss. This is also the case for helper.HTMLworkLine and helper.HTMLeducationLines.
-    $('#projects').prepend(helper.HTMLprojectLines);
-
-    var length = model.projects.projects.length;
-    for (var i = 0; i < length; i++) {
-        $('#projects').append(helper.HTMLprojectStart);
-
-        var formattedProjectTitle = helper.HTMLprojectTitle.replace('%data%', model.projects.projects[i].title);
-        formattedProjectTitle = formattedProjectTitle.replace('#', model.projects.projects[i].url);
-
-        var formattedProjectDates = helper.HTMLprojectDates.replace('%data%', model.projects.projects[i].date),
-            formattedProjectDesc = helper.HTMLprojectDescription.replace('%data%', model.projects.projects[i].description),
-            formattedProjectImage = helper.HTMLprojectImage.replace('%data%', model.projects.projects[i].image[0]);
-        formattedProjectImage = formattedProjectImage.replace('#', model.projects.projects[i].url);
-
-        $('.project-entry:last').append(formattedProjectTitle);
-        $('.project-entry:last').append(formattedProjectDates);
-        $('.project-entry:last').append(formattedProjectDesc);
-        $('.project-entry:last').append(formattedProjectImage);
-    }
-};
-
-var renderEducation = function() {
-
-    $('#education').prepend(helper.HTMLeducationLines);
-
-    var length = model.education.schools.length;
-    for (var i = 0; i < length; i++) {
-        $('#education').append(helper.HTMLschoolStart);
-
-        var formattedName = helper.HTMLschoolName.replace('%data%', model.education.schools[i].name);
-        formattedName = formattedName.replace('#', model.education.schools[i].url);
-
-        var formattedDegree = helper.HTMLschoolDegree.replace('%data%', model.education.schools[i].degree),
-            formattedDates = helper.HTMLschoolDates.replace('%data%', model.education.schools[i].dates),
-            formattedLocation = helper.HTMLschoolLocation.replace('%data%', model.education.schools[i].location),
-            formattedMajor = helper.HTMLschoolMajor.replace('%data%', model.education.schools[i].majors.join(', '));
-
-        $('.education-entry:last').append(formattedName);
-        $('.education-entry:last').append(formattedDegree);
-        $('.education-entry:last').append(formattedDates);
-        $('.education-entry:last').append(formattedLocation);
-        $('.education-entry:last').append(formattedMajor);
-    }
-
-    // If there are no online classes, this heading won't be added to the resume
-    if (model.education.online.length > 0) {
-        $('#education').append(helper.HTMLonlineClasses);
-    }
-
-    length = model.education.online.length;
-    for (var school = 0; school < length; school++) {
-        $('#education').append(helper.HTMLschoolStart);
-
-        var formattedTitle = helper.HTMLonlineTitle.replace('%data%', model.education.online[school].title);
-        formattedTitle = formattedTitle.replace('#', model.education.online[school].url);
-
-        var formattedSchool = helper.HTMLonlineSchool.replace('%data%', model.education.online[school].school);
-        var formattedDatesOnline = helper.HTMLonlineDates.replace('%data%', model.education.online[school].dates);
-
-        $('.education-entry:last').append(formattedTitle);
-        $('.education-entry:last').append(formattedSchool);
-        $('.education-entry:last').append(formattedDatesOnline);
-    }
-};
-
-var renderWork = function() {
-
-    if (model.work.jobs.length > 0) {
-
-        $('#workExperience').prepend(helper.HTMLworkLine);
-
-        var length = model.work.jobs.length;
-        for (var i = 0; i < length; i++) {
-            $('#workExperience').append(helper.HTMLworkStart);
-            var formattedEmployer = helper.HTMLworkEmployer.replace('%data%', model.work.jobs[i].employer);
-            formattedEmployer = formattedEmployer.replace('#', model.work.jobs[i].url);
-
-            var formattedTitle = helper.HTMLworkTitle.replace('%data%', model.work.jobs[i].title),
-                formattedEmployerTitle = formattedEmployer + formattedTitle,
-                formattedDates = helper.HTMLworkDates.replace('%data%', model.work.jobs[i].date),
-                formattedLocation = helper.HTMLworkLocation.replace('%data%', model.work.jobs[i].location),
-                formattedDesc = helper.HTMLworkDescription.replace('%data%', model.work.jobs[i].description);
-
-            $('.work-entry:last').append(formattedEmployerTitle);
-            $('.work-entry:last').append(formattedDates);
-            $('.work-entry:last').append(formattedLocation);
-            $('.work-entry:last').append(formattedDesc);
-
-        }
-    }
-};
-
-
-renderBio();
-
-renderWork();
-
-renderProjects();
-
-renderEducation();
-
-$('#mapDiv').append(helper.googleMap);
-
-// This console.logs click locations as part of the resume assignment.
-$(document).click(function(loc) {
-    console.log('x location: ' + loc.pageX, 'y location:' + loc.pageY);
-});
+bridge.init();
