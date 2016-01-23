@@ -54,7 +54,7 @@ var projects = {
         'title': 'Tiny Crossing',
         'date': '29/10/15 - 20/11/15',
         'description': 'An object oriented game using JavaScript and HTML 5 canvas. ' +
-            'It is a Frogger clone.',
+            'It is a Frogger clone with increasingly difficult levels.',
         'image': [
             'images/tiny_crossing.jpeg'
         ],
