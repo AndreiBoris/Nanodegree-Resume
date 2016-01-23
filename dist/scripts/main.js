@@ -10,233 +10,236 @@ inserting a Google Map in Problem Set 3.
 
 Cameron Pittman
 */
+var map,
+    google,
+    bio,
+    education,
+    work;
 
 /*
 These are HTML strings. As part of the course, you'll be using JavaScript functions
 to replace the %data% placeholder text you see in them.
 */
-var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span class="header-role">%data%</span><hr/>';
+var helper = {
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="highlight-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="highlight-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="highlight-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="highlight-text">twitter</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="highlight-text">github</span><span class="white-text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="highlight-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="highlight-text">location</span><span class="white-text">%data%</span></li>';
+        HTMLheaderName: '<h1 id="name">%data%</h1>',
+        HTMLheaderRole: '<span class="header-role">%data%</span><hr/>',
 
-var HTMLbioPic = '<img src="%data%" class="biopic">';
-var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
+        HTMLcontactGeneric: '<li class="flex-item"><span class="highlight-text">%contact%</span><span class="white-text">%data%</span></li>',
+        HTMLmobile: '<li class="flex-item"><span class="highlight-text">mobile</span><span class="white-text">%data%</span></li>',
+        HTMLemail: '<li class="flex-item"><span class="highlight-text">email</span><span class="white-text">%data%</span></li>',
+        HTMLtwitter: '<li class="flex-item"><span class="highlight-text">twitter</span><span class="white-text">%data%</span></li>',
+        HTMLgithub: '<li class="flex-item"><span class="highlight-text">github</span><span class="white-text">%data%</span></li>',
+        HTMLblog: '<li class="flex-item"><span class="highlight-text">blog</span><span class="white-text">%data%</span></li>',
+        HTMLlocation: '<li class="flex-item"><span class="highlight-text">location</span><span class="white-text">%data%</span></li>',
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box-skills"></ul>';
-var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+        HTMLbioPic: '<img src="%data%" class="biopic">',
+        HTMLwelcomeMsg: '<span class="welcome-message">%data%</span>',
 
-// This is a div that gets manipulated into line shapes on displays of width
-// greater than 1200px wide. See _media.scss for the style information.
-// HTMLprojectLines and HTMLeducationLines are also part of the same thing.
-var HTMLworkLine = '<div id="work-line"></div>';
-var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#" target="_blank">%data%';
-var HTMLworkTitle = ' - %data%</a>';
-var HTMLworkDates = '<div class="date-text">%data%</div>';
-var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+        HTMLskillsStart: '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box-skills"></ul>',
+        HTMLskills: '<li class="flex-item"><span class="white-text">%data%</span></li>',
 
-var HTMLprojectLines = '<div id="project-line1"></div><div id="project-line2"></div>';
-var HTMLprojectStart = '</div><div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#" target="_blank">%data%</a>';
-var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<a href="#" target="_blank"><img class="project-img" src="%data%"></a>';
+        // This is a div that gets manipulated into line shapes on displays of width
+        // greater than 1200px wide. See _media.scss for the style information.
+        // HTMLprojectLines and HTMLeducationLines are also part of the same thing.
+        HTMLworkLine: '<div id="work-line"></div>',
+        HTMLworkStart: '<div class="work-entry"></div>',
+        HTMLworkEmployer: '<a href="#" target="_blank">%data%',
+        HTMLworkTitle: ' - %data%</a>',
+        HTMLworkDates: '<div class="date-text">%data%</div>',
+        HTMLworkLocation: '<div class="location-text">%data%</div>',
+        HTMLworkDescription: '<p><br>%data%</p>',
 
-var HTMLeducationLines = '<div id="edu-line1"></div><div id="edu-line2"></div><div id="edu-line3"></div>';
-var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#" target="_blank">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
-var HTMLschoolDates = '<div class="date-text">%data%</div>';
-var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+        HTMLprojectLines: '<div id="project-line1"></div><div id="project-line2"></div>',
+        HTMLprojectStart: '</div><div class="project-entry"></div>',
+        HTMLprojectTitle: '<a href="#" target="_blank">%data%</a>',
+        HTMLprojectDates: '<div class="date-text">%data%</div>',
+        HTMLprojectDescription: '<p><br>%data%</p>',
+        HTMLprojectImage: '<a href="#" target="_blank"><img class="project-img" src="%data%"></a>',
 
-var HTMLonlineClasses = '<h3 class="online-subtitle">Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#" target="_blank">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
-var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+        HTMLeducationLines: '<div id="edu-line1"></div><div id="edu-line2"></div><div id="edu-line3"></div>',
+        HTMLschoolStart: '<div class="education-entry"></div>',
+        HTMLschoolName: '<a href="#" target="_blank">%data%',
+        HTMLschoolDegree: ' -- %data%</a>',
+        HTMLschoolDates: '<div class="date-text">%data%</div>',
+        HTMLschoolLocation: '<div class="location-text">%data%</div>',
+        HTMLschoolMajor: '<em><br>Major: %data%</em>',
 
-// These allow us to add Font Awesome icons that link to other sites to the footer
-var HTMLfooterStart = '<li class="footer-entry"></li>';
-var HTMLfooterContact = '<a class="footer-icon" href="#" target="_blank"><span class="%data%"></span></a>';
+        HTMLonlineClasses: '<h3 class="online-subtitle">Online Classes</h3>',
+        HTMLonlineTitle: '<a href="#" target="_blank">%data%',
+        HTMLonlineSchool: ' - %data%</a>',
+        HTMLonlineDates: '<div class="date-text">%data%</div>',
+        HTMLonlineURL: '<br><a href="#">%data%</a>',
 
-var googleMap = '<div id="map"></div>';
+        // These allow us to add Font Awesome icons that link to other sites to the footer
+        HTMLfooterStart: '<li class="footer-entry"></li>',
+        HTMLfooterContact: '<a class="footer-icon" href="#" target="_blank"><span class="%data%"></span></a>',
 
-/*
-The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
-*/
-clickLocations = [];
+        googleMap: '<div id="map"></div>',
 
-function logClicks( x, y ) {
-  clickLocations.push( {
-    x: x,
-    y: y
-  } );
-  console.log( 'x location: ' + x + '; y location: ' + y );
-}
+        /*
+        The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
+        */
+        clickLocations: [],
 
-$( document ).click( function( loc ) {
-  // your code goes here!
-} );
+        logClicks: function(x, y) {
+            'use strict';
+            this.clickLocations.push({
+                x: x,
+                y: y
+            });
+            console.log('x location: ' + x + '; y location: ' + y);
+        },
 
-
-
-/*
-This is the fun part. Here's where we generate the custom Google Map for the website.
-See the documentation below for more details.
-https://developers.google.com/maps/documentation/javascript/reference
-*/
-var map; // declares a global map variable
+        /*
+        This is the fun part. Here's where we generate the custom Google Map for the website.
+        See the documentation below for more details.
+        https://developers.google.com/maps/documentation/javascript/reference
+        */
 
 
-/*
-Start here! initializeMap() is called when page is loaded.
-*/
+        /*
+        Start here! initializeMap() is called when page is loaded.
+        */
 
-function initializeMap() {
+        initializeMap: function() {
+            'use strict';
 
-  var locations;
+            var locations;
 
-  var mapOptions = {
-    disableDefaultUI: true
-  };
+            var mapOptions = {
+                disableDefaultUI: true
+            };
 
-  /*
-  For the map to be displayed, the googleMap var must be
-  appended to #mapDiv in resumeBuilder.js.
-  */
-  map = new google.maps.Map( document.querySelector( '#map' ), mapOptions );
+            /*
+            For the map to be displayed, the googleMap var must be
+            appended to #mapDiv in resumeBuilder.js.
+            */
+            map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
 
-  /*
-  locationFinder() returns an array of every location string from the JSONs
-  written for bio, education, and work.
-  */
-  function locationFinder() {
+            /*
+            locationFinder() returns an array of every location string from the JSONs
+            written for bio, education, and work.
+            */
+            function locationFinder() {
 
-    // initializes an empty array
-    var locations = [];
+                // initializes an empty array
+                var locations = [];
 
-    // adds the single location property from bio to the locations array
-    locations.push( bio.contacts.location );
+                // adds the single location property from bio to the locations array
+                locations.push(bio.contacts.location);
 
-    // iterates through school locations and appends each location to
-    // the locations array
-    for ( var school in education.schools ) {
-      locations.push( education.schools[ school ].location );
-    }
+                // iterates through school locations and appends each location to
+                // the locations array
+                for (var school in education.schools) {
+                    locations.push(education.schools[school].location);
+                }
 
-    // iterates through work locations and appends each location to
-    // the locations array
-    for ( var job in work.jobs ) {
-      locations.push( work.jobs[ job ].location );
-    }
+                // iterates through work locations and appends each location to
+                // the locations array
+                for (var job in work.jobs) {
+                    locations.push(work.jobs[job].location);
+                }
 
-    return locations;
-  }
+                return locations;
+            }
 
-  /*
-  createMapMarker(placeData) reads Google Places search results to create map pins.
-  placeData is the object returned from search results containing information
-  about a single location.
-  */
+            /*
+            createMapMarker(placeData) reads Google Places search results to create map pins.
+            placeData is the object returned from search results containing information
+            about a single location.
+            */
 
-  function createMapMarker( placeData ) {
+            function createMapMarker(placeData) {
 
-    // The next lines save location data from the search result object to local variables
-    var lat = placeData.geometry.location.lat(); // latitude from the place service
-    var lon = placeData.geometry.location.lng(); // longitude from the place service
-    var name = placeData.formatted_address; // name of the place from the place service
-    var bounds = window.mapBounds; // current boundaries of the map window
+                // The next lines save location data from the search result object to local variables
+                var lat = placeData.geometry.location.lat(); // latitude from the place service
+                var lon = placeData.geometry.location.lng(); // longitude from the place service
+                var name = placeData.formatted_address; // name of the place from the place service
+                var bounds = window.mapBounds; // current boundaries of the map window
 
-    // marker is an object with additional data about the pin for a single location
-    var marker = new google.maps.Marker( {
-      map: map,
-      position: placeData.geometry.location,
-      title: name
-    } );
+                // marker is an object with additional data about the pin for a single location
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: placeData.geometry.location,
+                    title: name
+                });
 
-    // infoWindows are the little helper windows that open when you click
-    // or hover over a pin on a map. They usually contain more information
-    // about a location.
-    var infoWindow = new google.maps.InfoWindow( {
-      content: '<div class="marker">' + name + '</div>'
-    } );
+                // infoWindows are the little helper windows that open when you click
+                // or hover over a pin on a map. They usually contain more information
+                // about a location.
+                var infoWindow = new google.maps.InfoWindow({
+                    content: '<div class="marker">' + name + '</div>'
+                });
 
-    // hmmmm, I wonder what this is about...
-    google.maps.event.addListener( marker, 'click', function() {
-      infoWindow.open( map, marker );
-    } );
+                // hmmmm, I wonder what this is about...
+                google.maps.event.addListener(marker, 'click', function() {
+                    infoWindow.open(map, marker);
+                });
 
-    // this is where the pin actually gets added to the map.
-    // bounds.extend() takes in a map location object
-    bounds.extend( new google.maps.LatLng( lat, lon ) );
-    // fit the map to the new marker
-    map.fitBounds( bounds );
-    // center the map
-    map.setCenter( bounds.getCenter() );
-  }
+                // this is where the pin actually gets added to the map.
+                // bounds.extend() takes in a map location object
+                bounds.extend(new google.maps.LatLng(lat, lon));
+                // fit the map to the new marker
+                map.fitBounds(bounds);
+                // center the map
+                map.setCenter(bounds.getCenter());
+            }
 
-  /*
-  callback(results, status) makes sure the search returned results for a location.
-  If so, it creates a new map marker for that location.
-  */
-  function callback( results, status ) {
-    if ( status == google.maps.places.PlacesServiceStatus.OK ) {
-      createMapMarker( results[ 0 ] );
-    }
-  }
+            /*
+            callback(results, status) makes sure the search returned results for a location.
+            If so, it creates a new map marker for that location.
+            */
+            function callback(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    createMapMarker(results[0]);
+                }
+            }
 
-  /*
-  pinPoster(locations) takes in the array of locations created by locationFinder()
-  and fires off Google place searches for each location
-  */
-  function pinPoster( locations ) {
+            /*
+            pinPoster(locations) takes in the array of locations created by locationFinder()
+            and fires off Google place searches for each location
+            */
+            function pinPoster(locations) {
 
-    // creates a Google place search service object. PlacesService does the work of
-    // actually searching for location data.
-    var service = new google.maps.places.PlacesService( map );
+                // creates a Google place search service object. PlacesService does the work of
+                // actually searching for location data.
+                var service = new google.maps.places.PlacesService(map);
 
-    // Iterates through the array of locations, creates a search object for each location
-    for ( var place in locations ) {
+                // Iterates through the array of locations, creates a search object for each location
+                for (var place in locations) {
 
-      // the search request object
-      var request = {
-        query: locations[ place ]
-      };
+                    // the search request object
+                    var request = {
+                        query: locations[place]
+                    };
 
-      // Actually searches the Google Maps API for location data and runs the callback
-      // function with the search results after each search.
-      service.textSearch( request, callback );
-    }
-  }
+                    // Actually searches the Google Maps API for location data and runs the callback
+                    // function with the search results after each search.
+                    service.textSearch(request, callback);
+                }
+            }
 
-  // Sets the boundaries of the map based on pin locations
-  window.mapBounds = new google.maps.LatLngBounds();
+            // Sets the boundaries of the map based on pin locations
+            window.mapBounds = new google.maps.LatLngBounds();
 
-  // locations is an array of location strings returned from locationFinder()
-  locations = locationFinder();
+            // locations is an array of location strings returned from locationFinder()
+            locations = locationFinder();
 
-  // pinPoster(locations) creates pins on the map for each location in
-  // the locations array
-  pinPoster( locations );
+            // pinPoster(locations) creates pins on the map for each location in
+            // the locations array
+            pinPoster(locations);
 
-}
+        }
 
-/*
-Uncomment the code below when you're ready to implement a Google Map!
-*/
+    };
+    /*
+    Uncomment the code below when you're ready to implement a Google Map!
+    */
 
 // Calls the initializeMap() function when the page loads
-window.addEventListener( 'load', initializeMap );
+window.addEventListener('load', helper.initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
@@ -247,6 +250,8 @@ window.addEventListener( 'load', initializeMap );
 
 'use strict';
 /* All information objects */
+var helper;
+
 var work = {
     'jobs': [{
         'employer': 'City of Vaughan',
@@ -461,15 +466,15 @@ var education = {
 
 // This function is defined using dot notation as part of the resume assignment
 bio.display = function() {
-    var formattedName = HTMLheaderName.replace('%data%', bio.name),
-        formattedRole = HTMLheaderRole.replace('%data%', bio.role),
-        formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile),
-        formattedEmail = HTMLemail.replace('%data%', bio.contacts.email),
-        formattedGithub = HTMLgithub.replace('%data%', bio.contacts.github),
-        formattedTwitter = HTMLtwitter.replace('%data%', bio.contacts.twitter),
-        formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location),
-        formattedBioPic = HTMLbioPic.replace('%data%', bio.picture),
-        formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.welcome);
+    var formattedName = helper.HTMLheaderName.replace('%data%', bio.name),
+        formattedRole = helper.HTMLheaderRole.replace('%data%', bio.role),
+        formattedMobile = helper.HTMLmobile.replace('%data%', bio.contacts.mobile),
+        formattedEmail = helper.HTMLemail.replace('%data%', bio.contacts.email),
+        formattedGithub = helper.HTMLgithub.replace('%data%', bio.contacts.github),
+        formattedTwitter = helper.HTMLtwitter.replace('%data%', bio.contacts.twitter),
+        formattedLocation = helper.HTMLlocation.replace('%data%', bio.contacts.location),
+        formattedBioPic = helper.HTMLbioPic.replace('%data%', bio.picture),
+        formattedWelcome = helper.HTMLwelcomeMsg.replace('%data%', bio.welcome);
 
     $('#header').prepend(formattedRole);
     // This .line-break will be toggled on when the display is sufficiently small
@@ -505,17 +510,17 @@ bio.display = function() {
     var i;
     // Display header skills.
     if (bio.skills.length > 0) {
-        $('#header').append(HTMLskillsStart);
+        $('#header').append(helper.HTMLskillsStart);
         for (i = 0; i < bio.skills.length; i++) {
-            $('#skills').append(HTMLskills.replace('%data%', bio.skills[i]));
+            $('#skills').append(helper.HTMLskills.replace('%data%', bio.skills[i]));
         }
     }
 
     // Display footer icons.
     var length = bio.icons.length;
     for (i = 0; i < length; i++) {
-        $('#footerContacts').append(HTMLfooterStart);
-        var formattedFooter = HTMLfooterContact.replace('%data%', bio.icons[i].icon);
+        $('#footerContacts').append(helper.HTMLfooterStart);
+        var formattedFooter = helper.HTMLfooterContact.replace('%data%', bio.icons[i].icon);
         formattedFooter = formattedFooter.replace('#', bio.icons[i].url);
         $('.footer-entry:last').append(formattedFooter);
     }
@@ -523,20 +528,20 @@ bio.display = function() {
 
 projects.display = function() {
 
-    // HTMLprojectLines create line graphics for displays over 1200px wide, see
-    // _media.scss. This is also the case for HTMLworkLine and HTMLeducationLines.
-    $('#projects').prepend(HTMLprojectLines);
+    // helper.HTMLprojectLines create line graphics for displays over 1200px wide, see
+    // _media.scss. This is also the case for helper.HTMLworkLine and helper.HTMLeducationLines.
+    $('#projects').prepend(helper.HTMLprojectLines);
 
     var length = projects.projects.length;
     for (var i = 0; i < length; i++) {
-        $('#projects').append(HTMLprojectStart);
+        $('#projects').append(helper.HTMLprojectStart);
 
-        var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.projects[i].title);
+        var formattedProjectTitle = helper.HTMLprojectTitle.replace('%data%', projects.projects[i].title);
         formattedProjectTitle = formattedProjectTitle.replace('#', projects.projects[i].url);
 
-        var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.projects[i].date),
-            formattedProjectDesc = HTMLprojectDescription.replace('%data%', projects.projects[i].description),
-            formattedProjectImage = HTMLprojectImage.replace('%data%', projects.projects[i].image[0]);
+        var formattedProjectDates = helper.HTMLprojectDates.replace('%data%', projects.projects[i].date),
+            formattedProjectDesc = helper.HTMLprojectDescription.replace('%data%', projects.projects[i].description),
+            formattedProjectImage = helper.HTMLprojectImage.replace('%data%', projects.projects[i].image[0]);
         formattedProjectImage = formattedProjectImage.replace('#', projects.projects[i].url);
 
         $('.project-entry:last').append(formattedProjectTitle);
@@ -548,19 +553,19 @@ projects.display = function() {
 
 education.display = function() {
 
-    $('#education').prepend(HTMLeducationLines);
+    $('#education').prepend(helper.HTMLeducationLines);
 
     var length = education.schools.length;
     for (var i = 0; i < length; i++) {
-        $('#education').append(HTMLschoolStart);
+        $('#education').append(helper.HTMLschoolStart);
 
-        var formattedName = HTMLschoolName.replace('%data%', education.schools[i].name);
+        var formattedName = helper.HTMLschoolName.replace('%data%', education.schools[i].name);
         formattedName = formattedName.replace('#', education.schools[i].url);
 
-        var formattedDegree = HTMLschoolDegree.replace('%data%', education.schools[i].degree),
-            formattedDates = HTMLschoolDates.replace('%data%', education.schools[i].dates),
-            formattedLocation = HTMLschoolLocation.replace('%data%', education.schools[i].location),
-            formattedMajor = HTMLschoolMajor.replace('%data%', education.schools[i].majors.join(', '));
+        var formattedDegree = helper.HTMLschoolDegree.replace('%data%', education.schools[i].degree),
+            formattedDates = helper.HTMLschoolDates.replace('%data%', education.schools[i].dates),
+            formattedLocation = helper.HTMLschoolLocation.replace('%data%', education.schools[i].location),
+            formattedMajor = helper.HTMLschoolMajor.replace('%data%', education.schools[i].majors.join(', '));
 
         $('.education-entry:last').append(formattedName);
         $('.education-entry:last').append(formattedDegree);
@@ -571,18 +576,18 @@ education.display = function() {
 
     // If there are no online classes, this heading won't be added to the resume
     if (education.online.length > 0) {
-        $('#education').append(HTMLonlineClasses);
+        $('#education').append(helper.HTMLonlineClasses);
     }
 
     length = education.online.length;
     for (var school = 0; school < length; school++) {
-        $('#education').append(HTMLschoolStart);
+        $('#education').append(helper.HTMLschoolStart);
 
-        var formattedTitle = HTMLonlineTitle.replace('%data%', education.online[school].title);
+        var formattedTitle = helper.HTMLonlineTitle.replace('%data%', education.online[school].title);
         formattedTitle = formattedTitle.replace('#', education.online[school].url);
 
-        var formattedSchool = HTMLonlineSchool.replace('%data%', education.online[school].school);
-        var formattedDatesOnline = HTMLonlineDates.replace('%data%', education.online[school].dates);
+        var formattedSchool = helper.HTMLonlineSchool.replace('%data%', education.online[school].school);
+        var formattedDatesOnline = helper.HTMLonlineDates.replace('%data%', education.online[school].dates);
 
         $('.education-entry:last').append(formattedTitle);
         $('.education-entry:last').append(formattedSchool);
@@ -594,19 +599,19 @@ work.display = function() {
 
     if (work.jobs.length > 0) {
 
-        $('#workExperience').prepend(HTMLworkLine);
+        $('#workExperience').prepend(helper.HTMLworkLine);
 
         var length = work.jobs.length;
         for (var i = 0; i < length; i++) {
-            $('#workExperience').append(HTMLworkStart);
-            var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[i].employer);
+            $('#workExperience').append(helper.HTMLworkStart);
+            var formattedEmployer = helper.HTMLworkEmployer.replace('%data%', work.jobs[i].employer);
             formattedEmployer = formattedEmployer.replace('#', work.jobs[i].url);
 
-            var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[i].title),
+            var formattedTitle = helper.HTMLworkTitle.replace('%data%', work.jobs[i].title),
                 formattedEmployerTitle = formattedEmployer + formattedTitle,
-                formattedDates = HTMLworkDates.replace('%data%', work.jobs[i].date),
-                formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[i].location),
-                formattedDesc = HTMLworkDescription.replace('%data%', work.jobs[i].description);
+                formattedDates = helper.HTMLworkDates.replace('%data%', work.jobs[i].date),
+                formattedLocation = helper.HTMLworkLocation.replace('%data%', work.jobs[i].location),
+                formattedDesc = helper.HTMLworkDescription.replace('%data%', work.jobs[i].description);
 
             $('.work-entry:last').append(formattedEmployerTitle);
             $('.work-entry:last').append(formattedDates);
@@ -626,7 +631,7 @@ projects.display();
 
 education.display();
 
-$('#mapDiv').append(googleMap);
+$('#mapDiv').append(helper.googleMap);
 
 // This console.logs click locations as part of the resume assignment.
 $(document).click(function(loc) {

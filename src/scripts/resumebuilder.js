@@ -1,5 +1,7 @@
 'use strict';
 /* All information objects */
+var helper;
+
 var work = {
     'jobs': [{
         'employer': 'City of Vaughan',
@@ -214,15 +216,15 @@ var education = {
 
 // This function is defined using dot notation as part of the resume assignment
 bio.display = function() {
-    var formattedName = HTMLheaderName.replace('%data%', bio.name),
-        formattedRole = HTMLheaderRole.replace('%data%', bio.role),
-        formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile),
-        formattedEmail = HTMLemail.replace('%data%', bio.contacts.email),
-        formattedGithub = HTMLgithub.replace('%data%', bio.contacts.github),
-        formattedTwitter = HTMLtwitter.replace('%data%', bio.contacts.twitter),
-        formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location),
-        formattedBioPic = HTMLbioPic.replace('%data%', bio.picture),
-        formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.welcome);
+    var formattedName = helper.HTMLheaderName.replace('%data%', bio.name),
+        formattedRole = helper.HTMLheaderRole.replace('%data%', bio.role),
+        formattedMobile = helper.HTMLmobile.replace('%data%', bio.contacts.mobile),
+        formattedEmail = helper.HTMLemail.replace('%data%', bio.contacts.email),
+        formattedGithub = helper.HTMLgithub.replace('%data%', bio.contacts.github),
+        formattedTwitter = helper.HTMLtwitter.replace('%data%', bio.contacts.twitter),
+        formattedLocation = helper.HTMLlocation.replace('%data%', bio.contacts.location),
+        formattedBioPic = helper.HTMLbioPic.replace('%data%', bio.picture),
+        formattedWelcome = helper.HTMLwelcomeMsg.replace('%data%', bio.welcome);
 
     $('#header').prepend(formattedRole);
     // This .line-break will be toggled on when the display is sufficiently small
@@ -258,17 +260,17 @@ bio.display = function() {
     var i;
     // Display header skills.
     if (bio.skills.length > 0) {
-        $('#header').append(HTMLskillsStart);
+        $('#header').append(helper.HTMLskillsStart);
         for (i = 0; i < bio.skills.length; i++) {
-            $('#skills').append(HTMLskills.replace('%data%', bio.skills[i]));
+            $('#skills').append(helper.HTMLskills.replace('%data%', bio.skills[i]));
         }
     }
 
     // Display footer icons.
     var length = bio.icons.length;
     for (i = 0; i < length; i++) {
-        $('#footerContacts').append(HTMLfooterStart);
-        var formattedFooter = HTMLfooterContact.replace('%data%', bio.icons[i].icon);
+        $('#footerContacts').append(helper.HTMLfooterStart);
+        var formattedFooter = helper.HTMLfooterContact.replace('%data%', bio.icons[i].icon);
         formattedFooter = formattedFooter.replace('#', bio.icons[i].url);
         $('.footer-entry:last').append(formattedFooter);
     }
@@ -276,20 +278,20 @@ bio.display = function() {
 
 projects.display = function() {
 
-    // HTMLprojectLines create line graphics for displays over 1200px wide, see
-    // _media.scss. This is also the case for HTMLworkLine and HTMLeducationLines.
-    $('#projects').prepend(HTMLprojectLines);
+    // helper.HTMLprojectLines create line graphics for displays over 1200px wide, see
+    // _media.scss. This is also the case for helper.HTMLworkLine and helper.HTMLeducationLines.
+    $('#projects').prepend(helper.HTMLprojectLines);
 
     var length = projects.projects.length;
     for (var i = 0; i < length; i++) {
-        $('#projects').append(HTMLprojectStart);
+        $('#projects').append(helper.HTMLprojectStart);
 
-        var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.projects[i].title);
+        var formattedProjectTitle = helper.HTMLprojectTitle.replace('%data%', projects.projects[i].title);
         formattedProjectTitle = formattedProjectTitle.replace('#', projects.projects[i].url);
 
-        var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.projects[i].date),
-            formattedProjectDesc = HTMLprojectDescription.replace('%data%', projects.projects[i].description),
-            formattedProjectImage = HTMLprojectImage.replace('%data%', projects.projects[i].image[0]);
+        var formattedProjectDates = helper.HTMLprojectDates.replace('%data%', projects.projects[i].date),
+            formattedProjectDesc = helper.HTMLprojectDescription.replace('%data%', projects.projects[i].description),
+            formattedProjectImage = helper.HTMLprojectImage.replace('%data%', projects.projects[i].image[0]);
         formattedProjectImage = formattedProjectImage.replace('#', projects.projects[i].url);
 
         $('.project-entry:last').append(formattedProjectTitle);
@@ -301,19 +303,19 @@ projects.display = function() {
 
 education.display = function() {
 
-    $('#education').prepend(HTMLeducationLines);
+    $('#education').prepend(helper.HTMLeducationLines);
 
     var length = education.schools.length;
     for (var i = 0; i < length; i++) {
-        $('#education').append(HTMLschoolStart);
+        $('#education').append(helper.HTMLschoolStart);
 
-        var formattedName = HTMLschoolName.replace('%data%', education.schools[i].name);
+        var formattedName = helper.HTMLschoolName.replace('%data%', education.schools[i].name);
         formattedName = formattedName.replace('#', education.schools[i].url);
 
-        var formattedDegree = HTMLschoolDegree.replace('%data%', education.schools[i].degree),
-            formattedDates = HTMLschoolDates.replace('%data%', education.schools[i].dates),
-            formattedLocation = HTMLschoolLocation.replace('%data%', education.schools[i].location),
-            formattedMajor = HTMLschoolMajor.replace('%data%', education.schools[i].majors.join(', '));
+        var formattedDegree = helper.HTMLschoolDegree.replace('%data%', education.schools[i].degree),
+            formattedDates = helper.HTMLschoolDates.replace('%data%', education.schools[i].dates),
+            formattedLocation = helper.HTMLschoolLocation.replace('%data%', education.schools[i].location),
+            formattedMajor = helper.HTMLschoolMajor.replace('%data%', education.schools[i].majors.join(', '));
 
         $('.education-entry:last').append(formattedName);
         $('.education-entry:last').append(formattedDegree);
@@ -324,18 +326,18 @@ education.display = function() {
 
     // If there are no online classes, this heading won't be added to the resume
     if (education.online.length > 0) {
-        $('#education').append(HTMLonlineClasses);
+        $('#education').append(helper.HTMLonlineClasses);
     }
 
     length = education.online.length;
     for (var school = 0; school < length; school++) {
-        $('#education').append(HTMLschoolStart);
+        $('#education').append(helper.HTMLschoolStart);
 
-        var formattedTitle = HTMLonlineTitle.replace('%data%', education.online[school].title);
+        var formattedTitle = helper.HTMLonlineTitle.replace('%data%', education.online[school].title);
         formattedTitle = formattedTitle.replace('#', education.online[school].url);
 
-        var formattedSchool = HTMLonlineSchool.replace('%data%', education.online[school].school);
-        var formattedDatesOnline = HTMLonlineDates.replace('%data%', education.online[school].dates);
+        var formattedSchool = helper.HTMLonlineSchool.replace('%data%', education.online[school].school);
+        var formattedDatesOnline = helper.HTMLonlineDates.replace('%data%', education.online[school].dates);
 
         $('.education-entry:last').append(formattedTitle);
         $('.education-entry:last').append(formattedSchool);
@@ -347,19 +349,19 @@ work.display = function() {
 
     if (work.jobs.length > 0) {
 
-        $('#workExperience').prepend(HTMLworkLine);
+        $('#workExperience').prepend(helper.HTMLworkLine);
 
         var length = work.jobs.length;
         for (var i = 0; i < length; i++) {
-            $('#workExperience').append(HTMLworkStart);
-            var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[i].employer);
+            $('#workExperience').append(helper.HTMLworkStart);
+            var formattedEmployer = helper.HTMLworkEmployer.replace('%data%', work.jobs[i].employer);
             formattedEmployer = formattedEmployer.replace('#', work.jobs[i].url);
 
-            var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[i].title),
+            var formattedTitle = helper.HTMLworkTitle.replace('%data%', work.jobs[i].title),
                 formattedEmployerTitle = formattedEmployer + formattedTitle,
-                formattedDates = HTMLworkDates.replace('%data%', work.jobs[i].date),
-                formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[i].location),
-                formattedDesc = HTMLworkDescription.replace('%data%', work.jobs[i].description);
+                formattedDates = helper.HTMLworkDates.replace('%data%', work.jobs[i].date),
+                formattedLocation = helper.HTMLworkLocation.replace('%data%', work.jobs[i].location),
+                formattedDesc = helper.HTMLworkDescription.replace('%data%', work.jobs[i].description);
 
             $('.work-entry:last').append(formattedEmployerTitle);
             $('.work-entry:last').append(formattedDates);
@@ -379,7 +381,7 @@ projects.display();
 
 education.display();
 
-$('#mapDiv').append(googleMap);
+$('#mapDiv').append(helper.googleMap);
 
 // This console.logs click locations as part of the resume assignment.
 $(document).click(function(loc) {
