@@ -133,6 +133,7 @@ var helper = {
         */
 
         function createMapMarker(placeData) {
+            /*jshint camelcase: false */
 
             // The next lines save location data from the search result object to local variables
             var lat = placeData.geometry.location.lat(); // latitude from the place service

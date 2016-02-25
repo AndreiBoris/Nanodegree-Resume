@@ -133,6 +133,7 @@ var helper = {
         */
 
         function createMapMarker(placeData) {
+            /*jshint camelcase: false */
 
             // The next lines save location data from the search result object to local variables
             var lat = placeData.geometry.location.lat(); // latitude from the place service
@@ -223,7 +224,7 @@ Uncomment the code below when you're ready to implement a Google Map!
 window.addEventListener('load', helper.initializeMap);
 var helper;
 
-var resumeBuilder = (function() {
+(function() {
     'use strict';
     var model, bridge, view;
 
@@ -317,7 +318,7 @@ var resumeBuilder = (function() {
         },
         bio: {
             'name': 'Andrei Borissenko',
-            'role': 'Software Engineer',
+            'role': 'Frontend Web Developer',
             'contacts': {
                 'mobile': '416 508 1951',
                 'email': 'Andrei.Borissenko@gmail.com',
@@ -657,6 +658,7 @@ var resumeBuilder = (function() {
 
     bridge.init();
 
-    return model;
+    // return model;
+    window.resumeBuilder = model;
 
 })();

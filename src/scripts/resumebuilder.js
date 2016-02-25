@@ -1,6 +1,6 @@
 var helper;
 
-var resumeBuilder = (function() {
+(function() {
     'use strict';
     var model, bridge, view;
 
@@ -94,7 +94,7 @@ var resumeBuilder = (function() {
         },
         bio: {
             'name': 'Andrei Borissenko',
-            'role': 'Software Engineer',
+            'role': 'Frontend Web Developer',
             'contacts': {
                 'mobile': '416 508 1951',
                 'email': 'Andrei.Borissenko@gmail.com',
@@ -434,6 +434,7 @@ var resumeBuilder = (function() {
 
     bridge.init();
 
-    return model;
+    // return model;
+    window.resumeBuilder = model;
 
 })();
