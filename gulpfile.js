@@ -33,7 +33,8 @@ gulp.task('styles', function() {
 
 // Scripts
 gulp.task('scripts', function() {
-    return gulp.src(['src/scripts/helper.js', 'src/scripts/**/*.js'])
+    return gulp.src(['src/scripts/helper.js', 'src/scripts/resumebuilder.js',
+                    'src/scripts/styleadder.js'])
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('default'))
         .pipe(concat('main.js'))
