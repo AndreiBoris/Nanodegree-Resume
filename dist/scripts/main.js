@@ -1,6 +1,9 @@
 var resumeBuilder,
     google;
 
+// Avoid JSHint warning:
+/*exported helper*/
+
 var helper = {
 
     HTMLheaderName: '<h1 id="name">%data%</h1>',
@@ -216,12 +219,6 @@ var helper = {
     }
 
 };
-/*
-Uncomment the code below when you're ready to implement a Google Map!
-*/
-
-// Calls the initializeMap() function when the page loads
-window.addEventListener('load', helper.initializeMap);
 var helper;
 
 (function() {

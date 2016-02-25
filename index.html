@@ -1,10 +1,12 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Resume</title><link href="dist/styles/screen.min.css" media="screen, projection" rel="stylesheet"><link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"><script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script><meta name="viewport" content="width=device-width"></head><body><div id="main"><!--
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Resume</title><link href="dist/styles/screen.min.css" media="screen, projection" rel="stylesheet"><link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"><meta name="viewport" content="width=device-width"></head><body><div id="main"><!--
     This is the skeleton of the code. The sections will be added through the
     resumeBuilder js file that is linked below.
     --><div id="bordered"><div id="header" class="center-content clear-fix"><ul id="topContacts" class="flex-box-header"></ul></div><div style="clear: both"></div><div id="projects" class="gray"><h2 class="subtitle">Projects</h2></div><div id="workExperience" class="white"><h2 class="subtitle">Work Experience</h2></div><div id="education" class="gray"><h2 class="subtitle">Education</h2></div></div><div id="mapDiv"><h2>Where I've Lived and Worked</h2></div><div id="lets-connect" class="dark-gray"><h2 class="highlight center-text">Let's Connect</h2><ul id="footerContacts" class="flex-box-footer"></ul></div></div><!--
   resumeBuilder.js builds the resume dynamically when this website, index.html,
   is opened.
-  --><script src="dist/perm/jquery-1.12.0.min.js"></script><script src="dist/scripts/main.min.js"></script><script type="text/javascript">if (document.getElementsByClassName('flex-item').length === 0) {
+  --><script src="dist/perm/jquery-1.12.0.min.js"></script><!--   <script src="src/scripts/helper.js"></script>
+<script src="src/scripts/resumebuilder.js"></script>
+ --><script src="dist/scripts/main.min.js"></script><script type="text/javascript">if (document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('topContacts').style.color = 'black';
     }
     if (document.getElementsByTagName('h1').length === 0) {
@@ -24,4 +26,4 @@
     }
     if (document.getElementById('map') === null) {
       document.getElementById('mapDiv').style.backgroundColor = 'black';
-    }</script></body></html><!--TODO: Add polymer, d3 and maybe Bootstrap Navbar interactivity. --><!--TODO: Update with projects as they are completed. --><!--TODO: Update gh-pages of linked to projects. --><!--TODO: Phase out irrelavent work experience as other content is put in. --><!--TODO: Update and edit skills. --><!--TODO: Replace internationlize functionality with JavaScript only -->
+    }</script><script async type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=helper.initializeMap"></script></body></html><!--TODO: Add polymer, d3 and maybe Bootstrap Navbar interactivity. --><!--TODO: Update with projects as they are completed. --><!--TODO: Update gh-pages of linked to projects. --><!--TODO: Phase out irrelavent work experience as other content is put in. --><!--TODO: Update and edit skills. --><!--TODO: Replace internationlize functionality with JavaScript only -->

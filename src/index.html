@@ -11,8 +11,6 @@
 
   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
-
   <meta name="viewport" content="width=device-width">
 </head>
 
@@ -52,7 +50,9 @@
   is opened.
   -->
   <script src="dist/perm/jquery-1.12.0.min.js"></script>
-  <script src="dist/scripts/main.min.js"></script>
+<!--   <script src="src/scripts/helper.js"></script>
+<script src="src/scripts/resumebuilder.js"></script>
+ --><script src="dist/scripts/main.min.js"></script>
 
   <script type="text/javascript">
     if (document.getElementsByClassName('flex-item').length === 0) {
@@ -77,6 +77,7 @@
       document.getElementById('mapDiv').style.backgroundColor = 'black';
     }
   </script>
+  <script async type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=helper.initializeMap"></script>
 </body>
 
 </html>
