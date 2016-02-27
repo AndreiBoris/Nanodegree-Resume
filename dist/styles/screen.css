@@ -320,7 +320,6 @@ span {
 
 /* Images */
 .biopic {
-  float: left;
   padding: 1rem;
   width: 20rem;
   display: none;
@@ -375,11 +374,6 @@ span {
 @media only screen and (max-width: 102.4rem) {
   .closer-to-map {
     margin-top: 5%;
-  }
-}
-@media only screen and (max-width: 90rem) {
-  .biopic {
-    width: 17.5rem;
   }
 }
 @media only screen and (max-width: 75rem) {

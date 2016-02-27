@@ -17,8 +17,8 @@ var helper = {
     HTMLblog: '<li class="flex-item"><span class="highlight-text">blog</span><span class="white-text">%data%</span></li>',
     HTMLlocation: '<li class="flex-item"><span class="highlight-text">location</span><span class="white-text">%data%</span></li>',
 
-    HTMLbioPic: '<img src="%data%" class="biopic img-responsive">',
-    HTMLwelcomeMsg: '<span class="welcome-message">%data%</span>',
+    HTMLbioPic: '<img src="%data%" class="biopic img-responsive center-block">',
+    HTMLwelcomeMsg: '<div class="welcome-message text-center">%data%</div>',
 
     HTMLskillsStart: '<h3 id="skills-h3" class="header-heading">Toolkit:</h3><ul id="skills" class="flex-box-skills"></ul>',
     HTMLskills: '<li class="flex-item"><span class="white-text">%data%</span></li>',
