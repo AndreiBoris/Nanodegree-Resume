@@ -62,7 +62,8 @@ var helper;
                 'image': [
                     'images/tiny_crossing.jpeg'
                 ],
-                'url': 'https://github.com/AndreiCommunication/tiny-crossing'
+                'url': 'https://github.com/AndreiCommunication/tiny-crossing',
+                'altText': 'Screen capture of a frogger-style game'
             }, {
                 'title': 'Riddle Game',
                 'date': '21/09/15 - 25/09/15',
@@ -71,7 +72,8 @@ var helper;
                 'image': [
                     'images/riddle_game.jpeg'
                 ],
-                'url': 'https://github.com/AndreiCommunication/riddle-game'
+                'url': 'https://github.com/AndreiCommunication/riddle-game',
+                'altText': 'Screen capture of a text-based game'
             }, {
                 'title': 'Optimized Website Project',
                 'date': '12/11/15 - 19/01/16',
@@ -81,7 +83,8 @@ var helper;
                 'image': [
                     'images/optimized_site.jpeg'
                 ],
-                'url': 'https://github.com/AndreiCommunication/Optimized-Portfolio'
+                'url': 'https://github.com/AndreiCommunication/Optimized-Portfolio',
+                'altText': 'Site segment featuring a randomly generated pizza ingredient list'
             }, {
                 'title': 'Portfolio Website',
                 'date': '03/09/15 - 05/09/15',
@@ -89,7 +92,8 @@ var helper;
                 'image': [
                     'images/portfolio_site.jpeg'
                 ],
-                'url': 'http://andreicommunication.github.io/portfolio-website'
+                'url': 'http://andreicommunication.github.io/portfolio-website',
+                'altText': 'Site segment of a Featured Work section in a portfolio website'
             }]
         },
         bio: {
@@ -346,7 +350,8 @@ var helper;
                 var formattedProjectDates = helper.HTMLprojectDates.replace('%data%', allProjects[i].date),
                     formattedProjectDesc = helper.HTMLprojectDescription.replace('%data%', allProjects[i].description),
                     formattedProjectImage = helper.HTMLprojectImage.replace('%data%', allProjects[i].image[0]);
-                formattedProjectImage = formattedProjectImage.replace('#', allProjects[i].url);
+                formattedProjectImage = formattedProjectImage.replace('#', allProjects[i].url),
+                formattedProjectImage = formattedProjectImage.replace('%alt%', allProjects[i].altText);
 
                 $('.project-entry:last').append(formattedProjectTitle);
                 $('.project-entry:last').append(formattedProjectDates);

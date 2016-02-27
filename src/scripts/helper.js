@@ -17,7 +17,7 @@ var helper = {
     HTMLblog: '<li><span class="big-line highlight-text">blog</span><span class="big-text white-text">%data%</span></li>',
     HTMLlocation: '<li><span class="big-line highlight-text">location</span><span class="big-text white-text">%data%</span></li>',
 
-    HTMLbioPic: '<img src="%data%" class="biopic img-responsive center-block">',
+    HTMLbioPic: '<img src="%data%" class="biopic img-responsive center-block" alt="Andrei\'s photo">',
     HTMLwelcomeMsg: '<div class="welcome-message text-center">%data%</div>',
 
     HTMLskillsStart: '<h3 id="skills-h3" class="header-heading">Toolkit:</h3><ul id="skills" class="flex-box-skills"></ul>',
@@ -40,7 +40,7 @@ var helper = {
     HTMLprojectTitle: '<a href="#" target="_blank">%data%</a>',
     HTMLprojectDates: '<div class="date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',
-    HTMLprojectImage: '<a href="#" target="_blank"><img class="project-img" src="%data%"></a>',
+    HTMLprojectImage: '<a href="#" target="_blank"><img class="project-img" src="%data%" alt="%alt%"></a>',
 
     HTMLeducationLines: '<div id="edu-line1"></div><div id="edu-line2"></div><div id="edu-line3"></div>',
     HTMLschoolStart: '<div class="education-entry"></div>',
