@@ -351,6 +351,7 @@ span {
   border: 1px solid #ff0;
   font-size: 2rem;
   margin: 0 0 1rem 1rem;
+  cursor: default;
 }
 
 .space-above {
