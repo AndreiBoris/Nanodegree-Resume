@@ -20,7 +20,7 @@ var helper = {
     HTMLbioPic: '<img src="%data%" class="biopic">',
     HTMLwelcomeMsg: '<span class="welcome-message">%data%</span>',
 
-    HTMLskillsStart: '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box-skills"></ul>',
+    HTMLskillsStart: '<h3 id="skills-h3" class="header-heading">Skills at a Glance:</h3><ul id="skills" class="flex-box-skills"></ul>',
     HTMLskills: '<li class="flex-item"><span class="white-text">%data%</span></li>',
 
     // This is a div that gets manipulated into line shapes on displays of width

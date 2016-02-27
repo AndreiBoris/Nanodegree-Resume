@@ -258,12 +258,12 @@ span {
   display: none;
 }
 
-#skills-h3 {
+.header-heading {
   color: #ff0;
   display: none;
 }
 
-#lets-connect {
+.text-center {
   text-align: center;
 }
 
@@ -377,7 +377,7 @@ span {
 
 /* Media queries */
 @media only screen and (max-width: 102.4rem) {
-  #lets-connect {
+  .closer-to-map {
     margin-top: 5%;
   }
 }
@@ -399,7 +399,7 @@ span {
     padding-bottom: 20%;
   }
 
-  #lets-connect {
+  .closer-to-map {
     margin-top: 0;
   }
 
@@ -414,26 +414,14 @@ span {
   }
 }
 @media only screen and (min-width: 75rem) {
-  #skills-h3,
+  .header-heading,
   .biopic {
     display: block;
-  }
-
-  #workExperience {
-    border-top: 1rem solid #1a1a1a;
-  }
-
-  #education {
-    border-top: 0.5rem solid #1a1a1a;
   }
 }
 @media only screen and (min-width: 100rem) {
   h2 {
     font-size: 1.5rem;
-  }
-
-  #bordered a {
-    font-size: 1.3rem;
   }
 
   .date-text,
@@ -453,44 +441,13 @@ span {
     padding-right: 0;
   }
 
-  #project-line1, #project-line2, #work-line, #edu-line1, #edu-line2, #edu-line3 {
-    z-index: 10;
-    position: absolute;
-    background-color: #1a1a1a;
-    width: 2rem;
-    height: 100%;
-    left: 104rem;
-  }
-
-  #project-line2 {
-    left: 107rem;
-  }
-
   .work-entry {
     max-width: 115rem;
     padding-right: 0;
   }
 
-  #work-line {
-    left: 117rem;
-    width: 3rem;
-  }
-
   .education-entry {
     max-width: 93rem;
     padding-right: 0;
-  }
-
-  #edu-line1, #edu-line2, #edu-line3 {
-    width: 1.5rem;
-    left: 95rem;
-  }
-
-  #edu-line2 {
-    left: 97.5rem;
-  }
-
-  #edu-line3 {
-    left: 100rem;
   }
 }

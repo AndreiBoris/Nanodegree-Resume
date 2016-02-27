@@ -114,7 +114,7 @@ span {
   display: none;
 }
 
-#skills-h3 {
+.header-heading {
   color  : $color-highlight;
 
   // See _media.scss, this is set to display: block; when the screen is at least
@@ -122,6 +122,6 @@ span {
   display: none;
 }
 
-#lets-connect {
+.text-center {
   text-align: center;
 }
