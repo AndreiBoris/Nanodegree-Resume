@@ -498,11 +498,11 @@ var helper;
                 formattedBioPic = helper.HTMLbioPic.replace('%data%', bridge.getBio('picture')),
                 formattedWelcome = helper.HTMLwelcomeMsg.replace('%data%', bridge.getBio('welcome'));
 
-            $('#header').prepend(formattedRole);
+            $('#header-headings').prepend(formattedRole);
             // This .line-break will be toggled on when the display is sufficiently small
             // in order to give extra space to the role.
-            $('.header-role').prepend('<span class="line-break"><br></span>');
-            $('#header').prepend(formattedName);
+            // $('.header-role').prepend('<span class="line-break"><br></span>');
+            $('#header-name').prepend(formattedName);
 
             $('#topContacts').append(formattedMobile);
             $('#topContacts').append(formattedEmail);

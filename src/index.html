@@ -4,19 +4,29 @@
 <head>
     <meta charset="utf-8">
     <title>Resume</title>
-    <link href="dist/perm/bootstrap.min.js" media="screen, projection" rel="stylesheet" />
+    <link href="dist/perm/bootstrap.min.css" media="screen, projection" rel="stylesheet" />
     <link href="dist/styles/screen.min.css" media="screen, projection" rel="stylesheet" />
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width">
 </head>
 
 <body>
-    <div id="main">
+    <div id="main" class="container">
         <!--
     This is the skeleton of the code. The sections will be added through the
     resumeBuilder js file that is linked below.
     -->
-        <div id="header" class="header nice-padding clear-fix">
+        <div id="header" class="header nice-padding clear-fix row">
+            <div class="row">
+                <div id="header-name" class="text-center col-md-12"></div>
+
+            </div>
+            <div class="row">
+
+                <div id="header-headings" class="text-center col-md-12"></div>
+            </div>
+
+
             <ul id="topContacts" class="flex-box-header"></ul>
         </div>
         <div id="projects" class="gray">

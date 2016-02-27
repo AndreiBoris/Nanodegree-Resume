@@ -134,10 +134,6 @@ table {
   border-spacing: 0;
 }
 
-.clear-fix {
-  overflow: auto;
-}
-
 /* Colors */
 /* Headings */
 .big-title {
@@ -157,6 +153,10 @@ table {
 .alt-title {
   font-size: 3.1rem;
   line-height: 1.5;
+}
+
+.clear-fix {
+  overflow: auto;
 }
 
 /* Text */
@@ -261,10 +261,6 @@ span {
 .header-heading {
   color: #ff0;
   display: none;
-}
-
-.text-center {
-  text-align: center;
 }
 
 /* Backgrounds */
