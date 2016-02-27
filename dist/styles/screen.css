@@ -139,31 +139,14 @@ table {
 }
 
 /* Colors */
-/* General Styles and clear-fix */
-#projects,
-#workExperience,
-#education,
-#mapDiv {
-  position: relative;
-}
-
-#bordered {
-  border-left: 1rem solid #1a1a1a;
-}
-
-#education {
-  border-bottom: 0.7rem solid #1a1a1a;
-}
-
 /* Headings */
-h1 {
+.big-title {
   font-size: 4rem;
   color: #ff0;
-  line-height: 44px;
   display: inline;
 }
 
-h2 {
+.subtitle {
   font-weight: bold;
   font-size: 2.4rem;
   color: #404040;
@@ -171,25 +154,9 @@ h2 {
   padding: 1rem;
 }
 
-h3 {
-  font-style: italic;
-  font-size: 2rem;
-  color: #000;
-  line-height: 1.1;
-}
-
-h4 {
-  font-weight: bold;
-  font-size: 1.4rem;
-  color: #404040;
-  line-height: 1.2;
-}
-
-h2,
-h3,
-h4,
-h5 {
-  padding: 1rem 5%;
+.alt-title {
+  font-size: 3.1rem;
+  line-height: 1.5;
 }
 
 /* Text */
@@ -238,10 +205,6 @@ a:hover {
 
 span {
   padding: 0.5rem;
-}
-
-.big-title {
-  font-size: 4rem;
 }
 
 .header-role {
@@ -322,7 +285,7 @@ span {
   background-color: #080808;
 }
 
-#header {
+.header {
   background-color: #1a1a1a;
 }
 
@@ -380,7 +343,7 @@ span {
 
 .footer-icon {
   color: #ff0;
-  font-size: 1.8rem;
+  font-size: 2.8rem;
 }
 .footer-icon:visited {
   color: #ff0;
