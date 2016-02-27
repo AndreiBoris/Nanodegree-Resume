@@ -1,27 +1,42 @@
 .flex-box {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-.flex-box-header {
-  @extend .flex-box;
-  // Seperate #topContacts from .welcome-message
-  margin-bottom: 0.5em;
+.flex-box-contacts {
+    @extend .flex-box;
+    // Seperate #topContacts from .welcome-message
+    margin-bottom: 0.5em;
+}
+
+.flex-box-contacts li {
+  width: 100%;
+}
+
+.flex-box-contacts li + li {
+  border-top: 1px solid #ccc;
+  padding-top: 0.7rem;
+  margin-top: 0.7rem;
 }
 
 .flex-box-skills {
-  @extend .flex-box;
-  justify-content: space-around;
+    @extend .flex-box;
+    justify-content: space-around;
 }
 
 .flex-box-footer {
-  @extend .flex-box;
-  justify-content: center;
+    @extend .flex-box;
+    justify-content: center;
 }
 
 .nice-padding {
-  // Centers the header
-  padding: 2rem 5rem;
+    // Centers the header
+    padding: 2rem 5rem;
 }
+
+.center-vertical {
+  align-self: center;
+}
+

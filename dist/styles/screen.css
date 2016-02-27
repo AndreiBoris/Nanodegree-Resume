@@ -134,6 +134,10 @@ table {
   border-spacing: 0;
 }
 
+div {
+  box-sizing: border-box;
+}
+
 /* Colors */
 /* Headings */
 .big-title {
@@ -263,6 +267,14 @@ span {
   display: none;
 }
 
+.big-text {
+  font-size: 1.3em;
+}
+
+.big-line {
+  line-height: 1.5;
+}
+
 /* Backgrounds */
 .highlight {
   background-color: #ff0;
@@ -286,7 +298,7 @@ span {
 }
 
 /* Flow */
-.flex-box, .flex-box-header, .flex-box-skills, .flex-box-footer {
+.flex-box, .flex-box-contacts, .flex-box-skills, .flex-box-footer {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -298,8 +310,18 @@ span {
           flex-wrap: wrap;
 }
 
-.flex-box-header {
+.flex-box-contacts {
   margin-bottom: 0.5em;
+}
+
+.flex-box-contacts li {
+  width: 100%;
+}
+
+.flex-box-contacts li + li {
+  border-top: 1px solid #ccc;
+  padding-top: 0.7rem;
+  margin-top: 0.7rem;
 }
 
 .flex-box-skills {
@@ -316,6 +338,12 @@ span {
 
 .nice-padding {
   padding: 2rem 5rem;
+}
+
+.center-vertical {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
 }
 
 /* Images */
@@ -371,6 +399,11 @@ span {
 }
 
 /* Media queries */
+@media all and (max-width: 1200px) {
+  .vanish {
+    display: none;
+  }
+}
 @media only screen and (max-width: 102.4rem) {
   .closer-to-map {
     margin-top: 5%;

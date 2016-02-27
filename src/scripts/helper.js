@@ -10,12 +10,12 @@ var helper = {
     HTMLheaderRole: '<span class="header-role">%data%</span>',
 
     HTMLcontactGeneric: '<li class="flex-item"><span class="highlight-text">%contact%</span><span class="white-text">%data%</span></li>',
-    HTMLmobile: '<li class="flex-item"><span class="highlight-text">mobile</span><span class="white-text">%data%</span></li>',
-    HTMLemail: '<li class="flex-item"><span class="highlight-text">email</span><span class="white-text">%data%</span></li>',
-    HTMLtwitter: '<li class="flex-item"><span class="highlight-text">twitter</span><span class="white-text">%data%</span></li>',
-    HTMLgithub: '<li class="flex-item"><span class="highlight-text">github</span><span class="white-text">%data%</span></li>',
-    HTMLblog: '<li class="flex-item"><span class="highlight-text">blog</span><span class="white-text">%data%</span></li>',
-    HTMLlocation: '<li class="flex-item"><span class="highlight-text">location</span><span class="white-text">%data%</span></li>',
+    HTMLmobile: '<li class="flex-item"><span class="big-line highlight-text">mobile</span><span class="big-text white-text">%data%</span></li>',
+    HTMLemail: '<li class="flex-item"><span class="big-line highlight-text">email</span><span class="big-text white-text">%data%</span></li>',
+    HTMLtwitter: '<li class="flex-item"><span class="big-line highlight-text">twitter</span><span class="big-text white-text">%data%</span></li>',
+    HTMLgithub: '<li class="flex-item"><span class="big-line highlight-text">github</span><span class="big-text white-text">%data%</span></li>',
+    HTMLblog: '<li class="flex-item"><span class="big-line highlight-text">blog</span><span class="big-text white-text">%data%</span></li>',
+    HTMLlocation: '<li class="flex-item"><span class="big-line highlight-text">location</span><span class="big-text white-text">%data%</span></li>',
 
     HTMLbioPic: '<img src="%data%" class="biopic img-responsive center-block">',
     HTMLwelcomeMsg: '<div class="welcome-message text-center">%data%</div>',

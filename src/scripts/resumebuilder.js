@@ -114,7 +114,10 @@ var helper;
                 'Grunt',
                 'Gulp',
                 'C',
-                'Bash scripting'
+                'Bash',
+                'Jasmine',
+                'AJAX',
+                'Knockout'
             ],
             'icons': [{
                 'icon': 'fa fa-git',
