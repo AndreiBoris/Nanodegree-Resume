@@ -437,7 +437,9 @@ var helper;
         renderNav: function() {
             $('#nav-div').affix({
                 offset: {
-                    top: 350
+                    top: function() {
+                        return (this.top = $('#header').outerHeight(true));
+                    }
                 }
             });
         }
