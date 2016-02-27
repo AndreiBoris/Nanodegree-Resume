@@ -21,7 +21,8 @@ var helper = {
     HTMLwelcomeMsg: '<div class="welcome-message text-center">%data%</div>',
 
     HTMLskillsStart: '<h3 id="skills-h3" class="header-heading">Toolkit:</h3><ul id="skills" class="flex-box-skills"></ul>',
-    HTMLskills: '<li class="flex-item"><span class="white-text">%data%</span></li>',
+    HTMLskills: '<button class="btn btn-default skill">%data%</button>',
+    // HTMLskills: '<li class="flex-item"><span class="white-text">%data%</span></li>',
 
     // This is a div that gets manipulated into line shapes on displays of width
     // greater than 1200px wide. See _media.scss for the style information.

@@ -346,6 +346,17 @@ span {
           align-self: center;
 }
 
+.skill {
+  background-color: #ff0;
+  border: 1px solid #ff0;
+  font-size: 2rem;
+  margin: 0 0 1rem 1rem;
+}
+
+.space-above {
+  margin-top: 1rem;
+}
+
 /* Images */
 .biopic {
   padding: 1rem;

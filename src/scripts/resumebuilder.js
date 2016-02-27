@@ -96,7 +96,6 @@ var helper;
             'name': 'Andrei Borissenko',
             'role': 'Frontend Web Developer',
             'contacts': {
-                'mobile': '416 508 1951',
                 'email': 'Andrei.Borissenko@gmail.com',
                 'github': 'AndreiCommunication',
                 'twitter': '@BreathMachine',
@@ -283,7 +282,7 @@ var helper;
             $('#header-name').append(formattedName);
             $('#header-title').append(formattedRole);
 
-            $('#topContacts').append(formattedMobile);
+            // $('#topContacts').append(formattedMobile);
             $('#topContacts').append(formattedEmail);
             $('#topContacts').append(formattedGithub);
             $('#topContacts').append(formattedTwitter);
