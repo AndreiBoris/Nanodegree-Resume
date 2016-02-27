@@ -102,7 +102,7 @@ var helper;
                 'twitter': '@BreathMachine',
                 'location': 'Toronto, Ontario, Canada'
             },
-            'picture': 'images/me-400.jpg',
+            'picture': 'dist/images/me.jpg',
             'welcome': 'Develop everyday.',
             'skills': [
                 'Python',
