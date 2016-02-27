@@ -59,7 +59,7 @@ var helper = {
     HTMLfooterStart: '<li class="footer-entry"></li>',
     HTMLfooterContact: '<a class="footer-icon" href="#" target="_blank"><span class="%data%"></span></a>',
 
-    googleMap: '<div id="map"></div>',
+    googleMap: '<div id="map" class="map"></div>',
 
     /*
     The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.

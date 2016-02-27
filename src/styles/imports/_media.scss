@@ -24,13 +24,8 @@
     font-size: 1.5rem;
   }
 
-  // Keeps #topContacts away .header-role
-  #topContacts {
-    padding-top: 2%;
-  }
-
   // Keeps map from spilling under #lets-connect on small displays
-  #mapDiv {
+  .map-container {
     padding-bottom: 20%;
   }
 

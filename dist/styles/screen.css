@@ -353,13 +353,13 @@ span {
 }
 
 /* Map */
-#map {
+.map {
   display: block;
   height: 100%;
   margin: 0 5%;
 }
 
-#mapDiv {
+.map-container {
   height: 35rem;
   width: 100%;
   padding-bottom: 5%;
@@ -395,11 +395,7 @@ span {
     font-size: 1.5rem;
   }
 
-  #topContacts {
-    padding-top: 2%;
-  }
-
-  #mapDiv {
+  .map-container {
     padding-bottom: 20%;
   }
 

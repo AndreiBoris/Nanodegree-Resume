@@ -12,7 +12,8 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     del = require('del'),
     htmlmin = require('gulp-htmlmin'),
-    imageResize = require('gulp-image-resize');
+    imageResize = require('gulp-image-resize'),
+    livereload = require('gulp-livereload');
 
 // Styles
 gulp.task('styles', function() {
@@ -26,6 +27,7 @@ gulp.task('styles', function() {
         }))
         .pipe(cssnano())
         .pipe(gulp.dest('dist/styles/'))
+        .pipe(livereload())
         .pipe(notify({
             message: 'Styles task complete'
         }));
@@ -98,7 +100,7 @@ gulp.task('gulpfile-lint', function() {
 
 // Watch
 gulp.task('watch', function() {
-
+    livereload.listen();
     // Watch .scss files
     gulp.watch('src/styles/**/*.scss', ['styles']);
 
