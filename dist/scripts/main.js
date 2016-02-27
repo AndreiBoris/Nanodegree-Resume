@@ -325,7 +325,7 @@ var helper;
                 'email': 'Andrei.Borissenko@gmail.com',
                 'github': 'AndreiCommunication',
                 'twitter': '@BreathMachine',
-                'location': 'Toronto, Ontario, Canada'
+                'location': 'Toronto, Canada'
             },
             'picture': 'dist/images/me.jpg',
             'welcome': 'Develop everyday.',
