@@ -397,8 +397,9 @@
     "modal.js",
     "tab.js",
     "affix.js",
+    "collapse.js",
     "scrollspy.js",
     "transition.js"
   ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=24c30e2b07a3132a1601"
+  "customizerUrl": "http://getbootstrap.com/customize/?id=97a27ff23e2c99c394ff"
 }
