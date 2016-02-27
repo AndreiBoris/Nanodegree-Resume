@@ -1,7 +1,7 @@
 .biopic {
   float: left;
-  padding: 10px;
-  width: 200px;
+  padding: 1rem;
+  width: 20rem;
   // This will display as long as the screen is at least 750px. See _media.scss
   display: none;
 }
@@ -13,14 +13,14 @@
 }
 
 .footer-entry{
-  padding: 5px;
+  padding: 0.5rem;
   // Needed to keep .footer-icon anchors spread apart.
-  margin: 0 15px;
+  margin: 0 1.5rem;
 }
 
 .footer-icon {
   color: $color-icons;
-  font-size: 1.8em;
+  font-size: 1.8rem;
   @extend .footer-entry;
 
   // _text.scss sets links to display $color-link-visited when they are visited,

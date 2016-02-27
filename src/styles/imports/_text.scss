@@ -1,3 +1,7 @@
+html {
+    font-size: 62.5%;
+}
+
 body,
 div,
 ul,
@@ -9,6 +13,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-size: 1.6rem;
   font-family: "Roboto", sans-serif;
 }
 
@@ -17,20 +22,20 @@ ul {
 }
 
 p {
-  font-size  : 14px;
+  font-size  : 1.6rem;
   color      : $color-text;
-  line-height: 21px;
+  line-height: 1.3;
 }
 
 a {
   color          : $color-link;
   text-decoration: none;
-  margin-top     : 10px;
+  margin-top     : 1rem;
 
   // display: table-cell; makes the a elements not extend across the page, so
   // that they keep confined to just where the content is.
   display        : table-cell;
-  padding        : 10px 0;
+  padding        : 1rem 0;
 
   &:visited {
     color: $color-link-visited;
@@ -45,7 +50,11 @@ a {
 span {
 
   // Used to keep items in header spaced out from one another.
-  padding: 5px;
+  padding: 0.5rem;
+}
+
+.big-title{
+  font-size: 4rem;
 }
 
 .header-role {
@@ -54,9 +63,9 @@ span {
 
 .date-text {
   font-style  : italic;
-  font-size   : 14px;
+  font-size   : 1.4rem;
   color       : $color-support;
-  line-height : 16px;
+  line-height : 1.2;
 
   // float: left; sends the #education dates to the left so that they line up
   // with the school name instead of appearing after the school name.
@@ -64,14 +73,14 @@ span {
 
   // margin-right: 5px; adds some space between the dates and the dash that
   // follows them.
-  margin-right: 5px;
+  margin-right: 0.5rem;
 }
 
 .location-text {
   font-style : italic;
-  font-size  : 14px;
+  font-size  : 1.4rem;
   color      : $color-support;
-  line-height: 16px;
+  line-height: 1.6rem;
   float      : right;
 }
 
@@ -83,9 +92,9 @@ span {
 
 .welcome-message {
   font-style : italic;
-  font-size  : 18px;
+  font-size  : 1.8rem;
   color      : $color-background;
-  line-height: 28px;
+  line-height: 1.4;
 }
 
 .highlight-text {
@@ -98,7 +107,7 @@ span {
 }
 
 .online-subtitle {
-  margin-top: 9px;
+  margin-top: 0.9rem;
 }
 
 // This class is added to a <br> element before the role in the #header and is

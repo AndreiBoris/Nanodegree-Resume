@@ -1,5 +1,5 @@
 h1 {
-  font-size: 40px;
+  font-size: 4rem;
   color: $color-name;
   line-height: 44px;
   display: inline;
@@ -7,24 +7,24 @@ h1 {
 
 h2 {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 2.4rem;
   color: $color-support;
-  line-height: 29px;
-  padding: 10px;
+  line-height: 1.2;
+  padding: 1rem;
 }
 
 h3 {
   font-style: italic;
-  font-size: 20px;
+  font-size: 2rem;
   color: $color-standout;
-  line-height: 22px;
+  line-height: 1.1;
 }
 
 h4 {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 1.4rem;
   color: $color-support;
-  line-height: 17px;
+  line-height: 1.2;
 }
 
 // Line up the headings with the rest of the resume content
@@ -32,6 +32,6 @@ h2,
 h3,
 h4,
 h5 {
-  padding:10px 5%;
+  padding:1rem 5%;
 
 }

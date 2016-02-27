@@ -6,7 +6,7 @@ var resumeBuilder,
 
 var helper = {
 
-    HTMLheaderName: '<h1 id="name">%data%</h1>',
+    HTMLheaderName: '<h1 id="name" class="big-title">%data%</h1>',
     HTMLheaderRole: '<span class="header-role">%data%</span><hr/>',
 
     HTMLcontactGeneric: '<li class="flex-item"><span class="highlight-text">%contact%</span><span class="white-text">%data%</span></li>',

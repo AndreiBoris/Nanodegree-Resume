@@ -1,4 +1,4 @@
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 102.4rem) {
   #lets-connect {
 
     // Otherwise the map will spill under this div on smaller displays.
@@ -6,22 +6,22 @@
   }
 }
 
-@media only screen and (max-width:900px) {
+@media only screen and (max-width: 90rem) {
   .biopic {
-    width: 175px;
+    width: 17.5rem;
   }
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 75rem) {
 
   // Overrides h1 style in _headings.scss
-  #name {
-    font-size: 1.9em;
+  .big-title {
+    font-size: 3.5rem;
   }
 
   // Bumps up .header-role on smaller displays for aesthetic effect
   .header-role {
-    font-size: 1.5em;
+    font-size: 1.5rem;
   }
 
   // Keeps #topContacts away .header-role
@@ -50,46 +50,47 @@
   }
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 75rem) {
   #skills-h3,
   .biopic {
     display: block;
   }
 
   #workExperience {
-    border-top: 10px solid $color-top-background;
+    border-top: 1rem solid $color-top-background;
   }
 
   #education {
-    border-top: 5px solid $color-top-background;
+    border-top: 0.5rem solid $color-top-background;
   }
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 100rem) {
   h2 {
-    font-size: 1.5em;
+    font-size: 1.5rem;
   }
 
   #bordered a {
-    font-size: 1.3em;
+    font-size: 1.3rem;
   }
 
   .date-text,
   .location-text,
   .education-entry,
   p {
-    font-size: 1.1em;
+    font-size: 1.1rem;
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 120rem) {
+
   .subtitle {
-    padding-top: 0.5em;
+    padding-top: 0.5rem;
   }
 
   // Make sure there is room for #project-line1 and 2
   .project-entry {
-    max-width    : 1000px;
+    max-width    : 100rem;
     padding-right: 0;
   }
 
@@ -98,18 +99,18 @@
     z-index         : 10;
     position        : absolute;
     background-color: $color-top-background;
-    width           : 20px;
+    width           : 2rem;
     height          : 100%;
-    left            : 1040px;
+    left            : 104rem;
   }
 
   #project-line2 {
     @extend #project-line1;
-    left: 1070px;
+    left: 107rem;
   }
 
   .work-entry {
-    max-width    : 1150px;
+    max-width    : 115rem;
 
     // Makes it easy to put #work-line really close to the text.
     padding-right: 0;
@@ -117,28 +118,28 @@
 
   #work-line {
     @extend #project-line1;
-    left : 1170px;
-    width: 30px;
+    left : 117rem;
+    width: 3rem;
   }
 
   .education-entry {
-    max-width    : 930px;
+    max-width    : 93rem;
     padding-right: 0;
   }
 
   #edu-line1 {
     @extend #project-line1;
-    width: 15px;
-    left : 950px;
+    width: 1.5rem;
+    left : 95rem;
   }
 
   #edu-line2 {
     @extend #edu-line1;
-    left: 975px;
+    left: 97.5rem;
   }
 
   #edu-line3 {
     @extend #edu-line1;
-    left: 1000px;
+    left: 100rem;
   }
 }
