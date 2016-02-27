@@ -7,7 +7,7 @@ var resumeBuilder,
 var helper = {
 
     HTMLheaderName: '<h1 id="name" class="big-title">%data%</h1>',
-    HTMLheaderRole: '<span class="header-role">%data%</span><hr/>',
+    HTMLheaderRole: '<span class="header-role">%data%</span>',
 
     HTMLcontactGeneric: '<li class="flex-item"><span class="highlight-text">%contact%</span><span class="white-text">%data%</span></li>',
     HTMLmobile: '<li class="flex-item"><span class="highlight-text">mobile</span><span class="white-text">%data%</span></li>',
@@ -17,10 +17,10 @@ var helper = {
     HTMLblog: '<li class="flex-item"><span class="highlight-text">blog</span><span class="white-text">%data%</span></li>',
     HTMLlocation: '<li class="flex-item"><span class="highlight-text">location</span><span class="white-text">%data%</span></li>',
 
-    HTMLbioPic: '<img src="%data%" class="biopic">',
+    HTMLbioPic: '<img src="%data%" class="biopic img-responsive">',
     HTMLwelcomeMsg: '<span class="welcome-message">%data%</span>',
 
-    HTMLskillsStart: '<h3 id="skills-h3" class="header-heading">Skills at a Glance:</h3><ul id="skills" class="flex-box-skills"></ul>',
+    HTMLskillsStart: '<h3 id="skills-h3" class="header-heading">Toolkit:</h3><ul id="skills" class="flex-box-skills"></ul>',
     HTMLskills: '<li class="flex-item"><span class="white-text">%data%</span></li>',
 
     // This is a div that gets manipulated into line shapes on displays of width
@@ -498,11 +498,8 @@ var helper;
                 formattedBioPic = helper.HTMLbioPic.replace('%data%', bridge.getBio('picture')),
                 formattedWelcome = helper.HTMLwelcomeMsg.replace('%data%', bridge.getBio('welcome'));
 
-            $('#header-headings').prepend(formattedRole);
-            // This .line-break will be toggled on when the display is sufficiently small
-            // in order to give extra space to the role.
-            // $('.header-role').prepend('<span class="line-break"><br></span>');
-            $('#header-name').prepend(formattedName);
+            $('#header-name').append(formattedName);
+            $('#header-title').append(formattedRole);
 
             $('#topContacts').append(formattedMobile);
             $('#topContacts').append(formattedEmail);
@@ -510,8 +507,8 @@ var helper;
             $('#topContacts').append(formattedTwitter);
             $('#topContacts').append(formattedLocation);
 
-            $('#header').append(formattedBioPic);
-            $('#header').append(formattedWelcome);
+            $('#header-photo').append(formattedBioPic);
+            $('#header-motto').append(formattedWelcome);
 
             // Stores both fullName and intName to allow toggle.
             var fullName = $('#name').text();
@@ -534,9 +531,9 @@ var helper;
             var usefulSkills = bridge.getSkills();
             var numSkills = usefulSkills.length;
             if (numSkills > 0) {
-                $('#header').append(helper.HTMLskillsStart);
+                $('#header-skill-title').append(helper.HTMLskillsStart);
                 for (i = 0; i < numSkills; i++) {
-                    $('#skills').append(helper.HTMLskills.replace('%data%', usefulSkills[i]));
+                    $('#header-skills').append(helper.HTMLskills.replace('%data%', usefulSkills[i]));
                 }
             }
 

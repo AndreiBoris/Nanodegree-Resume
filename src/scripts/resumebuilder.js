@@ -277,11 +277,8 @@ var helper;
                 formattedBioPic = helper.HTMLbioPic.replace('%data%', bridge.getBio('picture')),
                 formattedWelcome = helper.HTMLwelcomeMsg.replace('%data%', bridge.getBio('welcome'));
 
-            $('#header-headings').prepend(formattedRole);
-            // This .line-break will be toggled on when the display is sufficiently small
-            // in order to give extra space to the role.
-            // $('.header-role').prepend('<span class="line-break"><br></span>');
-            $('#header-name').prepend(formattedName);
+            $('#header-name').append(formattedName);
+            $('#header-title').append(formattedRole);
 
             $('#topContacts').append(formattedMobile);
             $('#topContacts').append(formattedEmail);
@@ -289,8 +286,8 @@ var helper;
             $('#topContacts').append(formattedTwitter);
             $('#topContacts').append(formattedLocation);
 
-            $('#header').append(formattedBioPic);
-            $('#header').append(formattedWelcome);
+            $('#header-photo').append(formattedBioPic);
+            $('#header-motto').append(formattedWelcome);
 
             // Stores both fullName and intName to allow toggle.
             var fullName = $('#name').text();
@@ -313,9 +310,9 @@ var helper;
             var usefulSkills = bridge.getSkills();
             var numSkills = usefulSkills.length;
             if (numSkills > 0) {
-                $('#header').append(helper.HTMLskillsStart);
+                $('#header-skill-title').append(helper.HTMLskillsStart);
                 for (i = 0; i < numSkills; i++) {
-                    $('#skills').append(helper.HTMLskills.replace('%data%', usefulSkills[i]));
+                    $('#header-skills').append(helper.HTMLskills.replace('%data%', usefulSkills[i]));
                 }
             }
 

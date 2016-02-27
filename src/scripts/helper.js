@@ -7,7 +7,7 @@ var resumeBuilder,
 var helper = {
 
     HTMLheaderName: '<h1 id="name" class="big-title">%data%</h1>',
-    HTMLheaderRole: '<span class="header-role">%data%</span><hr/>',
+    HTMLheaderRole: '<span class="header-role">%data%</span>',
 
     HTMLcontactGeneric: '<li class="flex-item"><span class="highlight-text">%contact%</span><span class="white-text">%data%</span></li>',
     HTMLmobile: '<li class="flex-item"><span class="highlight-text">mobile</span><span class="white-text">%data%</span></li>',
@@ -17,10 +17,10 @@ var helper = {
     HTMLblog: '<li class="flex-item"><span class="highlight-text">blog</span><span class="white-text">%data%</span></li>',
     HTMLlocation: '<li class="flex-item"><span class="highlight-text">location</span><span class="white-text">%data%</span></li>',
 
-    HTMLbioPic: '<img src="%data%" class="biopic">',
+    HTMLbioPic: '<img src="%data%" class="biopic img-responsive">',
     HTMLwelcomeMsg: '<span class="welcome-message">%data%</span>',
 
-    HTMLskillsStart: '<h3 id="skills-h3" class="header-heading">Skills at a Glance:</h3><ul id="skills" class="flex-box-skills"></ul>',
+    HTMLskillsStart: '<h3 id="skills-h3" class="header-heading">Toolkit:</h3><ul id="skills" class="flex-box-skills"></ul>',
     HTMLskills: '<li class="flex-item"><span class="white-text">%data%</span></li>',
 
     // This is a div that gets manipulated into line shapes on displays of width
