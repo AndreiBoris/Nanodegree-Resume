@@ -358,6 +358,10 @@ span {
   margin-top: 1rem;
 }
 
+.affix {
+  top: 0;
+}
+
 /* Images */
 .biopic {
   padding: 1rem;

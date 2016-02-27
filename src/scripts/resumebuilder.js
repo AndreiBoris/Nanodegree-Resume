@@ -262,6 +262,7 @@ var helper;
             this.renderProjects();
             this.renderEducation();
             this.renderWork();
+            this.renderNav();
 
             $('#mapDiv').append(helper.googleMap);
 
@@ -275,7 +276,7 @@ var helper;
         renderBio: function() {
             var formattedName = helper.HTMLheaderName.replace('%data%', bridge.getBio('name')),
                 formattedRole = helper.HTMLheaderRole.replace('%data%', bridge.getBio('role')),
-                formattedMobile = helper.HTMLmobile.replace('%data%', bridge.getBioContacts('mobile')),
+                // formattedMobile = helper.HTMLmobile.replace('%data%', bridge.getBioContacts('mobile')),
                 formattedEmail = helper.HTMLemail.replace('%data%', bridge.getBioContacts('email')),
                 formattedGithub = helper.HTMLgithub.replace('%data%', bridge.getBioContacts('github')),
                 formattedTwitter = helper.HTMLtwitter.replace('%data%', bridge.getBioContacts('twitter')),
@@ -350,7 +351,7 @@ var helper;
                 var formattedProjectDates = helper.HTMLprojectDates.replace('%data%', allProjects[i].date),
                     formattedProjectDesc = helper.HTMLprojectDescription.replace('%data%', allProjects[i].description),
                     formattedProjectImage = helper.HTMLprojectImage.replace('%data%', allProjects[i].image[0]);
-                formattedProjectImage = formattedProjectImage.replace('#', allProjects[i].url),
+                formattedProjectImage = formattedProjectImage.replace('#', allProjects[i].url);
                 formattedProjectImage = formattedProjectImage.replace('%alt%', allProjects[i].altText);
 
                 $('.project-entry:last').append(formattedProjectTitle);
@@ -432,6 +433,13 @@ var helper;
 
                 }
             }
+        },
+        renderNav: function() {
+            $('#nav-div').affix({
+                offset: {
+                    top: 350
+                }
+            });
         }
 
     };
