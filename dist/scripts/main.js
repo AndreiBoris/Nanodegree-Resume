@@ -710,7 +710,7 @@ var helper;
                 // If we are above the detach point, we should scroll less to
                 // make up for the pixels we'll lose when the navigation bar
                 // detaches and becomes fixed position.
-                var aboveDetach = detachPos > currentPos;
+                var aboveDetach = detachPos >= currentPos;
                 if (aboveDetach) {
                     /* Thank you to Joseph Silber on Stackover flow for this
                     nav scroll solution:
