@@ -22,11 +22,7 @@ var helper = {
 
     HTMLskillsStart: '<h3 id="skills-h3" class="header-heading">Toolkit:</h3><ul id="skills" class="flex-box-skills"></ul>',
     HTMLskills: '<div class="btn btn-default skill">%data%</div>',
-    // HTMLskills: '<li class="flex-item"><span class="white-text">%data%</span></li>',
 
-    // This is a div that gets manipulated into line shapes on displays of width
-    // greater than 1200px wide. See _media.scss for the style information.
-    // HTMLprojectLines and HTMLeducationLines are also part of the same thing.
     HTMLworkStart: '<div class="work-entry"></div>',
     HTMLworkEmployer: '<a href="#" target="_blank">%data%',
     HTMLworkTitle: ' - %data%</a>',
@@ -34,7 +30,7 @@ var helper = {
     HTMLworkLocation: '<div class="location-text">%data%</div>',
     HTMLworkDescription: '<p><br>%data%</p>',
 
-    HTMLprojectStart: '<div class="project-entry"></div>',
+    HTMLprojectStart: '<div class="col-lg-4 col-md-6 col-sm-12 project-entry"></div>',
     HTMLprojectTitle: '<a href="#" target="_blank">%data%</a>',
     HTMLprojectDates: '<div class="date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',

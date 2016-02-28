@@ -373,7 +373,11 @@ var helper;
             var allProjects = bridge.getProjects();
             var numProjects = allProjects.length;
             for (var i = 0; i < numProjects; i++) {
-                $('#projects').append(helper.HTMLprojectStart);
+                // var $newListItem = $('<li></li>').addClass('project-item');
+                // $('#project-carousel').append($newListItem);
+                // $('.project-item:last').append(helper.HTMLprojectStart);
+                // $('#projects').append(helper.HTMLprojectStart);
+                $('#project-carousel').append(helper.HTMLprojectStart);
 
                 var formattedProjectTitle = helper.HTMLprojectTitle.replace('%data%', allProjects[i].title);
                 formattedProjectTitle = formattedProjectTitle.replace('#', allProjects[i].url);
