@@ -36,7 +36,7 @@ var helper = {
     HTMLworkDescription: '<p><br>%data%</p>',
 
     HTMLprojectLines: '<div id="project-line1"></div><div id="project-line2"></div>',
-    HTMLprojectStart: '</div><div class="project-entry"></div>',
+    HTMLprojectStart: '<div class="project-entry"></div>',
     HTMLprojectTitle: '<a href="#" target="_blank">%data%</a>',
     HTMLprojectDates: '<div class="date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',
