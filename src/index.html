@@ -16,7 +16,7 @@
     This is the skeleton of the code. The sections will be added through the
     resumeBuilder js file that is linked below.
     -->
-        <div name="header" id="header" class="header nice-padding clear-fix row">
+        <header name="header" id="header" class="header nice-padding clear-fix row">
             <div class="row">
                 <div id="header-name" class="text-center col-lg-12"></div>
             </div>
@@ -39,7 +39,7 @@
                 <div id="header-skills" class="space-above col-lg-4 col-md-6">
                 </div>
             </div>
-        </div>
+        </header>
         <div class="row">
             <div class="col-md-12">
                 <nav id="nav-div" class="navbar navbar-default">
@@ -53,8 +53,9 @@
                 </nav>
             </div>
         </div>
-        <div id="projects" class="gray row">
-            <h2 class="subtitle">Projects</h2>
+        <!-- role and aria-labelledby are used to accessibility -->
+        <div id="projects" class="gray row" role="region" aria-labelledby="projects-heading">
+            <h2 id="projects-heading" class="subtitle">Projects</h2>
             <div id="project-carousel" class="row">
             </div>
         </div>
@@ -67,11 +68,11 @@
         <div id="mapDiv" class="map-container">
             <h2 class="subtitle">Where I've Lived and Worked</h2>
         </div>
-        <div id="lets-connect" class="text-center closer-to-map dark-gray">
+        <footer id="lets-connect" class="text-center closer-to-map dark-gray">
             <h2 class="alt-title highlight center-text">Let's Connect</h2>
             <ul id="footerContacts" class="flex-box-footer">
             </ul>
-        </div>
+        </footer>
     </div>
     <!--
   main.min.js builds the resume dynamically when this website, index.html,

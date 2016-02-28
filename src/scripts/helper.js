@@ -30,7 +30,7 @@ var helper = {
     HTMLworkLocation: '<div class="location-text">%data%</div>',
     HTMLworkDescription: '<p><br>%data%</p>',
 
-    HTMLprojectStart: '<div class="col-lg-4 col-md-6 col-sm-12 project-entry"></div>',
+    HTMLprojectStart: '<article class="col-lg-4 col-md-6 col-sm-12 project-entry"></article>',
     HTMLprojectTitle: '<a href="#" target="_blank">%data%</a>',
     HTMLprojectDates: '<div class="date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',
