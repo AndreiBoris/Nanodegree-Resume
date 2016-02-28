@@ -27,7 +27,6 @@ var helper = {
     // This is a div that gets manipulated into line shapes on displays of width
     // greater than 1200px wide. See _media.scss for the style information.
     // HTMLprojectLines and HTMLeducationLines are also part of the same thing.
-    HTMLworkLine: '<div id="work-line"></div>',
     HTMLworkStart: '<div class="work-entry"></div>',
     HTMLworkEmployer: '<a href="#" target="_blank">%data%',
     HTMLworkTitle: ' - %data%</a>',
@@ -35,14 +34,12 @@ var helper = {
     HTMLworkLocation: '<div class="location-text">%data%</div>',
     HTMLworkDescription: '<p><br>%data%</p>',
 
-    HTMLprojectLines: '<div id="project-line1"></div><div id="project-line2"></div>',
     HTMLprojectStart: '<div class="project-entry"></div>',
     HTMLprojectTitle: '<a href="#" target="_blank">%data%</a>',
     HTMLprojectDates: '<div class="date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',
     HTMLprojectImage: '<a href="#" target="_blank"><img class="project-img" src="%data%" alt="%alt%"></a>',
 
-    HTMLeducationLines: '<div id="edu-line1"></div><div id="edu-line2"></div><div id="edu-line3"></div>',
     HTMLschoolStart: '<div class="education-entry"></div>',
     HTMLschoolName: '<a href="#" target="_blank">%data%',
     HTMLschoolDegree: ' -- %data%</a>',
