@@ -471,12 +471,16 @@ var helper;
          * correct location on the resume.
          */
         setNavListeners: function() {
-            // All nav buttons
-            var navButtons = $('nav a');
+            // All nav pills
+            var $navPills = $('nav li');
+            // All nav anchors
+            var $navButtons = $('nav a');
             // Avoid making DOM queries during each handler execution
             var $header = $('#header'); // The top element
             var $body = $('body');
-            navButtons.on('click', function() {
+            $navButtons.on('click', function(e) {
+                $navPills.removeClass('active');
+                $(this).parent().addClass('active');
                 // Position where navbar detaches
                 var detachPos = $header.outerHeight(true) - 50;
                 // Current scroll position

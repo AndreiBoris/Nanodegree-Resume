@@ -299,6 +299,10 @@ span {
 }
 
 /* Flow */
+body {
+  position: relative;
+}
+
 .flex-box, .flex-box-contacts, .flex-box-skills, .flex-box-footer {
   display: -webkit-flex;
   display: -ms-flexbox;
