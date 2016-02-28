@@ -256,6 +256,9 @@ var helper;
 
     view = {
 
+        /**
+         * Set up the view.
+         */
         init: function() {
 
             this.renderBio();
@@ -274,6 +277,9 @@ var helper;
 
         },
 
+        /**
+         * Render the bio at the top in the header and in the footer.
+         */
         renderBio: function() {
             var formattedName = helper.HTMLheaderName.replace('%data%', bridge.getBio('name')),
                 formattedRole = helper.HTMLheaderRole.replace('%data%', bridge.getBio('role')),
@@ -335,6 +341,9 @@ var helper;
             }
         },
 
+        /**
+         * Render project related information
+         */
         renderProjects: function() {
 
             // helper.HTMLprojectLines create line graphics for displays over 1200px wide, see
@@ -362,6 +371,9 @@ var helper;
             }
         },
 
+        /**
+         * Render education related information
+         */
         renderEducation: function() {
 
             $('#education').prepend(helper.HTMLeducationLines);
@@ -408,6 +420,10 @@ var helper;
                 $('.education-entry:last').append(formattedDatesOnline);
             }
         },
+
+        /**
+         * Render work related information
+         */
         renderWork: function() {
 
             var allJobs = bridge.getJobs();
@@ -435,6 +451,11 @@ var helper;
                 }
             }
         },
+
+        /**
+         * Navigation should become affixed when we scroll near to the end of
+         * the top div.
+         */
         renderNav: function() {
             $('#nav-div').affix({
                 offset: {
