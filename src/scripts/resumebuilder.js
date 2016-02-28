@@ -263,6 +263,7 @@ var helper;
             this.renderEducation();
             this.renderWork();
             this.renderNav();
+            this.setNavListeners();
 
             $('#mapDiv').append(helper.googleMap);
 
@@ -438,9 +439,35 @@ var helper;
             $('#nav-div').affix({
                 offset: {
                     top: function() {
-                        return (this.top = $('#header').outerHeight(true));
+                        return (this.top = $('#header').outerHeight(true) - 75);
                     }
                 }
+            });
+        },
+
+        setNavListeners: function() {
+            var navButtons = $('nav a');
+            // Position where navbar detaches
+            var $header = $('#header');
+            var $body = $('body');
+            navButtons.on('click', function() {
+                var detachPos = $header.outerHeight(true) - 75;
+                var currentPos = $body.scrollTop();
+                var aboveDetach = detachPos > currentPos;
+                if (aboveDetach) {
+                    /* Thank you to Joseph Silber on Stackover flow for this
+                    nav scroll solution:
+                    http://stackoverflow.com/questions/7717527/jquery-smooth-scrolling-when-clicking-an-anchor-link
+                    */
+                    $body.animate({
+                        scrollTop: $($.attr(this, 'href')).offset().top - 120
+                    }, 500);
+                } else {
+                    $body.animate({
+                        scrollTop: $($.attr(this, 'href')).offset().top - 50
+                    }, 500);
+                }
+                return false;
             });
         }
 
