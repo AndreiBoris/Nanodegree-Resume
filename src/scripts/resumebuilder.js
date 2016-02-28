@@ -445,20 +445,32 @@ var helper;
             });
         },
 
+        /**
+         * Set up listeners that get navigation buttons to scroll to the
+         * correct location on the resume.
+         */
         setNavListeners: function() {
+            // All nav buttons
             var navButtons = $('nav a');
-            // Position where navbar detaches
-            var $header = $('#header');
+            // Avoid making DOM queries during each handler execution
+            var $header = $('#header'); // The top element
             var $body = $('body');
             navButtons.on('click', function() {
+                // Position where navbar detaches
                 var detachPos = $header.outerHeight(true) - 50;
+                // Current scroll position
                 var currentPos = $body.scrollTop();
+                // If we are above the detach point, we should scroll less to
+                // make up for the pixels we'll lose when the navigation bar
+                // detaches and becomes fixed position.
                 var aboveDetach = detachPos > currentPos;
                 if (aboveDetach) {
                     /* Thank you to Joseph Silber on Stackover flow for this
                     nav scroll solution:
                     http://stackoverflow.com/questions/7717527/jquery-smooth-scrolling-when-clicking-an-anchor-link
                     */
+                    // Scroll to just above the current offset().top of the
+                    // element that corresponds to the href of this button
                     $body.animate({
                         scrollTop: $($.attr(this, 'href')).offset().top - 120
                     }, 500);
@@ -467,7 +479,7 @@ var helper;
                         scrollTop: $($.attr(this, 'href')).offset().top - 50
                     }, 500);
                 }
-                return false;
+                return false; // prevent default
             });
         }
 
