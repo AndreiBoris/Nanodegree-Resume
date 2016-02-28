@@ -277,12 +277,32 @@ var helper;
         },
         projects: {
             'projects': [{
+                'title': 'Toronto Theatre Map',
+                'date': '27/01/16 - 23/02/16',
+                'description': 'Map that uses Google Maps API to present a number ' +
+                    'of live theatre options in a palatable manner.',
+                'image': [
+                    'dist/images/theatremap.png'
+                ],
+                'url': 'https://github.com/AndreiCommunication/toronto-theatre-map',
+                'altText': 'Google Map with Theatre in Toronto title'
+            }, {
+                'title': 'Jasmine Test Suites',
+                'date': '24/02/16 - 25/02/16',
+                'description': 'A set of Jasmine Test Suites to check for correct ' +
+                    'functionality of a RSS feed reader.',
+                'image': [
+                    'dist/images/jasmine.png'
+                ],
+                'url': 'https://github.com/AndreiCommunication/feed-reader-testing',
+                'altText': 'Jasmine test results display'
+            }, {
                 'title': 'Tiny Crossing',
                 'date': '29/10/15 - 20/11/15',
                 'description': 'An object oriented game using JavaScript and HTML 5 canvas. ' +
                     'It is a Frogger clone with increasingly difficult levels.',
                 'image': [
-                    'images/tiny_crossing.jpeg'
+                    'dist/images/tiny_crossing.jpeg'
                 ],
                 'url': 'https://github.com/AndreiCommunication/tiny-crossing',
                 'altText': 'Screen capture of a frogger-style game'
@@ -292,7 +312,7 @@ var helper;
                 'description': 'An object oriented game in Python 2.7. Player walks around to complete ' +
                     'riddles. The game is available on my GitHub account.',
                 'image': [
-                    'images/riddle_game.jpeg'
+                    'dist/images/riddle_game.jpeg'
                 ],
                 'url': 'https://github.com/AndreiCommunication/riddle-game',
                 'altText': 'Screen capture of a text-based game'
@@ -303,7 +323,7 @@ var helper;
                     'presented to me and I made its initial load and the animations on the ' +
                     'linked pizza page work much faster.',
                 'image': [
-                    'images/optimized_site.jpeg'
+                    'dist/images/optimized_site.jpeg'
                 ],
                 'url': 'https://github.com/AndreiCommunication/Optimized-Portfolio',
                 'altText': 'Site segment featuring a randomly generated pizza ingredient list'
@@ -312,7 +332,7 @@ var helper;
                 'date': '03/09/15 - 05/09/15',
                 'description': 'A website set up to showcase web-based projects as they get completed.',
                 'image': [
-                    'images/portfolio_site.jpeg'
+                    'dist/images/portfolio_site.jpeg'
                 ],
                 'url': 'http://andreicommunication.github.io/portfolio-website',
                 'altText': 'Site segment of a Featured Work section in a portfolio website'
@@ -712,6 +732,7 @@ var helper;
                 // detaches and becomes fixed position.
                 var aboveDetach = detachPos >= currentPos;
                 if (aboveDetach) {
+                    console.log('above');
                     /* Thank you to Joseph Silber on Stackover flow for this
                     nav scroll solution:
                     http://stackoverflow.com/questions/7717527/jquery-smooth-scrolling-when-clicking-an-anchor-link
@@ -722,6 +743,7 @@ var helper;
                         scrollTop: $($.attr(this, 'href')).offset().top - 120
                     }, 500);
                 } else {
+                    console.log('below');
                     $body.animate({
                         scrollTop: $($.attr(this, 'href')).offset().top - 50
                     }, 500);
