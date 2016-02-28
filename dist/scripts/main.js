@@ -661,7 +661,7 @@ var helper;
             $('#nav-div').affix({
                 offset: {
                     top: function() {
-                        return (this.top = $('#header').outerHeight(true) - 75);
+                        return (this.top = $('#header').outerHeight(true) - 50);
                     }
                 }
             });
@@ -673,7 +673,7 @@ var helper;
             var $header = $('#header');
             var $body = $('body');
             navButtons.on('click', function() {
-                var detachPos = $header.outerHeight(true) - 75;
+                var detachPos = $header.outerHeight(true) - 50;
                 var currentPos = $body.scrollTop();
                 var aboveDetach = detachPos > currentPos;
                 if (aboveDetach) {
