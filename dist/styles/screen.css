@@ -234,8 +234,7 @@ span {
 }
 
 .education-entry,
-.work-entry,
-.project-entry {
+.work-entry {
   padding: 0 5%;
 }
 
@@ -377,12 +376,6 @@ body {
   display: none;
 }
 
-.project-img {
-  display: block;
-  max-width: 90%;
-  height: auto;
-}
-
 .footer-entry, .footer-icon {
   padding: 0.5rem;
   margin: 0 1.5rem;
@@ -492,4 +485,21 @@ body {
     max-width: 93rem;
     padding-right: 0;
   }
+}
+/* Carousel */
+.project-img {
+  display: block;
+  max-width: 90%;
+  height: auto;
+}
+
+.project-entry {
+  padding: 0 5%;
+  position: relative;
+  display: none;
+  transition: 1s;
+}
+
+.project-entry.active {
+  display: block;
 }

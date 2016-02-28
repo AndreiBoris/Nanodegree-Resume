@@ -274,15 +274,34 @@ var helper;
             return model.work.jobs;
         },
         nextProject: function() {
-            if (model.projects.current + 1 >= model.projects.length){
+            if (model.projects.current + 1 >= model.projects.projects.length) {
                 model.projects.current = 0;
             } else {
                 model.projects.current++;
+            }
+        },
+        previousProject: function() {
+            if (model.projects.current === 0) {
+                model.projects.current = model.projects.projects.length - 1;
+            } else {
+                model.projects.current--;
+            }
+        },
+        getCurrentProject: function() {
+            return model.projects.current;
+        },
+        peekNextProject: function(starting) {
+            if (starting + 1 >= model.projects.projects.length) {
+                return 0;
+            } else {
+                return starting + 1;
             }
         }
     };
 
     view = {
+        $body: $('body'),
+        $projects: null,
 
         /**
          * Set up the view.
@@ -290,7 +309,7 @@ var helper;
         init: function() {
 
             this.renderBio();
-            this.renderProjects();
+            this.loadProjects();
             this.renderEducation();
             this.renderWork();
             this.renderNav();
@@ -370,9 +389,9 @@ var helper;
         },
 
         /**
-         * Render project related information
+         * Load project related information into view
          */
-        renderProjects: function() {
+        loadProjects: function() {
 
             // helper.HTMLprojectLines create line graphics for displays over 1200px wide, see
             // _media.scss. This is also the case for helper.HTMLworkLine and helper.HTMLeducationLines.
@@ -400,6 +419,25 @@ var helper;
                 $('.project-entry:last').append(formattedProjectDates);
                 $('.project-entry:last').append(formattedProjectDesc);
                 $('.project-entry:last').append(formattedProjectImage);
+            }
+            this.$projects = $('.project-entry');
+            this.renderProjects();
+        },
+
+        renderProjects: function() {
+            console.log('rendering projects!');
+            // 15 pixels accounts for gutter so that breakpoints line up with
+            // the rendering of additional projects
+            var windowWidth = this.$body.width() + 15;
+            console.log(windowWidth);
+            this.$projects.removeClass('active');
+            var currentProject = bridge.getCurrentProject();
+            $(this.$projects[currentProject]).addClass('active');
+            if (windowWidth >= 1200){
+                $(this.$projects[bridge.peekNextProject(currentProject)]).addClass('active');
+                $(this.$projects[bridge.peekNextProject(bridge.peekNextProject(currentProject))]).addClass('active');
+            } else if (windowWidth >= 992) {
+                $(this.$projects[bridge.peekNextProject(currentProject)]).addClass('active');
             }
         },
 
@@ -548,5 +586,6 @@ var helper;
 
     // return model;
     window.resumeBuilder = model;
+    window.viewControls = view;
 
 })();

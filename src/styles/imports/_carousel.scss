@@ -1,0 +1,16 @@
+.project-img {
+  display: block;
+  max-width: 90%;
+  height: auto;
+}
+
+.project-entry {
+  padding: 0 5%;
+  position: relative;
+  display: none;
+  transition: 1s;
+}
+
+.project-entry.active {
+  display: block;
+}
