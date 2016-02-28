@@ -31,7 +31,7 @@ var helper = {
     HTMLworkDescription: '<p><br>%data%</p>',
 
     HTMLprojectStart: '<article class="col-lg-4 col-md-6 col-sm-12 project-entry"></article>',
-    HTMLprojectTitle: '<a href="#" target="_blank">%data%</a>',
+    HTMLprojectTitle: '<a href="#" target="_blank"><h4>%data%</h4></a>',
     HTMLprojectDates: '<div class="date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',
     HTMLprojectImage: '<a href="#" target="_blank"><img class="project-img" src="%data%" alt="%alt%"></a>',
@@ -329,7 +329,8 @@ var helper;
                 ],
                 'url': 'http://andreicommunication.github.io/portfolio-website',
                 'altText': 'Site segment of a Featured Work section in a portfolio website'
-            }]
+            }],
+            'current': 0
         },
         bio: {
             'name': 'Andrei Borissenko',
@@ -486,6 +487,13 @@ var helper;
         },
         getJobs: function() {
             return model.work.jobs;
+        },
+        nextProject: function() {
+            if (model.projects.current + 1 >= model.projects.length){
+                model.projects.current = 0;
+            } else {
+                model.projects.current++;
+            }
         }
     };
 
@@ -717,7 +725,7 @@ var helper;
             // Avoid making DOM queries during each handler execution
             var $header = $('#header'); // The top element
             var $body = $('body');
-            $navButtons.on('click', function(e) {
+            $navButtons.on('click', function() {
                 $navPills.removeClass('active');
                 $(this).parent().addClass('active');
                 // Position where navbar detaches
