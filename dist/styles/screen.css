@@ -540,6 +540,14 @@ body {
 .project-entry:hover, .project-entry:focus {
   border: 4px solid #000;
 }
+.project-entry:hover .project-date-text, .project-entry:focus .project-date-text {
+  background: #e6e6e6;
+}
+.project-entry:hover .project-title, .project-entry:focus .project-title {
+  font-weight: bold;
+  color: #000;
+  background: #e6e6e6;
+}
 
 .next-project-button,
 .previous-project-button {

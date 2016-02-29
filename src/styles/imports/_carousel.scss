@@ -50,6 +50,14 @@
     &:hover,
     &:focus {
       border: 4px solid $base-color;
+      .project-date-text {
+        background: $select-color;
+      }
+      .project-title {
+        font-weight: bold;
+        color: $base-color;
+        background: $select-color;
+      }
     }
 }
 
@@ -65,7 +73,7 @@
     border: none;
     &:hover,
     &:focus {
-        background-color: #e6e6e6;
+        background-color: $select-color;
         font-weight: bold;
     }
 }
