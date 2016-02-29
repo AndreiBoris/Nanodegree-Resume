@@ -58,14 +58,13 @@
     background-color: $color-highlight;
     font-size: 1.2em;
     padding: 0;
-    height: 2em;
+    height: 3em;
     border-radius: 50%;
     box-shadow: none;
     outline: none;
     border: none;
     &:hover,
     &:focus {
-        height: 2.4em;
         background-color: #e6e6e6;
     }
 }

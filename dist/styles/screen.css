@@ -546,7 +546,7 @@ body {
   background-color: #ff0;
   font-size: 1.2em;
   padding: 0;
-  height: 2em;
+  height: 3em;
   border-radius: 50%;
   box-shadow: none;
   outline: none;
@@ -555,7 +555,6 @@ body {
 .next-project-button:hover, .next-project-button:focus,
 .previous-project-button:hover,
 .previous-project-button:focus {
-  height: 2.4em;
   background-color: #e6e6e6;
 }
 
