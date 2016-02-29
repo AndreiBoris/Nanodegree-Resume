@@ -648,19 +648,28 @@ var helper;
             var windowWidth = this.$body.width() + 15;
             console.log(windowWidth);
             this.$projects.removeClass('active');
+            this.$projects.attr('aria-live', 'off');
             var currentProject = bridge.getCurrentProject();
-            $(this.$projects[currentProject]).addClass('active').insertBefore('.project-entry:first');
+            $(this.$projects[currentProject])
+            .addClass('active')
+            .insertBefore('.project-entry:first')
+            .attr('aria-live', 'polite');
             if (windowWidth >= 1200){
                 $(this.
                     $projects[bridge.peekNextProject(currentProject)])
                 .addClass('active')
-                .insertAfter('.project-entry:first');
+                .insertAfter('.project-entry:first')
+                .attr('aria-live', 'polite');
                 $(this.
                     $projects[bridge.peekNextProject(bridge.peekNextProject(currentProject))])
                 .addClass('active')
-                .insertAfter($('.project-entry').eq(1));
+                .insertAfter($('.project-entry').eq(1))
+                .attr('aria-live', 'polite');
             } else if (windowWidth >= 768) {
-                $(this.$projects[bridge.peekNextProject(currentProject)]).addClass('active').insertAfter('.project-entry:first');
+                $(this.$projects[bridge.peekNextProject(currentProject)])
+                .addClass('active')
+                .insertAfter('.project-entry:first')
+                .attr('aria-live', 'polite');
             }
         },
 
