@@ -384,36 +384,38 @@ var helper;
             // helper.HTMLprojectLines create line graphics for displays over 1200px wide, see
             // _media.scss. This is also the case for helper.HTMLworkLine and helper.HTMLeducationLines.
             $('#projects').prepend(helper.HTMLprojectLines);
-
+            // Project object
             var allProjects = bridge.getProjects();
-            var numProjects = allProjects.length;
-            var $projectCarousel = $('#project-carousel');
+            var numProjects = allProjects.length; // for the 'for' loop
+            // DOM calls made before loop. Both are for adding elements to.
+            var $projectsCarousel = $('#projects-carousel');
+            var $projectsNav = $('#projects-nav');
             for (var i = 0; i < numProjects; i++) {
                 // Add to the project navigation buttons for the carousel
+                var formattedProjectNavItem = helper.HTMLprojectNavItem.replace('%data%', (i + 1).toString());
+                $projectsNav.append(formattedProjectNavItem);
 
-
+                // Give an anchor element a link to github repo of the project
                 var formattedProjectStart = helper.HTMLprojectStart.replace('#', allProjects[i].url);
-                $projectCarousel.append(formattedProjectStart);
+                // Add the anchor to the carousel to hold project info
+                $projectsCarousel.append(formattedProjectStart);
 
-                var formattedProjectTitle = helper.HTMLprojectTitle.replace('%data%', allProjects[i].title);
-                formattedProjectTitle = formattedProjectTitle.replace('#', allProjects[i].url);
+                // Add corresponding titles and dates to premade elements
+                var formattedProjectTitle = helper.HTMLprojectTitle.replace('%data%', allProjects[i].title),
+                    formattedProjectDates = helper.HTMLprojectDates.replace('%data%', allProjects[i].date);
+                    // formattedProjectDesc = helper.HTMLprojectDescription.replace('%data%', allProjects[i].description),
 
-                var formattedProjectDates = helper.HTMLprojectDates.replace('%data%', allProjects[i].date),
-                    formattedProjectDesc = helper.HTMLprojectDescription.replace('%data%', allProjects[i].description),
-                    formattedProjectImage = helper.HTMLprojectImage.replace('%data%', allProjects[i].image);
-                // formattedProjectImage = formattedProjectImage.replace('#', allProjects[i].url);
-                formattedProjectImage = formattedProjectImage.replace('%alt%', allProjects[i].altText);
-
+                // Grab the most recently added project-entry
                 var $lastProjectEntry = $('.project-entry:last');
+                // Add the title and dates elements we made earlier to it
                 $lastProjectEntry.append(formattedProjectTitle);
                 $lastProjectEntry.append(formattedProjectDates);
+                // Set background image to the project image
                 $lastProjectEntry.css('background-image', 'url(' + allProjects[i].image + ')');
-                // $('.project-entry:last').append(formattedProjectDesc);
-                // $('.project-entry:last').append(formattedProjectImage);
             }
             // Set up listeners for next project and previous project buttons on
             // the carousel
-            var self = this;
+            var self = this; // needed due to scope issues inside the handlers
             $('.next-project-button').on('click', function() {
                 bridge.nextProject();
                 self.renderProjects();
@@ -422,12 +424,14 @@ var helper;
                 bridge.previousProject();
                 self.renderProjects();
             });
+            // Grab all the newly created projects in the carousel for
+            // renderProjects
             this.$projects = $('.project-entry');
+            // Display the projects as they are currently laid out
             this.renderProjects();
         },
 
         renderProjects: function() {
-            console.log('rendering projects!');
             // 15 pixels accounts for gutter so that breakpoints line up with
             // the rendering of additional projects
             var windowWidth = this.$body.width() + 15;

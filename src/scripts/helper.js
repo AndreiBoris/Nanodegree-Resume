@@ -34,8 +34,8 @@ var helper = {
     HTMLprojectTitle: '<h4 class="project-title">%data%</h4>',
     HTMLprojectDates: '<div class="project-date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',
-    // HTMLprojectImage: '<a href="#" target="_blank"><img class="project-img" src="%data%" alt="%alt%"></a>',
     HTMLprojectImage: '<img class="project-img" src="%data%" alt="%alt%">',
+    HTMLprojectNavItem: '<li class="projects-nav-item">%data%</li>',
 
 
     HTMLschoolStart: '<div class="education-entry"></div>',
