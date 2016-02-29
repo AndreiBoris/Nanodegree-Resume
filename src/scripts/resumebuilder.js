@@ -110,7 +110,7 @@ var helper;
                 'date': '03/09/15 - 05/09/15',
                 'description': 'A website set up to showcase web-based projects as they get completed.',
                 'image': [
-                    'dist/images/portfolio_site.jpeg'
+                    'http://placehold.it/550x400'
                 ],
                 'url': 'http://andreicommunication.github.io/portfolio-website',
                 'altText': 'Site segment of a Featured Work section in a portfolio website'

@@ -7,10 +7,29 @@
 .project-entry {
   padding: 0 5%;
   position: relative;
+  height: 25em;
   display: none;
-  transition: 1s;
+  &:hover {
+    border: 2px solid $link-color;
+  }
 }
 
 .project-entry.active {
   display: block;
+}
+
+/*** Need to take up more space when only two projects are being displayed ***/
+
+@media all and (max-width: 1200px) {
+  .project-entry {
+    height: 30em;
+  }
+}
+
+/*** Need to take up more space when only one project is being displayed ***/
+
+@media all and (max-width: 992px) {
+  .project-entry {
+    height: 35em;
+  }
 }
