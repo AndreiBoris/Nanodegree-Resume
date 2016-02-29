@@ -567,6 +567,21 @@ body {
   font-weight: bold;
 }
 
+.projects-nav {
+  padding: 1.3rem;
+}
+
+.projects-nav-item {
+  cursor: pointer;
+  display: inline;
+  margin: 0.5rem;
+  font-weight: bold;
+  font-size: 2.4rem;
+  color: #404040;
+  padding: 0.3rem 1rem;
+  border: 3px solid #404040;
+}
+
 .project-entry.active {
   display: block;
 }
