@@ -59,7 +59,7 @@ var helper;
                 'date': '27/01/16 - 23/02/16',
                 'description': 'Map that uses Google Maps API to present a number ' +
                     'of live theatre options in a palatable manner.',
-                'image':'dist/images/theatremap.png',
+                'image': 'dist/images/theatremap.png',
                 'url': 'https://github.com/AndreiCommunication/toronto-theatre-map',
                 'altText': 'Google Map with Theatre in Toronto title'
             }, {
@@ -67,7 +67,7 @@ var helper;
                 'date': '24/02/16 - 25/02/16',
                 'description': 'A set of Jasmine Test Suites to check for correct ' +
                     'functionality of a RSS feed reader.',
-                'image':'dist/images/jasmine.png',
+                'image': 'dist/images/jasmine.png',
                 'url': 'https://github.com/AndreiCommunication/feed-reader-testing',
                 'altText': 'Jasmine test results display'
             }, {
@@ -75,7 +75,7 @@ var helper;
                 'date': '29/10/15 - 20/11/15',
                 'description': 'An object oriented game using JavaScript and HTML 5 canvas. ' +
                     'It is a Frogger clone with increasingly difficult levels.',
-                'image':'dist/images/tiny_crossing.jpeg',
+                'image': 'dist/images/tiny_crossing.jpeg',
                 'url': 'https://github.com/AndreiCommunication/tiny-crossing',
                 'altText': 'Screen capture of a frogger-style game'
             }, {
@@ -83,7 +83,7 @@ var helper;
                 'date': '21/09/15 - 25/09/15',
                 'description': 'An object oriented game in Python 2.7. Player walks around to complete ' +
                     'riddles. The game is available on my GitHub account.',
-                'image':'dist/images/riddle_game.jpeg',
+                'image': 'dist/images/riddle_game.jpeg',
                 'url': 'https://github.com/AndreiCommunication/riddle-game',
                 'altText': 'Screen capture of a text-based game'
             }, {
@@ -92,14 +92,14 @@ var helper;
                 'description': 'For this project, a horribly unoptimized portfolio was ' +
                     'presented to me and I made its initial load and the animations on the ' +
                     'linked pizza page work much faster.',
-                'image':'dist/images/optimized_site.jpeg',
+                'image': 'dist/images/optimized_site.jpeg',
                 'url': 'https://github.com/AndreiCommunication/Optimized-Portfolio',
                 'altText': 'Site segment featuring a randomly generated pizza ingredient list'
             }, {
                 'title': 'Portfolio Website',
                 'date': '03/09/15 - 05/09/15',
                 'description': 'A website set up to showcase web-based projects as they get completed.',
-                'image':'http://placehold.it/550x400',
+                'image': 'http://placehold.it/550x400',
                 'url': 'http://andreicommunication.github.io/portfolio-website',
                 'altText': 'Site segment of a Featured Work section in a portfolio website'
             }],
@@ -404,7 +404,7 @@ var helper;
                 // Add corresponding titles and dates to premade elements
                 var formattedProjectTitle = helper.HTMLprojectTitle.replace('%data%', allProjects[i].title),
                     formattedProjectDates = helper.HTMLprojectDates.replace('%data%', allProjects[i].date);
-                    // formattedProjectDesc = helper.HTMLprojectDescription.replace('%data%', allProjects[i].description),
+                // formattedProjectDesc = helper.HTMLprojectDescription.replace('%data%', allProjects[i].description),
 
                 // Grab the most recently added project-entry
                 var $lastProjectEntry = $('.project-entry:last');
@@ -444,30 +444,34 @@ var helper;
             this.$projects.attr('aria-live', 'off');
             var currentProject = bridge.getCurrentProject();
             $(this.$projectsNavItems[currentProject])
-            .addClass('active');
+                .addClass('active');
             $(this.$projects[currentProject])
-            .addClass('active')
-            .insertBefore('.project-entry:first')
-            .attr('aria-live', 'polite');
-            if (windowWidth >= 1200){
+                .addClass('active')
+                .insertBefore('.project-entry:first')
+                .attr('aria-live', 'polite');
+            if (windowWidth >= 1200) {
                 var secondInLine = bridge.peekNextProject(currentProject);
                 var thirdInLine = bridge.peekNextProject(secondInLine);
-                $(this.
-                    $projects[secondInLine])
-                .addClass('active')
-                .insertAfter('.project-entry:first')
-                .attr('aria-live', 'polite');
-                $(this.
-                    $projects[thirdInLine])
-                .addClass('active')
-                .insertAfter($('.project-entry').eq(1))
-                .attr('aria-live', 'polite');
+                $(this.$projectsNavItems[secondInLine])
+                    .addClass('active');
+                $(this.$projectsNavItems[thirdInLine])
+                    .addClass('active');
+                $(this.$projects[secondInLine])
+                    .addClass('active')
+                    .insertAfter('.project-entry:first')
+                    .attr('aria-live', 'polite');
+                $(this.$projects[thirdInLine])
+                    .addClass('active')
+                    .insertAfter($('.project-entry').eq(1))
+                    .attr('aria-live', 'polite');
             } else if (windowWidth >= 768) {
                 var secondInLine = bridge.peekNextProject(currentProject);
+                $(this.$projectsNavItems[secondInLine])
+                    .addClass('active');
                 $(this.$projects[secondInLine])
-                .addClass('active')
-                .insertAfter('.project-entry:first')
-                .attr('aria-live', 'polite');
+                    .addClass('active')
+                    .insertAfter('.project-entry:first')
+                    .attr('aria-live', 'polite');
             }
         },
 
