@@ -589,10 +589,10 @@ body {
   background-color: #ffff66;
 }
 
-.project-nav-item.active button {
+.project-nav-item button.active {
   background-color: #ff0;
 }
-.project-nav-item.active button:hover {
+.project-nav-item button.active:hover {
   background-color: #f00;
 }
 

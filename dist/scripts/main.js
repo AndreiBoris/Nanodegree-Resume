@@ -35,7 +35,11 @@ var helper = {
     HTMLprojectDates: '<div class="project-date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',
     HTMLprojectImage: '<img class="project-img" src="%data%" alt="%alt%">',
-    HTMLprojectNavItem: '<li class="project-nav-item"><button>%data%</button></li>',
+    HTMLprojectNavItem: '<li class="project-nav-item"><button>' +
+    '<span class="visually-hidden">Project</span>%data%</button></li>',
+    // Thank you to https://www.w3.org/WAI/tutorials/carousels/functionality/ for
+    // the following accessibility tool:
+    HTMLprojectNavSelected: '<span class="project-nav-selected visually-hidden"> (Slide open)</span>',
 
 
     HTMLschoolStart: '<div class="education-entry"></div>',
@@ -664,7 +668,7 @@ var helper;
                 self.renderProjects();
             });
             // Grab all the newly created project nav items for renderProjects
-            this.$projectsNavItems = $('.project-nav-item');
+            this.$projectsNavItems = $('.project-nav-item button');
             // Grab all the newly created projects in the carousel for
             // renderProjects
             this.$projects = $('.project-entry');
@@ -678,11 +682,13 @@ var helper;
             var windowWidth = this.$body.width() + 15;
             console.log(windowWidth);
             this.$projects.removeClass('active');
+            $('.project-nav-selected').remove();
             this.$projectsNavItems.removeClass('active');
             this.$projects.attr('aria-live', 'off');
             var currentProject = bridge.getCurrentProject();
             $(this.$projectsNavItems[currentProject])
-                .addClass('active');
+                .addClass('active')
+                .append(helper.HTMLprojectNavSelected);
             $(this.$projects[currentProject])
                 .addClass('active')
                 .insertBefore('.project-entry:first')
@@ -692,9 +698,11 @@ var helper;
                 secondInLine = bridge.peekNextProject(currentProject);
                 var thirdInLine = bridge.peekNextProject(secondInLine);
                 $(this.$projectsNavItems[secondInLine])
-                    .addClass('active');
+                    .addClass('active')
+                    .append(helper.HTMLprojectNavSelected);
                 $(this.$projectsNavItems[thirdInLine])
-                    .addClass('active');
+                    .addClass('active')
+                    .append(helper.HTMLprojectNavSelected);
                 $(this.$projects[secondInLine])
                     .addClass('active')
                     .insertAfter('.project-entry:first')
@@ -706,7 +714,8 @@ var helper;
             } else if (windowWidth >= 768) {
                 secondInLine = bridge.peekNextProject(currentProject);
                 $(this.$projectsNavItems[secondInLine])
-                    .addClass('active');
+                    .addClass('active')
+                    .append(helper.HTMLprojectNavSelected);
                 $(this.$projects[secondInLine])
                     .addClass('active')
                     .insertAfter('.project-entry:first')

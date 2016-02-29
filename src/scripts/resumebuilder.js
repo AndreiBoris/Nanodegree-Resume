@@ -447,7 +447,7 @@ var helper;
                 self.renderProjects();
             });
             // Grab all the newly created project nav items for renderProjects
-            this.$projectsNavItems = $('.project-nav-item');
+            this.$projectsNavItems = $('.project-nav-item button');
             // Grab all the newly created projects in the carousel for
             // renderProjects
             this.$projects = $('.project-entry');
@@ -461,11 +461,13 @@ var helper;
             var windowWidth = this.$body.width() + 15;
             console.log(windowWidth);
             this.$projects.removeClass('active');
+            $('.project-nav-selected').remove();
             this.$projectsNavItems.removeClass('active');
             this.$projects.attr('aria-live', 'off');
             var currentProject = bridge.getCurrentProject();
             $(this.$projectsNavItems[currentProject])
-                .addClass('active');
+                .addClass('active')
+                .append(helper.HTMLprojectNavSelected);
             $(this.$projects[currentProject])
                 .addClass('active')
                 .insertBefore('.project-entry:first')
@@ -475,9 +477,11 @@ var helper;
                 secondInLine = bridge.peekNextProject(currentProject);
                 var thirdInLine = bridge.peekNextProject(secondInLine);
                 $(this.$projectsNavItems[secondInLine])
-                    .addClass('active');
+                    .addClass('active')
+                    .append(helper.HTMLprojectNavSelected);
                 $(this.$projectsNavItems[thirdInLine])
-                    .addClass('active');
+                    .addClass('active')
+                    .append(helper.HTMLprojectNavSelected);
                 $(this.$projects[secondInLine])
                     .addClass('active')
                     .insertAfter('.project-entry:first')
@@ -489,7 +493,8 @@ var helper;
             } else if (windowWidth >= 768) {
                 secondInLine = bridge.peekNextProject(currentProject);
                 $(this.$projectsNavItems[secondInLine])
-                    .addClass('active');
+                    .addClass('active')
+                    .append(helper.HTMLprojectNavSelected);
                 $(this.$projects[secondInLine])
                     .addClass('active')
                     .insertAfter('.project-entry:first')

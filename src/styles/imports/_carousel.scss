@@ -100,7 +100,7 @@
     }
 }
 
-.project-nav-item.active button {
+.project-nav-item button.active {
     background-color: $color-highlight;
     &:hover {
         background-color: $color-link-hover;
