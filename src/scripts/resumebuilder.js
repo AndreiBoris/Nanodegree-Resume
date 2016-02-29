@@ -442,7 +442,7 @@ var helper;
                     $projects[bridge.peekNextProject(bridge.peekNextProject(currentProject))])
                 .addClass('active')
                 .insertAfter($('.project-entry').eq(1));
-            } else if (windowWidth >= 992) {
+            } else if (windowWidth >= 768) {
                 $(this.$projects[bridge.peekNextProject(currentProject)]).addClass('active').insertAfter('.project-entry:first');
             }
         },

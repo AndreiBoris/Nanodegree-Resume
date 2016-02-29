@@ -30,7 +30,7 @@ var helper = {
     HTMLworkLocation: '<div class="location-text">%data%</div>',
     HTMLworkDescription: '<p><br>%data%</p>',
 
-    HTMLprojectStart: '<article class="col-lg-4 col-md-6 col-sm-12 project-entry"></article>',
+    HTMLprojectStart: '<article class="col-lg-4 col-sm-6 col-xs-12 project-entry"></article>',
     HTMLprojectTitle: '<a class="project-title" href="#" target="_blank"><h4>%data%</h4></a>',
     HTMLprojectDates: '<div class="project-date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',
@@ -659,7 +659,7 @@ var helper;
                     $projects[bridge.peekNextProject(bridge.peekNextProject(currentProject))])
                 .addClass('active')
                 .insertAfter($('.project-entry').eq(1));
-            } else if (windowWidth >= 992) {
+            } else if (windowWidth >= 768) {
                 $(this.$projects[bridge.peekNextProject(currentProject)]).addClass('active').insertAfter('.project-entry:first');
             }
         },
