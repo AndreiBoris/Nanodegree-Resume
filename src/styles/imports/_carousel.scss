@@ -8,9 +8,9 @@
     opacity: 0.9;
     background: $color-highlight;
     width: 100%;
-    h4 {
-        font-size: 2rem;
-    }
+    font-size: 2rem;
+    height: 3.5rem;
+    padding-top: 0.8rem;
 }
 
 .project-date-text {
@@ -66,6 +66,7 @@
     &:hover,
     &:focus {
         background-color: #e6e6e6;
+        font-weight: bold;
     }
 }
 

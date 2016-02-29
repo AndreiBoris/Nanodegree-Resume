@@ -392,7 +392,8 @@ var helper;
                 // $('#project-carousel').append($newListItem);
                 // $('.project-item:last').append(helper.HTMLprojectStart);
                 // $('#projects').append(helper.HTMLprojectStart);
-                $('#project-carousel').append(helper.HTMLprojectStart);
+                var formattedProjectStart = helper.HTMLprojectStart.replace('#', allProjects[i].url);
+                $('#project-carousel').append(formattedProjectStart);
 
                 var formattedProjectTitle = helper.HTMLprojectTitle.replace('%data%', allProjects[i].title);
                 formattedProjectTitle = formattedProjectTitle.replace('#', allProjects[i].url);
