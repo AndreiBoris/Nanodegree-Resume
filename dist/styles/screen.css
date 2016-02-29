@@ -572,28 +572,43 @@ body {
 }
 
 .project-nav-item {
-  cursor: pointer;
   display: inline;
   margin: 0.5rem;
   font-weight: bold;
   font-size: 2.4rem;
+}
+
+.project-nav-item button {
+  cursor: pointer;
+  margin: 0;
   color: #404040;
   padding: 0.3rem 1rem;
   border: 3px solid #404040;
 }
-.project-nav-item:hover {
+.project-nav-item button:hover {
   background-color: #ffff66;
 }
 
-.project-nav-item.active {
+.project-nav-item.active button {
   background-color: #ff0;
 }
-.project-nav-item.active:hover {
+.project-nav-item.active button:hover {
   background-color: #f00;
 }
 
 .project-entry.active {
   display: block;
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 /*** Need to take up more space when only two projects are being displayed ***/
