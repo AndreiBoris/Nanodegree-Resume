@@ -635,6 +635,17 @@ var helper;
                 $('.project-entry:last').append(formattedProjectDesc);
                 $('.project-entry:last').append(formattedProjectImage);
             }
+            // Set up listeners for next project and previous project buttons on
+            // the carousel
+            var self = this;
+            $('.next-project-button').on('click', function() {
+                bridge.nextProject();
+                self.renderProjects();
+            });
+            $('.previous-project-button').on('click', function() {
+                bridge.previousProject();
+                self.renderProjects();
+            });
             this.$projects = $('.project-entry');
             this.renderProjects();
         },
@@ -647,12 +658,12 @@ var helper;
             console.log(windowWidth);
             this.$projects.removeClass('active');
             var currentProject = bridge.getCurrentProject();
-            $(this.$projects[currentProject]).addClass('active');
+            $(this.$projects[currentProject]).addClass('active').insertBefore('.project-entry:first');
             if (windowWidth >= 1200){
-                $(this.$projects[bridge.peekNextProject(currentProject)]).addClass('active');
-                $(this.$projects[bridge.peekNextProject(bridge.peekNextProject(currentProject))]).addClass('active');
+                $(this.$projects[bridge.peekNextProject(currentProject)]).addClass('active').insertAfter('.project-entry:first');
+                $(this.$projects[bridge.peekNextProject(bridge.peekNextProject(currentProject))]).addClass('active').insertAfter($('.project-entry').eq(1));
             } else if (windowWidth >= 992) {
-                $(this.$projects[bridge.peekNextProject(currentProject)]).addClass('active');
+                $(this.$projects[bridge.peekNextProject(currentProject)]).addClass('active').insertAfter('.project-entry:first');
             }
         },
 
