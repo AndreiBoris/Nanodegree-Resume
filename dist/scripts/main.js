@@ -31,10 +31,12 @@ var helper = {
     HTMLworkDescription: '<p><br>%data%</p>',
 
     HTMLprojectStart: '<article class="col-lg-4 col-md-6 col-sm-12 project-entry"></article>',
-    HTMLprojectTitle: '<a href="#" target="_blank"><h4>%data%</h4></a>',
+    HTMLprojectTitle: '<a class="project-title" href="#" target="_blank"><h4>%data%</h4></a>',
     HTMLprojectDates: '<div class="date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',
-    HTMLprojectImage: '<a href="#" target="_blank"><img class="project-img" src="%data%" alt="%alt%"></a>',
+    // HTMLprojectImage: '<a href="#" target="_blank"><img class="project-img" src="%data%" alt="%alt%"></a>',
+    HTMLprojectImage: '<img class="project-img" src="%data%" alt="%alt%">',
+
 
     HTMLschoolStart: '<div class="education-entry"></div>',
     HTMLschoolName: '<a href="#" target="_blank">%data%',
@@ -274,9 +276,7 @@ var helper;
                 'date': '27/01/16 - 23/02/16',
                 'description': 'Map that uses Google Maps API to present a number ' +
                     'of live theatre options in a palatable manner.',
-                'image': [
-                    'dist/images/theatremap.png'
-                ],
+                'image':'dist/images/theatremap.png',
                 'url': 'https://github.com/AndreiCommunication/toronto-theatre-map',
                 'altText': 'Google Map with Theatre in Toronto title'
             }, {
@@ -284,9 +284,7 @@ var helper;
                 'date': '24/02/16 - 25/02/16',
                 'description': 'A set of Jasmine Test Suites to check for correct ' +
                     'functionality of a RSS feed reader.',
-                'image': [
-                    'dist/images/jasmine.png'
-                ],
+                'image':'dist/images/jasmine.png',
                 'url': 'https://github.com/AndreiCommunication/feed-reader-testing',
                 'altText': 'Jasmine test results display'
             }, {
@@ -294,9 +292,7 @@ var helper;
                 'date': '29/10/15 - 20/11/15',
                 'description': 'An object oriented game using JavaScript and HTML 5 canvas. ' +
                     'It is a Frogger clone with increasingly difficult levels.',
-                'image': [
-                    'dist/images/tiny_crossing.jpeg'
-                ],
+                'image':'dist/images/tiny_crossing.jpeg',
                 'url': 'https://github.com/AndreiCommunication/tiny-crossing',
                 'altText': 'Screen capture of a frogger-style game'
             }, {
@@ -304,9 +300,7 @@ var helper;
                 'date': '21/09/15 - 25/09/15',
                 'description': 'An object oriented game in Python 2.7. Player walks around to complete ' +
                     'riddles. The game is available on my GitHub account.',
-                'image': [
-                    'dist/images/riddle_game.jpeg'
-                ],
+                'image':'dist/images/riddle_game.jpeg',
                 'url': 'https://github.com/AndreiCommunication/riddle-game',
                 'altText': 'Screen capture of a text-based game'
             }, {
@@ -315,18 +309,14 @@ var helper;
                 'description': 'For this project, a horribly unoptimized portfolio was ' +
                     'presented to me and I made its initial load and the animations on the ' +
                     'linked pizza page work much faster.',
-                'image': [
-                    'dist/images/optimized_site.jpeg'
-                ],
+                'image':'dist/images/optimized_site.jpeg',
                 'url': 'https://github.com/AndreiCommunication/Optimized-Portfolio',
                 'altText': 'Site segment featuring a randomly generated pizza ingredient list'
             }, {
                 'title': 'Portfolio Website',
                 'date': '03/09/15 - 05/09/15',
                 'description': 'A website set up to showcase web-based projects as they get completed.',
-                'image': [
-                    'http://placehold.it/550x400'
-                ],
+                'image':'http://placehold.it/550x400',
                 'url': 'http://andreicommunication.github.io/portfolio-website',
                 'altText': 'Site segment of a Featured Work section in a portfolio website'
             }],
@@ -626,14 +616,15 @@ var helper;
 
                 var formattedProjectDates = helper.HTMLprojectDates.replace('%data%', allProjects[i].date),
                     formattedProjectDesc = helper.HTMLprojectDescription.replace('%data%', allProjects[i].description),
-                    formattedProjectImage = helper.HTMLprojectImage.replace('%data%', allProjects[i].image[0]);
-                formattedProjectImage = formattedProjectImage.replace('#', allProjects[i].url);
+                    formattedProjectImage = helper.HTMLprojectImage.replace('%data%', allProjects[i].image);
+                // formattedProjectImage = formattedProjectImage.replace('#', allProjects[i].url);
                 formattedProjectImage = formattedProjectImage.replace('%alt%', allProjects[i].altText);
 
                 $('.project-entry:last').append(formattedProjectTitle);
                 $('.project-entry:last').append(formattedProjectDates);
-                $('.project-entry:last').append(formattedProjectDesc);
-                $('.project-entry:last').append(formattedProjectImage);
+                $('.project-entry:last').css('background-image', 'url(' + allProjects[i].image + ')');
+                // $('.project-entry:last').append(formattedProjectDesc);
+                // $('.project-entry:last').append(formattedProjectImage);
             }
             // Set up listeners for next project and previous project buttons on
             // the carousel

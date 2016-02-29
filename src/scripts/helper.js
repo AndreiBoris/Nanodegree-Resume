@@ -31,10 +31,12 @@ var helper = {
     HTMLworkDescription: '<p><br>%data%</p>',
 
     HTMLprojectStart: '<article class="col-lg-4 col-md-6 col-sm-12 project-entry"></article>',
-    HTMLprojectTitle: '<a href="#" target="_blank"><h4>%data%</h4></a>',
+    HTMLprojectTitle: '<a class="project-title" href="#" target="_blank"><h4>%data%</h4></a>',
     HTMLprojectDates: '<div class="date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',
-    HTMLprojectImage: '<a href="#" target="_blank"><img class="project-img" src="%data%" alt="%alt%"></a>',
+    // HTMLprojectImage: '<a href="#" target="_blank"><img class="project-img" src="%data%" alt="%alt%"></a>',
+    HTMLprojectImage: '<img class="project-img" src="%data%" alt="%alt%">',
+
 
     HTMLschoolStart: '<div class="education-entry"></div>',
     HTMLschoolName: '<a href="#" target="_blank">%data%',
