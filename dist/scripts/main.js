@@ -660,8 +660,14 @@ var helper;
             var currentProject = bridge.getCurrentProject();
             $(this.$projects[currentProject]).addClass('active').insertBefore('.project-entry:first');
             if (windowWidth >= 1200){
-                $(this.$projects[bridge.peekNextProject(currentProject)]).addClass('active').insertAfter('.project-entry:first');
-                $(this.$projects[bridge.peekNextProject(bridge.peekNextProject(currentProject))]).addClass('active').insertAfter($('.project-entry').eq(1));
+                $(this.
+                    $projects[bridge.peekNextProject(currentProject)])
+                .addClass('active')
+                .insertAfter('.project-entry:first');
+                $(this.
+                    $projects[bridge.peekNextProject(bridge.peekNextProject(currentProject))])
+                .addClass('active')
+                .insertAfter($('.project-entry').eq(1));
             } else if (windowWidth >= 992) {
                 $(this.$projects[bridge.peekNextProject(currentProject)]).addClass('active').insertAfter('.project-entry:first');
             }
