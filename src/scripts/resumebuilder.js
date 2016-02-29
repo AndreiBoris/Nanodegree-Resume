@@ -387,13 +387,13 @@ var helper;
 
             var allProjects = bridge.getProjects();
             var numProjects = allProjects.length;
+            var $projectCarousel = $('#project-carousel');
             for (var i = 0; i < numProjects; i++) {
-                // var $newListItem = $('<li></li>').addClass('project-item');
-                // $('#project-carousel').append($newListItem);
-                // $('.project-item:last').append(helper.HTMLprojectStart);
-                // $('#projects').append(helper.HTMLprojectStart);
+                // Add to the project navigation buttons for the carousel
+
+
                 var formattedProjectStart = helper.HTMLprojectStart.replace('#', allProjects[i].url);
-                $('#project-carousel').append(formattedProjectStart);
+                $projectCarousel.append(formattedProjectStart);
 
                 var formattedProjectTitle = helper.HTMLprojectTitle.replace('%data%', allProjects[i].title);
                 formattedProjectTitle = formattedProjectTitle.replace('#', allProjects[i].url);
@@ -404,9 +404,10 @@ var helper;
                 // formattedProjectImage = formattedProjectImage.replace('#', allProjects[i].url);
                 formattedProjectImage = formattedProjectImage.replace('%alt%', allProjects[i].altText);
 
-                $('.project-entry:last').append(formattedProjectTitle);
-                $('.project-entry:last').append(formattedProjectDates);
-                $('.project-entry:last').css('background-image', 'url(' + allProjects[i].image + ')');
+                var $lastProjectEntry = $('.project-entry:last');
+                $lastProjectEntry.append(formattedProjectTitle);
+                $lastProjectEntry.append(formattedProjectDates);
+                $lastProjectEntry.css('background-image', 'url(' + allProjects[i].image + ')');
                 // $('.project-entry:last').append(formattedProjectDesc);
                 // $('.project-entry:last').append(formattedProjectImage);
             }
