@@ -74,6 +74,7 @@
     &:hover,
     &:focus {
         background-color: $select-color;
+        border: 1px solid $base-color;
         font-weight: bold;
     }
 }
@@ -95,14 +96,16 @@
     color: $color-support;
     padding: 0.3rem 1rem;
     border: 3px solid $color-support;
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: $color-highlight-faded;
     }
 }
 
 .project-nav-item button.active {
     background-color: $color-highlight;
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: $color-link-hover;
     }
 }
@@ -110,6 +113,12 @@
 .project-entry.active {
     display: block;
 }
+
+/*** Thank you to W3 for this accessibility tip:
+
+https://www.w3.org/WAI/tutorials/carousels/animations/
+
+***/
 
 .visually-hidden {
     border: 0;

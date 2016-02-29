@@ -564,6 +564,7 @@ body {
 .previous-project-button:hover,
 .previous-project-button:focus {
   background-color: #e6e6e6;
+  border: 1px solid #000;
   font-weight: bold;
 }
 
@@ -585,14 +586,14 @@ body {
   padding: 0.3rem 1rem;
   border: 3px solid #404040;
 }
-.project-nav-item button:hover {
+.project-nav-item button:hover, .project-nav-item button:focus {
   background-color: #ffff66;
 }
 
 .project-nav-item button.active {
   background-color: #ff0;
 }
-.project-nav-item button.active:hover {
+.project-nav-item button.active:hover, .project-nav-item button.active:focus {
   background-color: #f00;
 }
 
@@ -600,6 +601,11 @@ body {
   display: block;
 }
 
+/*** Thank you to W3 for this accessibility tip:
+
+https://www.w3.org/WAI/tutorials/carousels/animations/
+
+***/
 .visually-hidden {
   border: 0;
   clip: rect(0 0 0 0);
