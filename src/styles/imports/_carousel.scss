@@ -92,10 +92,16 @@
     color: $color-support;
     padding: 0.3rem 1rem;
     border: 3px solid $color-support;
+    &:hover {
+      background-color: $color-highlight-faded;
+    }
 }
 
 .project-nav-item.active {
   background-color: $color-highlight;
+  &:hover {
+    background-color: $color-link-hover;
+  }
 }
 
 .project-entry.active {

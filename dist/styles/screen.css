@@ -581,9 +581,15 @@ body {
   padding: 0.3rem 1rem;
   border: 3px solid #404040;
 }
+.project-nav-item:hover {
+  background-color: #ffff66;
+}
 
 .project-nav-item.active {
   background-color: #ff0;
+}
+.project-nav-item.active:hover {
+  background-color: #f00;
 }
 
 .project-entry.active {

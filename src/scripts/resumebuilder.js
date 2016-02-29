@@ -423,12 +423,8 @@ var helper;
                     formattedProjectDates = helper.HTMLprojectDates.replace('%data%', allProjects[i].date);
                 // formattedProjectDesc = helper.HTMLprojectDescription.replace('%data%', allProjects[i].description),
 
-                // $('.project-nav-item:last').on('click', self.projectNavHandler(self, i));
-                // (function(index) {
-                //     $('.project-nav-item:last').on('click', function() {
-                //         projectNavHandler(index);
-                //     });
-                // })(i);
+                // Create listener for the latest project-nav-item to select
+                // make it select the project
                 projectNavListener(i);
 
 

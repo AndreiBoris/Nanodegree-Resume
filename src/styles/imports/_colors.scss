@@ -31,6 +31,7 @@ $color-standout: #000;
 $color-background: #f3f3f3;
 
 $color-highlight: $secondary-color;
+$color-highlight-faded: lighten($color-highlight, 20%);
 
 $color-bottom: lighten($base-color, 3%);
 
