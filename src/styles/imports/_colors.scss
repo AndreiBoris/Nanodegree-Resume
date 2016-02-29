@@ -1,9 +1,9 @@
 // $base-color possibilities: #333, #000047, #001400, black **MUST BE VERY DARK**
 
-$base-color: black;
+$base-color: #000;
 $secondary-color: #ff0;
 $link-color: #00c;
-$color-link-hover: red;
+$color-link-hover: #f00;
 $color-link-visited: #606;
 
 $base-hue: hue($base-color);
