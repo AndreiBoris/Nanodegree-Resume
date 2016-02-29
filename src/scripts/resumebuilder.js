@@ -284,6 +284,9 @@ var helper;
             } else {
                 return starting + 1;
             }
+        },
+        setCurrentProject: function(index) {
+            model.projects.current = index;
         }
     };
 
@@ -377,6 +380,7 @@ var helper;
             }
         },
 
+
         /**
          * Load project related information into view
          */
@@ -391,6 +395,19 @@ var helper;
             // DOM calls made before loop. Both are for adding elements to.
             var $projectsCarousel = $('#projects-carousel');
             var $projectsNav = $('#projects-nav');
+            var self = this; // needed due to scope issues inside the handlers
+
+            var projectNavHandler = function(index) {
+                bridge.setCurrentProject(index);
+                self.renderProjects();
+            };
+
+            var projectNavListener = function(index) {
+                $('.project-nav-item:last').on('click', function() {
+                    projectNavHandler(index);
+                });
+            };
+
             for (var i = 0; i < numProjects; i++) {
                 // Add to the project navigation buttons for the carousel
                 var formattedProjectNavItem = helper.HTMLprojectNavItem.replace('%data%', (i + 1).toString());
@@ -406,6 +423,15 @@ var helper;
                     formattedProjectDates = helper.HTMLprojectDates.replace('%data%', allProjects[i].date);
                 // formattedProjectDesc = helper.HTMLprojectDescription.replace('%data%', allProjects[i].description),
 
+                // $('.project-nav-item:last').on('click', self.projectNavHandler(self, i));
+                // (function(index) {
+                //     $('.project-nav-item:last').on('click', function() {
+                //         projectNavHandler(index);
+                //     });
+                // })(i);
+                projectNavListener(i);
+
+
                 // Grab the most recently added project-entry
                 var $lastProjectEntry = $('.project-entry:last');
                 // Add the title and dates elements we made earlier to it
@@ -416,7 +442,6 @@ var helper;
             }
             // Set up listeners for next project and previous project buttons on
             // the carousel
-            var self = this; // needed due to scope issues inside the handlers
             $('.next-project-button').on('click', function() {
                 bridge.nextProject();
                 self.renderProjects();
@@ -426,7 +451,7 @@ var helper;
                 self.renderProjects();
             });
             // Grab all the newly created project nav items for renderProjects
-            this.$projectsNavItems = $('.projects-nav-item');
+            this.$projectsNavItems = $('.project-nav-item');
             // Grab all the newly created projects in the carousel for
             // renderProjects
             this.$projects = $('.project-entry');
@@ -435,8 +460,8 @@ var helper;
         },
 
         renderProjects: function() {
-            // 15 pixels accounts for gutter so that breakpoints line up with
-            // the rendering of additional projects
+            // 15 pixels account for gutter so that breakpoints line up with the
+            // rendering of additional projects
             var windowWidth = this.$body.width() + 15;
             console.log(windowWidth);
             this.$projects.removeClass('active');
@@ -449,8 +474,9 @@ var helper;
                 .addClass('active')
                 .insertBefore('.project-entry:first')
                 .attr('aria-live', 'polite');
+            var secondInLine;
             if (windowWidth >= 1200) {
-                var secondInLine = bridge.peekNextProject(currentProject);
+                secondInLine = bridge.peekNextProject(currentProject);
                 var thirdInLine = bridge.peekNextProject(secondInLine);
                 $(this.$projectsNavItems[secondInLine])
                     .addClass('active');
@@ -465,7 +491,7 @@ var helper;
                     .insertAfter($('.project-entry').eq(1))
                     .attr('aria-live', 'polite');
             } else if (windowWidth >= 768) {
-                var secondInLine = bridge.peekNextProject(currentProject);
+                secondInLine = bridge.peekNextProject(currentProject);
                 $(this.$projectsNavItems[secondInLine])
                     .addClass('active');
                 $(this.$projects[secondInLine])

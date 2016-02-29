@@ -571,7 +571,7 @@ body {
   padding: 1.3rem;
 }
 
-.projects-nav-item {
+.project-nav-item {
   cursor: pointer;
   display: inline;
   margin: 0.5rem;
@@ -582,7 +582,7 @@ body {
   border: 3px solid #404040;
 }
 
-.projects-nav-item.active {
+.project-nav-item.active {
   background-color: #ff0;
 }
 

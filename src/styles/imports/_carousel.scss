@@ -83,7 +83,7 @@
   // margin-top: 1rem;
 }
 
-.projects-nav-item {
+.project-nav-item {
     cursor: pointer;
     display: inline;
     margin: 0.5rem;
@@ -94,7 +94,7 @@
     border: 3px solid $color-support;
 }
 
-.projects-nav-item.active {
+.project-nav-item.active {
   background-color: $color-highlight;
 }
 
