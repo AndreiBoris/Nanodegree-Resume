@@ -94,6 +94,10 @@
     border: 3px solid $color-support;
 }
 
+.projects-nav-item.active {
+  background-color: $color-highlight;
+}
+
 .project-entry.active {
     display: block;
 }

@@ -582,6 +582,10 @@ body {
   border: 3px solid #404040;
 }
 
+.projects-nav-item.active {
+  background-color: #ff0;
+}
+
 .project-entry.active {
   display: block;
 }

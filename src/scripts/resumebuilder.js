@@ -290,6 +290,7 @@ var helper;
     view = {
         $body: $('body'),
         $projects: null,
+        $projectsNavItems: null,
 
         /**
          * Set up the view.
@@ -424,6 +425,8 @@ var helper;
                 bridge.previousProject();
                 self.renderProjects();
             });
+            // Grab all the newly created project nav items for renderProjects
+            this.$projectsNavItems = $('.projects-nav-item');
             // Grab all the newly created projects in the carousel for
             // renderProjects
             this.$projects = $('.project-entry');
@@ -437,25 +440,31 @@ var helper;
             var windowWidth = this.$body.width() + 15;
             console.log(windowWidth);
             this.$projects.removeClass('active');
+            this.$projectsNavItems.removeClass('active');
             this.$projects.attr('aria-live', 'off');
             var currentProject = bridge.getCurrentProject();
+            $(this.$projectsNavItems[currentProject])
+            .addClass('active');
             $(this.$projects[currentProject])
             .addClass('active')
             .insertBefore('.project-entry:first')
             .attr('aria-live', 'polite');
             if (windowWidth >= 1200){
+                var secondInLine = bridge.peekNextProject(currentProject);
+                var thirdInLine = bridge.peekNextProject(secondInLine);
                 $(this.
-                    $projects[bridge.peekNextProject(currentProject)])
+                    $projects[secondInLine])
                 .addClass('active')
                 .insertAfter('.project-entry:first')
                 .attr('aria-live', 'polite');
                 $(this.
-                    $projects[bridge.peekNextProject(bridge.peekNextProject(currentProject))])
+                    $projects[thirdInLine])
                 .addClass('active')
                 .insertAfter($('.project-entry').eq(1))
                 .attr('aria-live', 'polite');
             } else if (windowWidth >= 768) {
-                $(this.$projects[bridge.peekNextProject(currentProject)])
+                var secondInLine = bridge.peekNextProject(currentProject);
+                $(this.$projects[secondInLine])
                 .addClass('active')
                 .insertAfter('.project-entry:first')
                 .attr('aria-live', 'polite');
