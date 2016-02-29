@@ -366,7 +366,7 @@ body {
   top: 0;
   width: 94%;
   right: 4%;
-  z-index: 2;
+  z-index: 3;
 }
 
 /* Images */
@@ -502,7 +502,7 @@ body {
   font-size: 2rem;
 }
 
-.date-text {
+.project-date-text {
   color: #404040;
   line-height: 1.4;
   font-style: italic;
