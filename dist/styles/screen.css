@@ -584,17 +584,42 @@ body {
   font-size: 2.4rem;
 }
 
+.project-nav-item:first-child {
+  margin-left: 0;
+}
+
+/*** Thanks hutorny for this solution
+http://stackoverflow.com/questions/7363766/how-to-insert-a-line-break-before-an-element-using-css
+***/
+.project-nav-item:nth-child(4n):before {
+  content: ' ';
+  clear: right;
+  display: block;
+}
+
 .project-nav-item button {
   cursor: pointer;
-  margin: 0;
+  margin-top: 2rem;
   color: #404040;
-  padding: 0.3rem 1rem;
+  padding: 1.3rem 2rem;
   border: 3px solid #404040;
 }
 .project-nav-item button:hover, .project-nav-item button:focus {
   background-color: #ffff66;
 }
 
+@media all and (min-width: 768px) {
+  .project-nav-item:nth-child(4n):before {
+    content: '';
+    clear: none;
+    display: inline;
+  }
+
+  .project-nav-item button {
+    margin-top: 0;
+    padding: 1rem 1.5rem;
+  }
+}
 .project-nav-item button.active {
   background-color: #ff0;
 }
