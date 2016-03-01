@@ -20,7 +20,8 @@ var helper = {
     HTMLbioPic: '<img src="%data%" class="biopic img-responsive center-block" alt="Andrei\'s photo">',
     HTMLwelcomeMsg: '<div class="welcome-message text-center">%data%</div>',
 
-    HTMLskillsStart: '<h3 id="skills-h3" class="header-heading">Toolkit:</h3><ul id="skills" class="flex-box-skills"></ul>',
+    HTMLskillsStart: '<h3 id="skills-h3" class="header-heading">Toolkit:</h3>' +
+    '<ul id="skills" class="flex-box-skills"></ul>',
     HTMLskills: '<div class="btn btn-default skill">%data%</div>',
 
     HTMLworkStart: '<div class="work-entry"></div>',
@@ -52,11 +53,14 @@ var helper = {
     HTMLschoolLocation: '<div class="location-text">%data%</div>',
     HTMLschoolMajor: '<em><br>Major: %data%</em>',
 
-    HTMLonlineClasses: '<h3 class="online-subtitle">Online Classes</h3>',
-    HTMLonlineTitle: '<a href="#" target="_blank">%data%',
-    HTMLonlineSchool: ' - %data%</a>',
-    HTMLonlineDates: '<div class="date-text">%data%</div>',
-    HTMLonlineURL: '<br><a href="#">%data%</a>',
+    HTMLonlineClasses: '<h3 class="online-subtitle">Online Classes</h3>' +
+    '<ul id="online-classes" class="flex-box-classes"></ul>',
+    HTMLonlinePill: '<a href="#" target="_blank" class="btn btn-default online-class">' +
+    '<h4 class="bold-text">%data%</h4><p>%school% - %date%</p></a>',
+    // HTMLonlineTitle: '<a href="#" target="_blank">%data%</a>',
+    // HTMLonlineSchool: ' - %data%</a>',
+    // HTMLonlineDates: '<div class="date-text">%data%</div>',
+    // HTMLonlineURL: '<br><a href="#">%data%</a>',
 
     // These allow us to add Font Awesome icons that link to other sites to the footer
     HTMLfooterStart: '<li class="footer-entry"></li>',

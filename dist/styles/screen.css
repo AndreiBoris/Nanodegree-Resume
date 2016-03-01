@@ -276,6 +276,10 @@ span {
   line-height: 1.5;
 }
 
+.bold-text {
+  font-weight: bold;
+}
+
 /* Backgrounds */
 .highlight {
   background-color: #ff0;
@@ -303,7 +307,7 @@ body {
   position: relative;
 }
 
-.flex-box, .flex-box-contacts, .flex-box-skills, .flex-box-footer {
+.flex-box, .flex-box-contacts, .flex-box-skills, .flex-box-footer, .flex-box-classes {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -362,6 +366,20 @@ body {
   font-size: 2rem;
   margin: 0 0 1rem 1rem;
   cursor: default;
+}
+
+.flex-box-classes {
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.online-class {
+  background-color: #ff0;
+  width: 35rem;
+  font-size: 2rem;
+  margin: 0 0 1rem 1rem;
+  cursor: pointer;
 }
 
 .space-above {

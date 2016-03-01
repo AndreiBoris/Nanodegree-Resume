@@ -59,6 +59,20 @@ body {
     cursor: default;
 }
 
+.flex-box-classes {
+    @extend .flex-box;
+    justify-content: space-between;
+}
+
+.online-class {
+    background-color: $secondary-color;
+    width: 35rem;
+    // border: 1px solid $secondary-color;
+    font-size: 2rem;
+    margin: 0 0 1rem 1rem;
+    cursor: pointer;
+}
+
 .space-above {
     margin-top: 1rem;
 }

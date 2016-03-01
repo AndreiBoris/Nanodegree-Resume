@@ -476,7 +476,7 @@ var helper;
                     } else {
                         console.log('fire');
                         self.$projects.popover('hide');
-                    };
+                    }
                 });
             };
 
@@ -571,17 +571,22 @@ var helper;
             }
 
             for (i = 0; i < numOnlineCourses; i++) {
-                $('#education-container').append(helper.HTMLschoolStart);
+                // $('#online-classes').append(helper.HTMLschoolStart);
+                var formattedEntry = helper.HTMLonlinePill.replace('#', allOnlineCourses[i].url);
+                formattedEntry = formattedEntry.replace('%data%', allOnlineCourses[i].title);
+                formattedEntry = formattedEntry.replace('%date%', allOnlineCourses[i].dates);
+                formattedEntry = formattedEntry.replace('%school%', allOnlineCourses[i].school);
+                $('#online-classes').append(formattedEntry);
 
-                var formattedTitle = helper.HTMLonlineTitle.replace('%data%', allOnlineCourses[i].title);
-                formattedTitle = formattedTitle.replace('#', allOnlineCourses[i].url);
+                // var formattedTitle = helper.HTMLonlineTitle.replace('%data%', allOnlineCourses[i].title);
+                // formattedTitle = formattedTitle.replace('#', allOnlineCourses[i].url);
 
-                var formattedSchool = helper.HTMLonlineSchool.replace('%data%', allOnlineCourses[i].school);
-                var formattedDatesOnline = helper.HTMLonlineDates.replace('%data%', allOnlineCourses[i].dates);
+                // var formattedSchool = helper.HTMLonlineSchool.replace('%data%', allOnlineCourses[i].school);
+                // var formattedDatesOnline = helper.HTMLonlineDates.replace('%data%', allOnlineCourses[i].dates);
 
-                $('.education-entry:last').append(formattedTitle);
-                $('.education-entry:last').append(formattedSchool);
-                $('.education-entry:last').append(formattedDatesOnline);
+                // $('.education-entry:last').append(formattedTitle);
+                // $('.education-entry:last').append(formattedSchool);
+                // $('.education-entry:last').append(formattedDatesOnline);
             }
         },
 
