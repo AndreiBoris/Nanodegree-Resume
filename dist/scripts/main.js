@@ -799,22 +799,11 @@ var helper;
             }
 
             for (i = 0; i < numOnlineCourses; i++) {
-                // $('#online-classes').append(helper.HTMLschoolStart);
                 var formattedEntry = helper.HTMLonlinePill.replace('#', allOnlineCourses[i].url);
                 formattedEntry = formattedEntry.replace('%data%', allOnlineCourses[i].title);
                 formattedEntry = formattedEntry.replace('%date%', allOnlineCourses[i].dates);
                 formattedEntry = formattedEntry.replace('%school%', allOnlineCourses[i].school);
                 $('#online-classes').append(formattedEntry);
-
-                // var formattedTitle = helper.HTMLonlineTitle.replace('%data%', allOnlineCourses[i].title);
-                // formattedTitle = formattedTitle.replace('#', allOnlineCourses[i].url);
-
-                // var formattedSchool = helper.HTMLonlineSchool.replace('%data%', allOnlineCourses[i].school);
-                // var formattedDatesOnline = helper.HTMLonlineDates.replace('%data%', allOnlineCourses[i].dates);
-
-                // $('.education-entry:last').append(formattedTitle);
-                // $('.education-entry:last').append(formattedSchool);
-                // $('.education-entry:last').append(formattedDatesOnline);
             }
         },
 
@@ -879,7 +868,7 @@ var helper;
                 var smallScreenOffset = 0;
                 if (smallScreen) {
                     $collapseButton.click();
-                    smallScreenOffset = 25;
+                    smallScreenOffset = 15;
                 }
                 $navPills.removeClass('active');
                 $(this).parent().addClass('active');
@@ -893,7 +882,8 @@ var helper;
                 var aboveDetach = detachPos >= currentPos;
                 if (aboveDetach) {
                     if (smallScreen) {
-                        smallScreenOffset = 30;
+                        console.log('smallscreen and above detach');
+                        smallScreenOffset = 300;
                     }
                     /* Thank you to Joseph Silber on Stackover flow for this
                     nav scroll solution:
@@ -906,7 +896,7 @@ var helper;
                     }, 500);
                 } else {
                     $body.animate({
-                        scrollTop: $($.attr(this, 'href')).offset().top - 50 - smallScreenOffset
+                        scrollTop: $($.attr(this, 'href')).offset().top - 60 - smallScreenOffset
                     }, 500);
                 }
                 return false; // prevent default
