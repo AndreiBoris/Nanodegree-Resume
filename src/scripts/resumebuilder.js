@@ -734,7 +734,7 @@ var helper;
          * correct location on the resume.
          */
         setNavListeners: function() {
-            // All nav pills
+            // All nav pills that hold the buttons
             var $navPills = $('nav li');
             // All nav anchors
             var $navButtons = $('nav a');
@@ -743,13 +743,22 @@ var helper;
             var $body = $('body');
             var $navBar = $('#collapsing-navbar');
             var $collapseButton = $('#collapse-button');
+            // Listener for when any of the navigations buttons are clicked
             $navButtons.on('click', function() {
+                // We can tell we're on a small screen if the navigation bar has
+                // the class 'in', as that means that a collapsable menu is
+                // currently on the screen. It must be 'in', since if it isn't,
+                // the navigation button cannot be clicked.
                 var smallScreen = $navBar.hasClass('in');
+                // Default value for smallScreenOffset is 0, no offset for large
+                // screens.
                 var smallScreenOffset = 0;
                 if (smallScreen) {
-                    $collapseButton.click();
+                    $collapseButton.click(); // minimize navigation menu
+                    // compensate for larger menu size on small displays
                     smallScreenOffset = 15;
                 }
+
                 $navPills.removeClass('active');
                 $(this).parent().addClass('active');
                 // Position where navbar detaches
