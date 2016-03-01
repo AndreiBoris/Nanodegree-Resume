@@ -727,14 +727,11 @@ var helper;
          * Render education related information
          */
         renderEducation: function() {
-
-            $('#education').prepend(helper.HTMLeducationLines);
-
             var allSchools = bridge.getSchools();
             var numSchools = allSchools.length;
             var i;
             for (i = 0; i < numSchools; i++) {
-                $('#education').append(helper.HTMLschoolStart);
+                $('#education-container').append(helper.HTMLschoolStart);
 
                 var formattedName = helper.HTMLschoolName.replace('%data%', allSchools[i].name);
                 formattedName = formattedName.replace('#', allSchools[i].url);
@@ -755,11 +752,11 @@ var helper;
             var numOnlineCourses = allOnlineCourses.length;
             // If there are no online classes, this heading won't be added to the resume
             if (numOnlineCourses > 0) {
-                $('#education').append(helper.HTMLonlineClasses);
+                $('#education-container').append(helper.HTMLonlineClasses);
             }
 
             for (i = 0; i < numOnlineCourses; i++) {
-                $('#education').append(helper.HTMLschoolStart);
+                $('#education-container').append(helper.HTMLschoolStart);
 
                 var formattedTitle = helper.HTMLonlineTitle.replace('%data%', allOnlineCourses[i].title);
                 formattedTitle = formattedTitle.replace('#', allOnlineCourses[i].url);
@@ -781,11 +778,8 @@ var helper;
             var allJobs = bridge.getJobs();
             var numJobs = allJobs.length;
             if (numJobs > 0) {
-
-                $('#workExperience').prepend(helper.HTMLworkLine);
-
                 for (var i = 0; i < numJobs; i++) {
-                    $('#workExperience').append(helper.HTMLworkStart);
+                    $('#work-container').append(helper.HTMLworkStart);
                     var formattedEmployer = helper.HTMLworkEmployer.replace('%data%', allJobs[i].employer);
                     formattedEmployer = formattedEmployer.replace('#', allJobs[i].url);
 
