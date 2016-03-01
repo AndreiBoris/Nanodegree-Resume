@@ -756,6 +756,7 @@ var helper;
                     var $target = $(e.target);
 
                     if ($target.is('.popover-title') ||
+                        $target.is('.popover-text') ||
                         $target.is('.popover-content') ||
                         $target.is('.project-entry')) {
                         // do nothing
@@ -803,11 +804,29 @@ var helper;
         },
 
         /**
-         * Display the project at position index in the carousel
+         * Update the navigation for the object at position index, as it is now
+         * being displayed.
          */
-        displayProject: function(index) {
+        updateDisplayedProjectNav: function(index) {
+            $(this.$projectsNavItems[index])
+                .addClass('active') // Change visual look of button
+                // Add screenreader-only text to navigation button '(Slide open)'
+                .append(helper.HTMLprojectNavSelected);
+        },
 
-        }
+        /**
+         * Display the project at position index in location position in the
+         * carousel
+         */
+        displayProjectInCarousel: function(index, position) {
+            $(this.$projects[index])
+                .addClass('active') // Display object in carousel
+                // Set the object to be the first of its kind in the DOM, so
+                // that it displays first in the carousel
+                .insertBefore($('.project-entry').eq(position))
+                // Announce carousel item to screenreaders
+                .attr('aria-live', 'polite');
+        },
 
         /**
          * Draw the current state of the projects in the carousel.
@@ -826,45 +845,27 @@ var helper;
             // Grab the currently selected project
             var currentProject = bridge.getCurrentProject();
             // Change visual of the selected project navigation button
-            $(this.$projectsNavItems[currentProject])
-                .addClass('active') // Change visual look of button
-                // Add screenreader-only text to navigation button '(Slide open)'
-                .append(helper.HTMLprojectNavSelected);
+            this.updateDisplayedProjectNav(currentProject);
             // Display the currently selected project in the carousel
-            $(this.$projects[currentProject])
-                .addClass('active') // Display object in carousel
-                // Set the object to be the first of its kind in the DOM, so
-                // that it displays first in the carousel
-                .insertBefore('.project-entry:first')
-                // Announce carousel item to screenreaders
-                .attr('aria-live', 'polite');
-            var secondInLine;
-            if (windowWidth >= 1200) {
+            this.displayProjectInCarousel(currentProject, 0);
+            // Variable to keep track of index of second and third projects
+            // after the currently selected (first) one.
+            var secondInLine, thirdInLine;
+            if (windowWidth >= 1200) { // can display 3 projects
+                // Get positions of next two projects
                 secondInLine = bridge.peekNextProject(currentProject);
-                var thirdInLine = bridge.peekNextProject(secondInLine);
-                $(this.$projectsNavItems[secondInLine])
-                    .addClass('active')
-                    .append(helper.HTMLprojectNavSelected);
-                $(this.$projectsNavItems[thirdInLine])
-                    .addClass('active')
-                    .append(helper.HTMLprojectNavSelected);
-                $(this.$projects[secondInLine])
-                    .addClass('active')
-                    .insertAfter('.project-entry:first')
-                    .attr('aria-live', 'polite');
-                $(this.$projects[thirdInLine])
-                    .addClass('active')
-                    .insertAfter($('.project-entry').eq(1))
-                    .attr('aria-live', 'polite');
-            } else if (windowWidth >= 768) {
+                thirdInLine = bridge.peekNextProject(secondInLine);
+                // Display next two projects and update navigation to reflect this
+                this.displayProjectInCarousel(secondInLine, 1);
+                this.displayProjectInCarousel(thirdInLine, 2);
+                this.updateDisplayedProjectNav(secondInLine);
+                this.updateDisplayedProjectNav(thirdInLine);
+            } else if (windowWidth >= 768) { // can display 2 projects
+                // Get positions of next project
                 secondInLine = bridge.peekNextProject(currentProject);
-                $(this.$projectsNavItems[secondInLine])
-                    .addClass('active')
-                    .append(helper.HTMLprojectNavSelected);
-                $(this.$projects[secondInLine])
-                    .addClass('active')
-                    .insertAfter('.project-entry:first')
-                    .attr('aria-live', 'polite');
+                // Display next project and update navigation to reflect this
+                this.displayProjectInCarousel(secondInLine, 1);
+                this.updateDisplayedProjectNav(secondInLine);
             }
         },
 
