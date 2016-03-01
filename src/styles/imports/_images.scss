@@ -1,29 +1,33 @@
 .biopic {
-  padding: 1rem;
-  width: 20rem;
-  // width: 100%;
-  // This will display as long as the screen is at least 750px. See _media.scss
-  display: none;
+    padding: 1rem;
+    width: 20rem;
+    // width: 100%;
+    // This will display as long as the screen is at least 750px. See _media.scss
+    display: none;
 }
 
-.footer-entry{
-  padding: 0.5rem;
-  // Needed to keep .footer-icon anchors spread apart.
-  margin: 0 1.5rem;
+.footer-entry {
+    padding: 0.5rem;
+    // Needed to keep .footer-icon anchors spread apart.
+    margin: 0 1.5rem;
 }
 
 .footer-icon {
-  color: $color-icons;
-  font-size: 2.8rem;
-  @extend .footer-entry;
-
-  // _text.scss sets links to display $color-link-visited when they are visited,
-  // and this resets this so that they remain uniform when not hovered over.
-  &:visited {
     color: $color-icons;
-  }
+    font-size: 2rem;
+    @extend .footer-entry;
+    // _text.scss sets links to display $color-link-visited when they are visited,
+    // and this resets this so that they remain uniform when not hovered over.
+    &:visited {
+        color: $color-icons;
+    }
+    &:hover {
+        color: red;
+    }
+}
 
-  &:hover {
-    color: red;
-  }
+@media all and (min-width: 768px) {
+    .footer-icon {
+        font-size: 2.8rem;
+    }
 }
