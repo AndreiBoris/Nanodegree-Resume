@@ -36,10 +36,10 @@ var helper = {
     HTMLprojectDescription: '<p><br>%data%</p>',
     HTMLprojectImage: '<img class="project-img" src="%data%" alt="%alt%">',
     HTMLprojectNavItem: '<li class="project-nav-item"><button>' +
-    '<span class="visually-hidden">Project</span>%data%</button></li>',
+    '<span class="sr-only">Project</span>%data%</button></li>',
     // Thank you to https://www.w3.org/WAI/tutorials/carousels/functionality/ for
     // the following accessibility tool:
-    HTMLprojectNavSelected: '<span class="project-nav-selected visually-hidden"> (Slide open)</span>',
+    HTMLprojectNavSelected: '<span class="project-nav-selected sr-only"> (Slide open)</span>',
 
 
     HTMLschoolStart: '<div class="education-entry"></div>',
@@ -824,7 +824,16 @@ var helper;
             // Avoid making DOM queries during each handler execution
             var $header = $('#header'); // The top element
             var $body = $('body');
+            var $navBar = $('#collapsing-navbar');
+            var $collapseButton = $('#collapse-button');
             $navButtons.on('click', function() {
+                var smallScreen = $navBar.hasClass('in');
+                var smallScreenOffset = 0;
+                if (smallScreen) {
+                    $collapseButton.click();
+                    smallScreenOffset = 25;
+                }
+                console.log('I run');
                 $navPills.removeClass('active');
                 $(this).parent().addClass('active');
                 // Position where navbar detaches
@@ -836,7 +845,9 @@ var helper;
                 // detaches and becomes fixed position.
                 var aboveDetach = detachPos >= currentPos;
                 if (aboveDetach) {
-                    console.log('above');
+                    if (smallScreen) {
+                        smallScreenOffset = 50;
+                    }
                     /* Thank you to Joseph Silber on Stackover flow for this
                     nav scroll solution:
                     http://stackoverflow.com/questions/7717527/jquery-smooth-scrolling-when-clicking-an-anchor-link
@@ -844,12 +855,12 @@ var helper;
                     // Scroll to just above the current offset().top of the
                     // element that corresponds to the href of this button
                     $body.animate({
-                        scrollTop: $($.attr(this, 'href')).offset().top - 120
+                        scrollTop: $($.attr(this, 'href')).offset().top - 120 - smallScreenOffset
                     }, 500);
                 } else {
                     console.log('below');
                     $body.animate({
-                        scrollTop: $($.attr(this, 'href')).offset().top - 50
+                        scrollTop: $($.attr(this, 'href')).offset().top - 50 - smallScreenOffset
                     }, 500);
                 }
                 return false; // prevent default

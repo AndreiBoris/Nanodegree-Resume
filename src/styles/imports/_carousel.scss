@@ -141,24 +141,27 @@ http://stackoverflow.com/questions/7363766/how-to-insert-a-line-break-before-an-
     display: block;
 }
 
-
-/*** Thank you to W3 for this accessibility tip:
-
-https://www.w3.org/WAI/tutorials/carousels/animations/
-
-***/
-
-.visually-hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+@media all and (max-width: 768px) {
+    .collapse li {
+        display: none;
+    }
+    .collapsing li {
+        display: none;
+    }
+    .collapse.in li {
+        display: block;
+    }
 }
 
+// .collapse {
+//     display: none;
+// }
+// .collapsing {
+//     display: none;
+// }
+// .collapse.in {
+//     display: block;
+// }
 
 /*** Need to take up more space when only two projects are being displayed ***/
 

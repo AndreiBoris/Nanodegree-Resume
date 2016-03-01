@@ -603,7 +603,16 @@ var helper;
             // Avoid making DOM queries during each handler execution
             var $header = $('#header'); // The top element
             var $body = $('body');
+            var $navBar = $('#collapsing-navbar');
+            var $collapseButton = $('#collapse-button');
             $navButtons.on('click', function() {
+                var smallScreen = $navBar.hasClass('in');
+                var smallScreenOffset = 0;
+                if (smallScreen) {
+                    $collapseButton.click();
+                    smallScreenOffset = 25;
+                }
+                console.log('I run');
                 $navPills.removeClass('active');
                 $(this).parent().addClass('active');
                 // Position where navbar detaches
@@ -615,7 +624,9 @@ var helper;
                 // detaches and becomes fixed position.
                 var aboveDetach = detachPos >= currentPos;
                 if (aboveDetach) {
-                    console.log('above');
+                    if (smallScreen) {
+                        smallScreenOffset = 50;
+                    }
                     /* Thank you to Joseph Silber on Stackover flow for this
                     nav scroll solution:
                     http://stackoverflow.com/questions/7717527/jquery-smooth-scrolling-when-clicking-an-anchor-link
@@ -623,12 +634,12 @@ var helper;
                     // Scroll to just above the current offset().top of the
                     // element that corresponds to the href of this button
                     $body.animate({
-                        scrollTop: $($.attr(this, 'href')).offset().top - 120
+                        scrollTop: $($.attr(this, 'href')).offset().top - 120 - smallScreenOffset
                     }, 500);
                 } else {
                     console.log('below');
                     $body.animate({
-                        scrollTop: $($.attr(this, 'href')).offset().top - 50
+                        scrollTop: $($.attr(this, 'href')).offset().top - 50 - smallScreenOffset
                     }, 500);
                 }
                 return false; // prevent default

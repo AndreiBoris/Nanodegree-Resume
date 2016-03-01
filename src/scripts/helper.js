@@ -36,10 +36,10 @@ var helper = {
     HTMLprojectDescription: '<p><br>%data%</p>',
     HTMLprojectImage: '<img class="project-img" src="%data%" alt="%alt%">',
     HTMLprojectNavItem: '<li class="project-nav-item"><button>' +
-    '<span class="visually-hidden">Project</span>%data%</button></li>',
+    '<span class="sr-only">Project</span>%data%</button></li>',
     // Thank you to https://www.w3.org/WAI/tutorials/carousels/functionality/ for
     // the following accessibility tool:
-    HTMLprojectNavSelected: '<span class="project-nav-selected visually-hidden"> (Slide open)</span>',
+    HTMLprojectNavSelected: '<span class="project-nav-selected sr-only"> (Slide open)</span>',
 
 
     HTMLschoolStart: '<div class="education-entry"></div>',
