@@ -34,7 +34,7 @@ var helper = {
     HTMLprojectStart: '<button class="col-lg-4 col-sm-6 col-xs-12 project-entry" ' +
         'type="button" data-toggle="popover" data-content="%content%" ' +
         'data-html="true" data-original-title="<a target=&quot;_blank&quot; ' +
-        'href=&quot;#&quot;>Github Repository</a>"></button>',
+        'class=&quot;popover-text&quot; href=&quot;#&quot;>See Github Repository</a>"></button>',
     HTMLprojectTitle: '<h4 class="project-title">%data%</h4>',
     HTMLprojectDates: '<div class="project-date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',

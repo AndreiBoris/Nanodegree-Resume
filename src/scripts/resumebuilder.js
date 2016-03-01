@@ -346,7 +346,13 @@ var helper;
         }
     };
 
+    /**
+     * Object for handling user interface.
+     */
     view = {
+        /**
+         * Reused jQuery objects to avoid unnecessary DOM calls.
+         */
         $body: $('body'),
         $projects: null,
         $projectsNavItems: null,
@@ -357,15 +363,15 @@ var helper;
         init: function() {
 
             this.renderBio();
-            this.loadProjects();
+            this.loadProjects(); // calls renderProjects
             this.renderEducation();
             this.renderWork();
             this.renderNav();
-            this.setNavListeners();
+            this.setNavListeners(); // navigation bar behaviour
 
             $('#mapDiv').append(helper.googleMap);
 
-            // This console.logs click locations as part of the resume assignment.
+            // Console log click locations.
             $(document).click(function(loc) {
                 console.log('x location: ' + loc.pageX, 'y location:' + loc.pageY);
             });

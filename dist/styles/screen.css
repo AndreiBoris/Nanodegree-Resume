@@ -285,6 +285,10 @@ span {
   margin: 1rem 0;
 }
 
+.popover-text {
+  font-size: 2rem;
+}
+
 /* Backgrounds */
 .highlight {
   background-color: #ff0;

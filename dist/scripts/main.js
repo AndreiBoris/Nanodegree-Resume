@@ -34,7 +34,7 @@ var helper = {
     HTMLprojectStart: '<button class="col-lg-4 col-sm-6 col-xs-12 project-entry" ' +
         'type="button" data-toggle="popover" data-content="%content%" ' +
         'data-html="true" data-original-title="<a target=&quot;_blank&quot; ' +
-        'href=&quot;#&quot;>Github Repository</a>"></button>',
+        'class=&quot;popover-text&quot; href=&quot;#&quot;>See Github Repository</a>"></button>',
     HTMLprojectTitle: '<h4 class="project-title">%data%</h4>',
     HTMLprojectDates: '<div class="project-date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',
@@ -575,7 +575,13 @@ var helper;
         }
     };
 
+    /**
+     * Object for handling user interface.
+     */
     view = {
+        /**
+         * Reused jQuery objects to avoid unnecessary DOM calls.
+         */
         $body: $('body'),
         $projects: null,
         $projectsNavItems: null,
@@ -586,15 +592,15 @@ var helper;
         init: function() {
 
             this.renderBio();
-            this.loadProjects();
+            this.loadProjects(); // calls renderProjects
             this.renderEducation();
             this.renderWork();
             this.renderNav();
-            this.setNavListeners();
+            this.setNavListeners(); // navigation bar behaviour
 
             $('#mapDiv').append(helper.googleMap);
 
-            // This console.logs click locations as part of the resume assignment.
+            // Console log click locations.
             $(document).click(function(loc) {
                 console.log('x location: ' + loc.pageX, 'y location:' + loc.pageY);
             });
