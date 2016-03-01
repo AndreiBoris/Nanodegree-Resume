@@ -161,7 +161,7 @@ div {
 }
 
 .clear-fix {
-  overflow: auto;
+  overflow: hidden;
 }
 
 /* Text */
@@ -267,10 +267,11 @@ span {
   display: none;
 }
 
-.big-text {
-  font-size: 1.3em;
+@media all and (min-width: 500px) {
+  .big-text {
+    font-size: 2.1rem;
+  }
 }
-
 .big-line {
   line-height: 1.5;
 }
@@ -341,9 +342,14 @@ body {
 }
 
 .nice-padding {
-  padding: 2rem 5rem;
+  padding: 2rem 1rem;
 }
 
+@media all and (min-width: 768px) {
+  .nice-padding {
+    padding: 2rem 5rem;
+  }
+}
 .center-vertical {
   -webkit-align-self: center;
       -ms-flex-item-align: center;
