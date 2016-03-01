@@ -381,6 +381,11 @@ var helper;
                 'url': 'http://www.yorku.ca/index.html'
             }],
             'online': [{
+                'title': 'JavaScript Testing',
+                'school': 'Udacity',
+                'dates': '2016',
+                'url': 'https://www.udacity.com/courses/ud549'
+            }, {
                 'title': 'JavaScript Design Patterns',
                 'school': 'Udacity',
                 'dates': '2016',
