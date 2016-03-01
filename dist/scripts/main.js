@@ -803,6 +803,13 @@ var helper;
         },
 
         /**
+         * Display the project at position index in the carousel
+         */
+        displayProject: function(index) {
+
+        }
+
+        /**
          * Draw the current state of the projects in the carousel.
          */
         renderProjects: function() {
@@ -812,14 +819,24 @@ var helper;
             // Preliminarily hide all projects
             this.$projects.removeClass('active');
             this.$projectsNavItems.removeClass('active');
+            // Remove screen-reader-only text on project navigation buttons
+            $('.project-nav-selected').remove();
+            // Hide all projects from screen readers
             this.$projects.attr('aria-live', 'off');
+            // Grab the currently selected project
             var currentProject = bridge.getCurrentProject();
+            // Change visual of the selected project navigation button
             $(this.$projectsNavItems[currentProject])
-                .addClass('active')
+                .addClass('active') // Change visual look of button
+                // Add screenreader-only text to navigation button '(Slide open)'
                 .append(helper.HTMLprojectNavSelected);
+            // Display the currently selected project in the carousel
             $(this.$projects[currentProject])
-                .addClass('active')
+                .addClass('active') // Display object in carousel
+                // Set the object to be the first of its kind in the DOM, so
+                // that it displays first in the carousel
                 .insertBefore('.project-entry:first')
+                // Announce carousel item to screenreaders
                 .attr('aria-live', 'polite');
             var secondInLine;
             if (windowWidth >= 1200) {
