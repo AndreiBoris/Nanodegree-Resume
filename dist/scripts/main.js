@@ -679,7 +679,27 @@ var helper;
                 // });
             };
 
-            $('[data-toggle=popover]').popover({placement: 'top'});
+            this.$projects.popover({ placement: 'top' });
+
+            var projectPopoverListener = function() {
+                self.$body.on('click', function(e) {
+                    // Thanks Oscar Jara for how to determine which element was
+                    // clicked on!
+                    // http://stackoverflow.com/questions/10706903/check-which-element-has-been-clicked-with-jquery
+                    var target = $(e.target);
+
+                    if (target.is('.popover-title') ||
+                        target.is('.popover-content') ||
+                        target.is('.project-entry')){
+                        // do nothing
+                    } else {
+                        console.log('fire');
+                        self.$projects.popover('hide');
+                    };
+                });
+            };
+
+            projectPopoverListener();
 
             for (i = 0; i < numProjects; i++) {
                 // Create listener for the latest project-nav-item to select
