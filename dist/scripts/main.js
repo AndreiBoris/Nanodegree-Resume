@@ -21,7 +21,7 @@ var helper = {
     HTMLwelcomeMsg: '<div class="welcome-message text-center">%data%</div>',
 
     HTMLskillsStart: '<h3 id="skills-h3" class="header-heading">Toolkit:</h3>' +
-    '<ul id="skills" class="flex-box-skills"></ul>',
+        '<ul id="skills" class="flex-box-skills"></ul>',
     HTMLskills: '<div class="btn btn-default skill">%data%</div>',
 
     HTMLworkStart: '<div class="work-entry"></div>',
@@ -32,15 +32,15 @@ var helper = {
     HTMLworkDescription: '<p><br>%data%</p>',
 
     HTMLprojectStart: '<button class="col-lg-4 col-sm-6 col-xs-12 project-entry" ' +
-    'type="button" data-toggle="popover" data-content="%content%" ' +
-    'data-html="true" data-original-title="<a target=&quot;_blank&quot; ' +
-    'href=&quot;#&quot;>Github Repository</a>"></button>',
+        'type="button" data-toggle="popover" data-content="%content%" ' +
+        'data-html="true" data-original-title="<a target=&quot;_blank&quot; ' +
+        'href=&quot;#&quot;>Github Repository</a>"></button>',
     HTMLprojectTitle: '<h4 class="project-title">%data%</h4>',
     HTMLprojectDates: '<div class="project-date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',
     HTMLprojectImage: '<img class="project-img" src="%data%" alt="%alt%">',
     HTMLprojectNavItem: '<li class="project-nav-item"><button>' +
-    '<span class="sr-only">Project</span>%data%</button></li>',
+        '<span class="sr-only">Project</span>%data%</button></li>',
     // Thank you to https://www.w3.org/WAI/tutorials/carousels/functionality/ for
     // the following accessibility tool:
     HTMLprojectNavSelected: '<span class="project-nav-selected sr-only"> (Slide open)</span>',
@@ -53,10 +53,10 @@ var helper = {
     HTMLschoolLocation: '<div class="location-text">%data%</div>',
     HTMLschoolMajor: '<em><br>Major: %data%</em>',
 
-    HTMLonlineClasses: '<h3 class="online-subtitle">Online Classes</h3>' +
-    '<ul id="online-classes" class="flex-box-classes"></ul>',
+    HTMLonlineClasses: '<h3 class="online-subtitle">Completed Online Classes</h3>' +
+        '<ul id="online-classes" class="flex-box-classes"></ul>',
     HTMLonlinePill: '<a href="#" target="_blank" class="btn btn-default online-class">' +
-    '<h4 class="bold-text">%data%</h4><p>%school% - %date%</p></a>',
+        '<h4 class="bold-text">%data%</h4><p>%school% - %date%</p></a>',
     // HTMLonlineTitle: '<a href="#" target="_blank">%data%</a>',
     // HTMLonlineSchool: ' - %data%</a>',
     // HTMLonlineDates: '<div class="date-text">%data%</div>',
@@ -226,6 +226,7 @@ var helper = {
     }
 
 };
+
 var helper;
 
 (function() {
@@ -465,59 +466,110 @@ var helper;
 
     bridge = {
 
+        /**
+         * Set everything up.
+         * @return {[type]} [description]
+         */
         init: function() {
             view.init();
         },
 
+        /**
+         * Get an attribute (detail) from the bio object in the model
+         */
         getBio: function(detail) {
             return model.bio[detail];
         },
 
+        /**
+         * Get an attribute (detail) from the contacts object in the bio object
+         * in the model
+         */
         getBioContacts: function(detail) {
             return model.bio.contacts[detail];
         },
-        getSkills: function() {
-            return model.bio.skills;
-        },
-        getIcons: function() {
-            return model.bio.icons;
-        },
+
+        /**
+         * Get array of projects from the projects object in model object
+         */
         getProjects: function() {
             return model.projects.projects;
         },
+
+        /**
+         * Get array of schools from the education object in model object
+         */
         getSchools: function() {
             return model.education.schools;
         },
+
+        /**
+         * Get array of online courses from the education object in model object
+         */
         getOnlineCourses: function() {
             return model.education.online;
         },
+
+        /**
+         * Get array of jobs from the work object in model object
+         */
         getJobs: function() {
             return model.work.jobs;
         },
+
+        /**
+         * Advance the currently selected project in the model.projects object.
+         */
         nextProject: function() {
+            // We are at the end of the projects array.
             if (model.projects.current + 1 >= model.projects.projects.length) {
-                model.projects.current = 0;
+                model.projects.current = 0; // Back to beginning
             } else {
                 model.projects.current++;
             }
         },
+
+        /**
+         * Backtrack the currently selected project in the model.projects object.
+         */
         previousProject: function() {
+            // We are at the beginning of the projects array.
             if (model.projects.current === 0) {
+                // Go to the last project.
                 model.projects.current = model.projects.projects.length - 1;
             } else {
                 model.projects.current--;
             }
         },
+
+        /**
+         * Get the index number of the currently selected object.
+         */
         getCurrentProject: function() {
             return model.projects.current;
         },
+
+        /**
+         * Check which is the next project without changing anything. This is
+         * necessray because the projects should loop so that after the last one
+         * the next project is the first project in the array. The parameter
+         * 'starting' allows us to peek further ahead as well.
+         * @param  {integer} starting index number of the project from which to
+         *                            perform the query.
+         *
+         */
         peekNextProject: function(starting) {
+            // Current project is the last in the array
             if (starting + 1 >= model.projects.projects.length) {
-                return 0;
+                return 0; // Next project is the first in the array.
             } else {
-                return starting + 1;
+                return starting + 1; // Return the next project in the array.
             }
         },
+
+        /**
+         * Allows us to select any object without having to cycle through them.
+         */
         setCurrentProject: function(index) {
             model.projects.current = index;
         }
@@ -593,7 +645,7 @@ var helper;
 
             var i;
             // Display header skills.
-            var usefulSkills = bridge.getSkills();
+            var usefulSkills = bridge.getBio('skills');
             var numSkills = usefulSkills.length;
             if (numSkills > 0) {
                 $('#header-skill-title').append(helper.HTMLskillsStart);
@@ -603,7 +655,7 @@ var helper;
             }
 
             // Display footer icons.
-            var footerIcons = bridge.getIcons();
+            var footerIcons = bridge.getBio('icons');
             var numIcons = footerIcons.length;
             for (i = 0; i < numIcons; i++) {
                 $('#footerContacts').append(helper.HTMLfooterStart);
@@ -699,7 +751,7 @@ var helper;
 
                     if (target.is('.popover-title') ||
                         target.is('.popover-content') ||
-                        target.is('.project-entry')){
+                        target.is('.project-entry')) {
                         // do nothing
                     } else {
                         console.log('fire');

@@ -21,7 +21,7 @@ var helper = {
     HTMLwelcomeMsg: '<div class="welcome-message text-center">%data%</div>',
 
     HTMLskillsStart: '<h3 id="skills-h3" class="header-heading">Toolkit:</h3>' +
-    '<ul id="skills" class="flex-box-skills"></ul>',
+        '<ul id="skills" class="flex-box-skills"></ul>',
     HTMLskills: '<div class="btn btn-default skill">%data%</div>',
 
     HTMLworkStart: '<div class="work-entry"></div>',
@@ -32,15 +32,15 @@ var helper = {
     HTMLworkDescription: '<p><br>%data%</p>',
 
     HTMLprojectStart: '<button class="col-lg-4 col-sm-6 col-xs-12 project-entry" ' +
-    'type="button" data-toggle="popover" data-content="%content%" ' +
-    'data-html="true" data-original-title="<a target=&quot;_blank&quot; ' +
-    'href=&quot;#&quot;>Github Repository</a>"></button>',
+        'type="button" data-toggle="popover" data-content="%content%" ' +
+        'data-html="true" data-original-title="<a target=&quot;_blank&quot; ' +
+        'href=&quot;#&quot;>Github Repository</a>"></button>',
     HTMLprojectTitle: '<h4 class="project-title">%data%</h4>',
     HTMLprojectDates: '<div class="project-date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',
     HTMLprojectImage: '<img class="project-img" src="%data%" alt="%alt%">',
     HTMLprojectNavItem: '<li class="project-nav-item"><button>' +
-    '<span class="sr-only">Project</span>%data%</button></li>',
+        '<span class="sr-only">Project</span>%data%</button></li>',
     // Thank you to https://www.w3.org/WAI/tutorials/carousels/functionality/ for
     // the following accessibility tool:
     HTMLprojectNavSelected: '<span class="project-nav-selected sr-only"> (Slide open)</span>',
@@ -53,10 +53,10 @@ var helper = {
     HTMLschoolLocation: '<div class="location-text">%data%</div>',
     HTMLschoolMajor: '<em><br>Major: %data%</em>',
 
-    HTMLonlineClasses: '<h3 class="online-subtitle">Online Classes</h3>' +
-    '<ul id="online-classes" class="flex-box-classes"></ul>',
+    HTMLonlineClasses: '<h3 class="online-subtitle">Completed Online Classes</h3>' +
+        '<ul id="online-classes" class="flex-box-classes"></ul>',
     HTMLonlinePill: '<a href="#" target="_blank" class="btn btn-default online-class">' +
-    '<h4 class="bold-text">%data%</h4><p>%school% - %date%</p></a>',
+        '<h4 class="bold-text">%data%</h4><p>%school% - %date%</p></a>',
     // HTMLonlineTitle: '<a href="#" target="_blank">%data%</a>',
     // HTMLonlineSchool: ' - %data%</a>',
     // HTMLonlineDates: '<div class="date-text">%data%</div>',

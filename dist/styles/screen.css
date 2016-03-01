@@ -280,6 +280,11 @@ span {
   font-weight: bold;
 }
 
+.online-subtitle {
+  font-size: 2.2rem;
+  margin: 1rem 0;
+}
+
 /* Backgrounds */
 .highlight {
   background-color: #ff0;
