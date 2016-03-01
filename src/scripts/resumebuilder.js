@@ -404,6 +404,7 @@ var helper;
 
             var projectNavListener = function(index) {
                 $('.project-nav-item:last').on('click', function() {
+                    $(this).blur();
                     projectNavHandler(index);
                 });
             };
@@ -585,7 +586,7 @@ var helper;
             $('#nav-div').affix({
                 offset: {
                     top: function() {
-                        return (this.top = $('#header').outerHeight(true) - 50);
+                        return (this.top = $('#header').outerHeight(true) - 100);
                     }
                 }
             });
@@ -616,7 +617,7 @@ var helper;
                 $navPills.removeClass('active');
                 $(this).parent().addClass('active');
                 // Position where navbar detaches
-                var detachPos = $header.outerHeight(true) - 50;
+                var detachPos = $header.outerHeight(true) - 100;
                 // Current scroll position
                 var currentPos = $body.scrollTop();
                 // If we are above the detach point, we should scroll less to
@@ -625,7 +626,7 @@ var helper;
                 var aboveDetach = detachPos >= currentPos;
                 if (aboveDetach) {
                     if (smallScreen) {
-                        smallScreenOffset = 50;
+                        smallScreenOffset = 30;
                     }
                     /* Thank you to Joseph Silber on Stackover flow for this
                     nav scroll solution:
@@ -634,7 +635,7 @@ var helper;
                     // Scroll to just above the current offset().top of the
                     // element that corresponds to the href of this button
                     $body.animate({
-                        scrollTop: $($.attr(this, 'href')).offset().top - 150 - smallScreenOffset
+                        scrollTop: $($.attr(this, 'href')).offset().top - 145 - smallScreenOffset
                     }, 500);
                 } else {
                     console.log('below');

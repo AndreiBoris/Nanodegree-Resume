@@ -368,13 +368,6 @@ body {
   margin-top: 1rem;
 }
 
-.affix {
-  top: 0;
-  width: 94%;
-  right: 4%;
-  z-index: 3;
-}
-
 /* Images */
 .biopic {
   padding: 1rem;
@@ -660,4 +653,16 @@ http://stackoverflow.com/questions/7363766/how-to-insert-a-line-break-before-an-
   .project-entry {
     height: 35rem;
   }
+}
+/* Navigation */
+.navbar-brand {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.affix {
+  top: 0;
+  width: 94%;
+  right: 4%;
+  z-index: 3;
 }
