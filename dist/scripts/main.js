@@ -31,7 +31,7 @@ var helper = {
     HTMLworkLocation: '<div class="location-text">%data%</div>',
     HTMLworkDescription: '<p><br>%data%</p>',
 
-    HTMLprojectStart: '<button class="col-lg-4 col-sm-6 col-xs-12 project-entry" ' +
+    HTMLprojectStart: '<button aria-label="%alt%" class="col-lg-4 col-sm-6 col-xs-12 project-entry" ' +
         'type="button" data-toggle="popover" data-content="%content%" ' +
         'data-html="true" data-original-title="<a target=&quot;_blank&quot; ' +
         'class=&quot;popover-text&quot; href=&quot;#&quot; ' +
@@ -291,7 +291,7 @@ var helper;
                     'of live theatre options in a palatable manner.',
                 'image': 'dist/images/theatremap.png',
                 'url': 'https://github.com/AndreiCommunication/toronto-theatre-map',
-                'altText': 'Google Map with Theatre in Toronto title'
+                'altText': 'Google Map with some custom markers'
             }, {
                 'title': 'Jasmine Test Suites',
                 'date': '24/02/16 - 25/02/16',
@@ -699,6 +699,7 @@ var helper;
                 var formattedProjectStart = helper.HTMLprojectStart.replace('#', allProjects[i].url);
                 formattedProjectStart = formattedProjectStart.replace('%content%', allProjects[i].description);
                 formattedProjectStart = formattedProjectStart.replace('%title%', allProjects[i].title);
+                formattedProjectStart = formattedProjectStart.replace('%alt%', allProjects[i].altText);
                 // Add the anchor to the carousel to hold project info
                 $projectsCarousel.append(formattedProjectStart);
 
@@ -946,6 +947,12 @@ var helper;
             $('#nav-div').affix({
                 offset: {
                     top: function() {
+                        // the '- 100' accounts desire to get the navbar to a
+                        // affix earlier than expected to avoid problems when
+                        // scrolling to the first section, currently 'Projects'
+                        // and dealing with indecisive navbar. This '- 100'
+                        // ensures that the navbar WILL be attached when at
+                        // 'Projects'
                         return (this.top = $('#header').outerHeight(true) - 100);
                     }
                 }

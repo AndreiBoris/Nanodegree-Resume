@@ -31,7 +31,7 @@ var helper = {
     HTMLworkLocation: '<div class="location-text">%data%</div>',
     HTMLworkDescription: '<p><br>%data%</p>',
 
-    HTMLprojectStart: '<button class="col-lg-4 col-sm-6 col-xs-12 project-entry" ' +
+    HTMLprojectStart: '<button aria-label="%alt%" class="col-lg-4 col-sm-6 col-xs-12 project-entry" ' +
         'type="button" data-toggle="popover" data-content="%content%" ' +
         'data-html="true" data-original-title="<a target=&quot;_blank&quot; ' +
         'class=&quot;popover-text&quot; href=&quot;#&quot; ' +
