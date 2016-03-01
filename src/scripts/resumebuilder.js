@@ -397,18 +397,6 @@ var helper;
             var $projectsNav = $('#projects-nav');
             var self = this; // needed due to scope issues inside the handlers
 
-            var projectNavHandler = function(index) {
-                bridge.setCurrentProject(index);
-                self.renderProjects();
-            };
-
-            var projectNavListener = function(index) {
-                $('.project-nav-item:last').on('click', function() {
-                    $(this).blur();
-                    projectNavHandler(index);
-                });
-            };
-
             for (var i = 0; i < numProjects; i++) {
                 // Add to the project navigation buttons for the carousel
                 var formattedProjectNavItem = helper.HTMLprojectNavItem.replace('%data%', (i + 1).toString());
@@ -424,11 +412,6 @@ var helper;
                     formattedProjectDates = helper.HTMLprojectDates.replace('%data%', allProjects[i].date);
                 // formattedProjectDesc = helper.HTMLprojectDescription.replace('%data%', allProjects[i].description),
 
-                // Create listener for the latest project-nav-item to select
-                // make it select the project
-                projectNavListener(i);
-
-
                 // Grab the most recently added project-entry
                 var $lastProjectEntry = $('.project-entry:last');
                 // Add the title and dates elements we made earlier to it
@@ -436,6 +419,9 @@ var helper;
                 $lastProjectEntry.append(formattedProjectDates);
                 // Set background image to the project image
                 $lastProjectEntry.css('background-image', 'url(' + allProjects[i].image + ')');
+
+
+
             }
             // Set up listeners for next project and previous project buttons on
             // the carousel
@@ -452,6 +438,28 @@ var helper;
             // Grab all the newly created projects in the carousel for
             // renderProjects
             this.$projects = $('.project-entry');
+
+            var projectNavHandler = function(index) {
+                bridge.setCurrentProject(index);
+                self.renderProjects();
+                $(self.$projects[index]).focus();
+                console.log($(this));
+            };
+
+            var projectNavListener = function(index) {
+                $(self.$projectsNavItems[index]).on('click', function() {
+                    projectNavHandler(index);
+                });
+                // $('.project-nav-item:last').on('click', function() {
+                //     projectNavHandler(index);
+                // });
+            };
+
+            for (i = 0; i < numProjects; i++) {
+                // Create listener for the latest project-nav-item to select
+                // make it select the project
+                projectNavListener(i);
+            }
             // Display the projects as they are currently laid out
             this.renderProjects();
         },
@@ -613,7 +621,6 @@ var helper;
                     $collapseButton.click();
                     smallScreenOffset = 25;
                 }
-                console.log('I run');
                 $navPills.removeClass('active');
                 $(this).parent().addClass('active');
                 // Position where navbar detaches
@@ -638,7 +645,6 @@ var helper;
                         scrollTop: $($.attr(this, 'href')).offset().top - 145 - smallScreenOffset
                     }, 500);
                 } else {
-                    console.log('below');
                     $body.animate({
                         scrollTop: $($.attr(this, 'href')).offset().top - 50 - smallScreenOffset
                     }, 500);
