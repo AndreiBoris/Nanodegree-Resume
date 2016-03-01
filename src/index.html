@@ -3,13 +3,22 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Andrei Borissenko online resume">
+    <meta name="author" content="Andrei Borissenko">
     <title>Resume</title>
     <link href="dist/perm/bootstrap.min.css" media="screen, projection" rel="stylesheet" />
     <link href="dist/styles/screen.min.css" media="screen, projection" rel="stylesheet" />
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width">
 </head>
-
+<!-- data-spy="scroll" watches our scroll position to update navigation so it
+tells us where we currently are. data-target is the navigation div to update.
+data-offset is the amount to offset the navigation to account for the affixed
+navigation bar so when a user uses the navigation bar to scroll to an area, the
+scroll spy reads the position sensibly. onresize, we adjust the current carousel
+display, as different width viewports can support different numbers of projects
+at one time -->
 <body data-spy="scroll" data-target="#nav-div" data-offset="100" onresize="viewControls.renderProjects()">
     <div id="main" class="container">
         <!--
