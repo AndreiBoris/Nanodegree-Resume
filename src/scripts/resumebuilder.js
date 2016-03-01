@@ -634,7 +634,7 @@ var helper;
                     // Scroll to just above the current offset().top of the
                     // element that corresponds to the href of this button
                     $body.animate({
-                        scrollTop: $($.attr(this, 'href')).offset().top - 120 - smallScreenOffset
+                        scrollTop: $($.attr(this, 'href')).offset().top - 150 - smallScreenOffset
                     }, 500);
                 } else {
                     console.log('below');
