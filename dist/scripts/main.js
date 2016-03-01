@@ -30,7 +30,10 @@ var helper = {
     HTMLworkLocation: '<div class="location-text">%data%</div>',
     HTMLworkDescription: '<p><br>%data%</p>',
 
-    HTMLprojectStart: '<a href="#" target="_blank" class="col-lg-4 col-sm-6 col-xs-12 project-entry"></a>',
+    HTMLprojectStart: '<button class="col-lg-4 col-sm-6 col-xs-12 project-entry" ' +
+    'type="button" data-toggle="popover" data-content="%content%" ' +
+    'data-html="true" data-original-title="<a target=&quot;_blank&quot; ' +
+    'href=&quot;#&quot;>Github Repository</a>"></button>',
     HTMLprojectTitle: '<h4 class="project-title">%data%</h4>',
     HTMLprojectDates: '<div class="project-date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',
@@ -606,7 +609,6 @@ var helper;
          * Load project related information into view
          */
         loadProjects: function() {
-
             // helper.HTMLprojectLines create line graphics for displays over 1200px wide, see
             // _media.scss. This is also the case for helper.HTMLworkLine and helper.HTMLeducationLines.
             $('#projects').prepend(helper.HTMLprojectLines);
@@ -625,6 +627,8 @@ var helper;
 
                 // Give an anchor element a link to github repo of the project
                 var formattedProjectStart = helper.HTMLprojectStart.replace('#', allProjects[i].url);
+                formattedProjectStart = formattedProjectStart.replace('%content%', allProjects[i].description);
+                formattedProjectStart = formattedProjectStart.replace('%title%', allProjects[i].title);
                 // Add the anchor to the carousel to hold project info
                 $projectsCarousel.append(formattedProjectStart);
 
@@ -664,7 +668,6 @@ var helper;
                 bridge.setCurrentProject(index);
                 self.renderProjects();
                 $(self.$projects[index]).focus();
-                console.log($(this));
             };
 
             var projectNavListener = function(index) {
@@ -675,6 +678,8 @@ var helper;
                 //     projectNavHandler(index);
                 // });
             };
+
+            $('[data-toggle=popover]').popover({placement: 'top'});
 
             for (i = 0; i < numProjects; i++) {
                 // Create listener for the latest project-nav-item to select

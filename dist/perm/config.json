@@ -389,6 +389,8 @@
     "responsive-utilities.less",
     "navs.less",
     "navbar.less",
+    "component-animations.less",
+    "tooltip.less",
     "popovers.less",
     "modals.less"
   ],
@@ -404,5 +406,5 @@
     "scrollspy.js",
     "transition.js"
   ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=2fe99c32c70d8f595e83"
+  "customizerUrl": "http://getbootstrap.com/customize/?id=e16ad5da055f309e5f93"
 }

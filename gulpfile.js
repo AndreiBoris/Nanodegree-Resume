@@ -83,7 +83,8 @@ gulp.task('default', ['clean'], function() {
 gulp.task('minify-html', function() {
     return gulp.src('src/*.html')
         .pipe(htmlmin({
-            collapseWhitespace: true
+            collapseWhitespace: true,
+            removeComments: true
         }))
         .pipe(gulp.dest('.'));
 });
