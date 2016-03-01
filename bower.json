@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "jQuery": "^2.2.1"
+    "jQuery": "^2.2.1",
+    "bootstrap-accessibility-plugin": "bootstrapaccessibilityplugin#^1.0.4"
   }
 }

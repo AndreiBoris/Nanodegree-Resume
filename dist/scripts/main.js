@@ -34,7 +34,8 @@ var helper = {
     HTMLprojectStart: '<button class="col-lg-4 col-sm-6 col-xs-12 project-entry" ' +
         'type="button" data-toggle="popover" data-content="%content%" ' +
         'data-html="true" data-original-title="<a target=&quot;_blank&quot; ' +
-        'class=&quot;popover-text&quot; href=&quot;#&quot;>See Github Repository</a>"></button>',
+        'class=&quot;popover-text&quot; href=&quot;#&quot; ' +
+        '>See Github Repository</a>"></button>',
     HTMLprojectTitle: '<h4 class="project-title">%data%</h4>',
     HTMLprojectDates: '<div class="project-date-text">%data%</div>',
     HTMLprojectDescription: '<p><br>%data%</p>',
@@ -608,12 +609,12 @@ var helper;
         },
 
         /**
-         * Render the bio at the top in the header and in the footer.
+         * Render the bio in the header and in the footer.
          */
         renderBio: function() {
+            // Format helper functions with information from the model
             var formattedName = helper.HTMLheaderName.replace('%data%', bridge.getBio('name')),
                 formattedRole = helper.HTMLheaderRole.replace('%data%', bridge.getBio('role')),
-                // formattedMobile = helper.HTMLmobile.replace('%data%', bridge.getBioContacts('mobile')),
                 formattedEmail = helper.HTMLemail.replace('%data%', bridge.getBioContacts('email')),
                 formattedGithub = helper.HTMLgithub.replace('%data%', bridge.getBioContacts('github')),
                 formattedTwitter = helper.HTMLtwitter.replace('%data%', bridge.getBioContacts('twitter')),
@@ -621,10 +622,11 @@ var helper;
                 formattedBioPic = helper.HTMLbioPic.replace('%data%', bridge.getBio('picture')),
                 formattedWelcome = helper.HTMLwelcomeMsg.replace('%data%', bridge.getBio('welcome'));
 
+
+            // Add formatted elements to the DOM
             $('#header-name').append(formattedName);
             $('#header-title').append(formattedRole);
 
-            // $('#topContacts').append(formattedMobile);
             $('#topContacts').append(formattedEmail);
             $('#topContacts').append(formattedGithub);
             $('#topContacts').append(formattedTwitter);
@@ -653,9 +655,10 @@ var helper;
             // Display header skills.
             var usefulSkills = bridge.getBio('skills');
             var numSkills = usefulSkills.length;
-            if (numSkills > 0) {
+            if (numSkills > 0) { // If there are skills, we attach a title and...
                 $('#header-skill-title').append(helper.HTMLskillsStart);
                 for (i = 0; i < numSkills; i++) {
+                    // Add each of the skills, formatted, to the DOM
                     $('#header-skills').append(helper.HTMLskills.replace('%data%', usefulSkills[i]));
                 }
             }
@@ -685,7 +688,7 @@ var helper;
             // DOM calls made before loop. Both are for adding elements to.
             var $projectsCarousel = $('#projects-carousel');
             var $projectsNav = $('#projects-nav');
-            var self = this; // needed due to scope issues inside the handlers
+            var self = this; // needed due to scope issues inside event handlers
 
             for (var i = 0; i < numProjects; i++) {
                 // Add to the project navigation buttons for the carousel
@@ -731,59 +734,83 @@ var helper;
             // renderProjects
             this.$projects = $('.project-entry');
 
-            var projectNavHandler = function(index) {
-                bridge.setCurrentProject(index);
-                self.renderProjects();
-                $(self.$projects[index]).focus();
-            };
 
-            var projectNavListener = function(index) {
-                $(self.$projectsNavItems[index]).on('click', function() {
-                    projectNavHandler(index);
-                });
-                // $('.project-nav-item:last').on('click', function() {
-                //     projectNavHandler(index);
-                // });
-            };
-
+            /**
+             * Apply popover behaviour to all the carousel items, with the
+             * popover being drawn on the top side of the items.
+             */
             this.$projects.popover({ placement: 'top' });
 
-            var projectPopoverListener = function() {
+            /**
+             * Popover listener that closes all popovers whenever something other
+             * than a popover or a project in the carousel is clicked.
+             */
+            var projectPopoverListeners = function() {
                 self.$body.on('click', function(e) {
                     // Thanks Oscar Jara for how to determine which element was
                     // clicked on!
                     // http://stackoverflow.com/questions/10706903/check-which-element-has-been-clicked-with-jquery
-                    var target = $(e.target);
+                    /**
+                     * @type {jQuery} $target is whatever DOM element was clicked
+                     */
+                    var $target = $(e.target);
 
-                    if (target.is('.popover-title') ||
-                        target.is('.popover-content') ||
-                        target.is('.project-entry')) {
+                    if ($target.is('.popover-title') ||
+                        $target.is('.popover-content') ||
+                        $target.is('.project-entry')) {
                         // do nothing
-                    } else {
-                        console.log('fire');
+                    } else { // Something other than a popover or carousel item
                         self.$projects.popover('hide');
                     }
                 });
             };
 
-            projectPopoverListener();
+            // Set up listeners to close popovers when necessary
+            projectPopoverListeners();
 
+            /**
+             * Display the project at position index in the carousel.
+             * @param  {integer} index of project we want to choose
+             */
+            var projectNavHandler = function(index) {
+                bridge.setCurrentProject(index);
+                self.renderProjects(); // Draw projects that should be rendered
+                // Once the new set of projects are rendered, we can apply focus
+                // on the project we selected
+                $(self.$projects[index]).focus();
+            };
+
+            /**
+             * Set up listener on the carousel nav item at position index.
+             * @param  {index} index of project we want to choose
+             */
+            var projectNavListener = function(index) {
+                // Listener requires jQuery object at the position index of all
+                // the carousel navigation items.
+                $(self.$projectsNavItems[index]).on('click', function() {
+                    projectNavHandler(index);
+                });
+            };
+
+            // project-nav-items correspond to projects 1:1
             for (i = 0; i < numProjects; i++) {
-                // Create listener for the latest project-nav-item to select
-                // make it select the project
+                // Create listener for the latest project-nav-item to make it
+                // select the corresponding project
                 projectNavListener(i);
             }
             // Display the projects as they are currently laid out
             this.renderProjects();
         },
 
+        /**
+         * Draw the current state of the projects in the carousel.
+         */
         renderProjects: function() {
-            // 15 pixels account for gutter so that breakpoints line up with the
-            // rendering of additional projects
+            // 15 pixels needed so that breakpoints line up with the rendering
+            // of additional projects
             var windowWidth = this.$body.width() + 15;
-            console.log(windowWidth);
+            // Preliminarily hide all projects
             this.$projects.removeClass('active');
-            $('.project-nav-selected').remove();
             this.$projectsNavItems.removeClass('active');
             this.$projects.attr('aria-live', 'off');
             var currentProject = bridge.getCurrentProject();
