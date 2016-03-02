@@ -734,8 +734,6 @@ var helper;
          * correct location on the resume.
          */
         setNavListeners: function() {
-            // All nav pills that hold the buttons
-            var $navPills = $('nav li');
             // All nav anchors
             var $navButtons = $('nav a');
             // Avoid making DOM queries during each handler execution
@@ -743,6 +741,22 @@ var helper;
             var $body = $('body');
             var $navBar = $('#collapsing-navbar');
             var $collapseButton = $('#collapse-button');
+            // Constants
+            // Default value for smallScreenOffset is 0, no offset for large
+            // screens.
+            var STANDARD_OFFSET = 0;
+            // Compensate for larger menu size on small displays
+            var SMALL_SCREEN_OFFSET = 15;
+            // Small screens account for extended nav when above the affix point
+            var SMALL_SCREEN_TOP_OFFSET = 300;
+            // Pixels above the bottom of the header that navbar should affix
+            var AFFIX_OFFSET = 100;
+            // Offset that happens due to being above the affix point
+            var ABOVE_AFFIX_OFFSET = 145;
+            // Offset that happens when below the affix point
+            var BELOW_AFFIX_OFFSET = 60;
+            // Length of animation in milliseconds (ms)
+            var ANIMATION_TIME = 500;
             // Listener for when any of the navigations buttons are clicked
             $navButtons.on('click', function() {
                 // We can tell we're on a small screen if the navigation bar has
@@ -750,45 +764,40 @@ var helper;
                 // currently on the screen. It must be 'in', since if it isn't,
                 // the navigation button cannot be clicked.
                 var smallScreen = $navBar.hasClass('in');
-                // Default value for smallScreenOffset is 0, no offset for large
-                // screens.
-                var smallScreenOffset = 0;
+                var smallScreenOffset = STANDARD_OFFSET;
                 if (smallScreen) {
                     $collapseButton.click(); // minimize navigation menu
-                    // compensate for larger menu size on small displays
-                    smallScreenOffset = 15;
+                    smallScreenOffset = SMALL_SCREEN_OFFSET;
                 }
-
-                $navPills.removeClass('active');
-                $(this).parent().addClass('active');
-                // Position where navbar detaches
-                var detachPos = $header.outerHeight(true) - 100;
+                // Position where navbar becomes affixed
+                var affixPos = $header.outerHeight(true) - AFFIX_OFFSET;
                 // Current scroll position
                 var currentPos = $body.scrollTop();
-                // If we are above the detach point, we should scroll less to
+                // If we are above the affix point, we should scroll less to
                 // make up for the pixels we'll lose when the navigation bar
-                // detaches and becomes fixed position.
-                var aboveDetach = detachPos >= currentPos;
-                if (aboveDetach) {
-                    if (smallScreen) {
-                        console.log('smallscreen and above detach');
-                        smallScreenOffset = 300;
+                // detaches and becomes a fixed position element.
+                var aboveDetach = affixPos >= currentPos;
+                if (aboveDetach) { // We will lose some height due to affixation
+                    if (smallScreen) { // Small screens account for extended nav
+                        smallScreenOffset = SMALL_SCREEN_TOP_OFFSET;
                     }
                     /* Thank you to Joseph Silber on Stackover flow for this
                     nav scroll solution:
                     http://stackoverflow.com/questions/7717527/jquery-smooth-scrolling-when-clicking-an-anchor-link
                     */
                     // Scroll to just above the current offset().top of the
-                    // element that corresponds to the href of this button
+                    // element that corresponds to the href of this button. The
+                    // href values correspond to DOM elements that are the titles
+                    // of sections such as "Projects" and "Work Experience"
                     $body.animate({
-                        scrollTop: $($.attr(this, 'href')).offset().top - 145 - smallScreenOffset
-                    }, 500);
+                        scrollTop: $($(this).attr('href')).offset().top - ABOVE_AFFIX_OFFSET - smallScreenOffset
+                    }, ANIMATION_TIME); // Take 0.5 secods to complete scroll
                 } else {
                     $body.animate({
-                        scrollTop: $($.attr(this, 'href')).offset().top - 60 - smallScreenOffset
-                    }, 500);
+                        scrollTop: $($(this).attr('href')).offset().top - BELOW_AFFIX_OFFSET - smallScreenOffset
+                    }, ANIMATION_TIME); // Take 0.5 secods to complete scroll
                 }
-                return false; // prevent default
+                return false; // prevent default (default nav scroll is bad)
             });
         }
 
