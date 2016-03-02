@@ -1,5 +1,7 @@
 # Andrei Borissenko Web Resume
 
+See it [here](http://andreicommunication.github.io/Nanodegree-Resume)
+
 ### Recent Changes
 
 * Use model-bridge-view framework in resumebuilder.js
