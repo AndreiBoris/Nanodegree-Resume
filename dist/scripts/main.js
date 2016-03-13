@@ -341,7 +341,7 @@ var helper;
             'contacts': {
                 'email': 'Andrei.Borissenko@gmail.com',
                 'github': 'AndreiCommunication',
-                'twitter': '@BreathMachine',
+                'twitter': '@AndreiBDev',
                 'location': 'Toronto, Canada'
             },
             'picture': 'dist/images/me.jpg',
@@ -369,7 +369,7 @@ var helper;
                 'url': '#'
             }, {
                 'icon': 'fa fa-twitter',
-                'url': 'https://twitter.com/BreathMachine'
+                'url': 'https://twitter.com/AndreiBDev'
             }, {
                 'icon': 'fa fa-envelope',
                 'url': 'mailto:Andrei.Borissenko@gmail.com'
