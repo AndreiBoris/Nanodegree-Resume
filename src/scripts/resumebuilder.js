@@ -95,13 +95,6 @@ var helper;
                 'image': 'dist/images/optimized_site.jpeg',
                 'url': 'https://github.com/AndreiCommunication/Optimized-Portfolio',
                 'altText': 'Site segment featuring a randomly generated pizza ingredient list'
-            }, {
-                'title': 'Portfolio Website',
-                'date': '03/09/15 - 05/09/15',
-                'description': 'A website set up to showcase web-based projects as they get completed.',
-                'image': 'http://placehold.it/550x400',
-                'url': 'http://andreicommunication.github.io/portfolio-website',
-                'altText': 'Site segment of a Featured Work section in a portfolio website'
             }],
             'current': 0
         },
