@@ -109,7 +109,7 @@ var helper;
             'name': 'Andrei Borissenko',
             'role': 'Frontend Web Developer',
             'contacts': {
-                'email': 'Andrei.Borissenko@gmail.com',
+                'email': 'aborissenkodev@gmail.com',
                 'github': 'AndreiCommunication',
                 'twitter': '@AndreiBDev',
                 'location': 'Toronto, Canada'
@@ -142,7 +142,7 @@ var helper;
                 'url': 'https://twitter.com/AndreiBDev'
             }, {
                 'icon': 'fa fa-envelope',
-                'url': 'mailto:Andrei.Borissenko@gmail.com'
+                'url': 'mailto:aborissenkodev@gmail.com'
             }]
         },
         education: {
