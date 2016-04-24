@@ -1,6 +1,6 @@
 # Andrei Borissenko Web Resume
 
-See it [here](http://andreicommunication.github.io/Nanodegree-Resume)
+See it [here](http://andreiboris.github.io/Nanodegree-Resume/)
 
 ### Recent Changes
 
