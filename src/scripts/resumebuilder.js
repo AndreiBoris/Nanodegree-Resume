@@ -60,7 +60,7 @@ var helper;
                 'description': 'Map that uses Google Maps API to present a number ' +
                     'of live theatre options in a palatable manner.',
                 'image': 'dist/images/theatremap.png',
-                'url': 'https://github.com/AndreiCommunication/toronto-theatre-map',
+                'url': 'https://github.com/AndreiBoris/toronto-theatre-map',
                 'altText': 'Google Map with some custom markers'
             }, {
                 'title': 'Jasmine Test Suites',
@@ -68,7 +68,7 @@ var helper;
                 'description': 'A set of Jasmine Test Suites to check for correct ' +
                     'functionality of a RSS feed reader.',
                 'image': 'dist/images/jasmine.png',
-                'url': 'https://github.com/AndreiCommunication/feed-reader-testing',
+                'url': 'https://github.com/AndreiBoris/feed-reader-testing',
                 'altText': 'Jasmine test results display'
             }, {
                 'title': 'Tiny Crossing',
@@ -76,7 +76,7 @@ var helper;
                 'description': 'An object oriented game using JavaScript and HTML 5 canvas. ' +
                     'It is a Frogger clone with increasingly difficult levels.',
                 'image': 'dist/images/tiny_crossing.jpeg',
-                'url': 'https://github.com/AndreiCommunication/tiny-crossing',
+                'url': 'https://github.com/AndreiBoris/tiny-crossing',
                 'altText': 'Screen capture of a frogger-style game'
             }, {
                 'title': 'Riddle Game',
@@ -84,7 +84,7 @@ var helper;
                 'description': 'An object oriented game in Python 2.7. Player walks around to complete ' +
                     'riddles. The game is available on my GitHub account.',
                 'image': 'dist/images/riddle_game.jpeg',
-                'url': 'https://github.com/AndreiCommunication/riddle-game',
+                'url': 'https://github.com/AndreiBoris/riddle-game',
                 'altText': 'Screen capture of a text-based game'
             }, {
                 'title': 'Optimized Website Project',
@@ -93,7 +93,7 @@ var helper;
                     'presented to me and I made its initial load and the animations on the ' +
                     'linked pizza page work much faster.',
                 'image': 'dist/images/optimized_site.jpeg',
-                'url': 'https://github.com/AndreiCommunication/Optimized-Portfolio',
+                'url': 'https://github.com/AndreiBoris/Optimized-Portfolio',
                 'altText': 'Site segment featuring a randomly generated pizza ingredient list'
             }],
             'current': 0
@@ -103,7 +103,7 @@ var helper;
             'role': 'Frontend Web Developer',
             'contacts': {
                 'email': 'aborissenkodev@gmail.com',
-                'github': 'AndreiCommunication',
+                'github': 'AndreiBoris',
                 'twitter': '@AndreiBDev',
                 'location': 'Toronto, Canada'
             },
@@ -126,10 +126,10 @@ var helper;
             ],
             'icons': [{
                 'icon': 'fa fa-git',
-                'url': 'https://github.com/AndreiCommunication'
+                'url': 'https://github.com/AndreiBoris'
             }, {
                 'icon': 'fa fa-linkedin',
-                'url': '#'
+                'url': 'https://ca.linkedin.com/in/andrei-borissenko-3621bb118'
             }, {
                 'icon': 'fa fa-twitter',
                 'url': 'https://twitter.com/AndreiBDev'

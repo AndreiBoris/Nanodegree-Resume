@@ -333,7 +333,7 @@ var helper;
             'role': 'Frontend Web Developer',
             'contacts': {
                 'email': 'aborissenkodev@gmail.com',
-                'github': 'AndreiCommunication',
+                'github': 'AndreiBoris',
                 'twitter': '@AndreiBDev',
                 'location': 'Toronto, Canada'
             },
